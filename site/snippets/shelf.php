@@ -30,12 +30,14 @@ if( $categories ) {
 					$bookSlug = $book->slug();
 					$bookLink = $book->url();
 					$bookAuthor = $book->author();
+					$endPaper = $book->files()->first();
+					if($endPaper) { $endPaperUrl = $endPaper->url(); } else { $endPaperUrl = null; }
 					echo '<div class="book" data-slug="' . $bookSlug . '">';
 						// $width = strval(mt_rand(150, 200));
 						// $height = strval($width+mt_rand($width/4, $width/2));
 						$width = 160;
 						$height = 230;
-						echo '<a href="' . $bookLink . '" style="width:'.$width.'px; height:'.$height.'px;">';
+						echo '<a href="' . $bookLink . '" style="width:'.$width.'px; height:'.$height.'px;background-image:url(' . $endPaperUrl . ')">';
 							echo '<div class="inner">';
 								echo '<div class="title">' . $bookTitle . '</div>';
 								if($bookAuthor) {

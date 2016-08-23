@@ -1,6 +1,5 @@
 <?php
 $title = $page->title();
-$cover = $page->files()->first();
 $author = $page->author();
 $title = $page->title();
 $synopsis = $page->synopsis();
@@ -21,6 +20,7 @@ echo '<main class="book single">';
 					echo '<div class="year">';
 						echo $year;
 					echo '</div>';
+					echo '<div class="map"></div>';
 				echo '</div>';
 			echo '</div>';
 			echo '<div class="page meta">';

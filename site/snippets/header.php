@@ -24,7 +24,11 @@
   <?#php echo js(' assets/js/jquery.js' ) ?>
 
 </head>
-<body class="<?php echo $page->template() ?>">
+<?php
+$endPaper = $page->files()->first();
+if($endPaper) { $endPaperUrl = $endPaper->url(); } else { $endPaperUrl = null; }
+?>
+<body class="<?php echo $page->template(); ?>" style="background-image:url(<?php echo $endPaperUrl; ?>)">
   <header id="top">
   <?php
     echo '<div class="logo">';

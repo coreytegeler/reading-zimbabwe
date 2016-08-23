@@ -67,21 +67,24 @@ section#shelf {
 			display: flex;
 			a {
 				display: table;
+				align-self: flex-end;
 				border-width: 0 2px 2px 0;
 				border-style: solid;
-				// border-radius: 4px;
-				// background: $yellow;
-				align-self: flex-end;
+				background-size: 10px;
+				background-repeat: no-repeat;
+		    background-position: -999999px;
+		    &:hover {
+		    	background-repeat: repeat;
+		    	* {
+		    		display: none;
+		    	}
+		    }
 				.inner {
 					padding: 0.5em;
 					.author {
 						font-size: 0.7em;
 						margin-top: 0.2em;
 					}
-				}
-				&:hover {
-					color: $red;
-					border-color: $red;
 				}
 			}
 		}
