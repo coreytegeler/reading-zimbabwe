@@ -1,4 +1,4 @@
-<section id="shelf">
+<section id="shelf" class="shelf">
 <?php
 $categories = $pages->find( 'categories' )->children()->visible();
 if( $categories ) {

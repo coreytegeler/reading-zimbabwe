@@ -29,28 +29,29 @@ $endPaper = $page->files()->first();
 if($endPaper) { $endPaperUrl = $endPaper->url(); } else { $endPaperUrl = null; }
 ?>
 <body class="<?php echo $page->template(); ?>" style="background-image:url(<?php echo $endPaperUrl; ?>)">
-  <header id="top">
-  <?php
-    echo '<div class="logo">';
-      echo '<span>Reading Zimbabwe</span>';
-      // echo '<span>Reading </span>';
-      // $categories = $pages->find( 'categories' )->children()->visible();
-      // echo '<div class="select">';
-      // echo '<span>Zimbabwe</span>';
-      // echo '<select id="categories" default="zimbabwe">';
-      // echo '<option>Zimbabwe</option>';
-      // foreach( $categories as $catPath => $category ) {
-      //   $catSlug = $category->slug();
-      //   $books = $pages->find( 'books' )->children();
-      //   if( sizeof( $books ) ) {
-      //     $catTitle = $category->title();
-      //     echo '<option class="category" data-slug="' . $catSlug . '">' . $catTitle . '</option>';
-      //   }
-      // }
-      // echo '</select>';
-      // echo '</div>';
-    echo '</div>';
-    #snippet( 'intro' );
-    ?>
-  </header>
-  <div id="content">
+  <div class="edge">
+    <header id="top">
+    <?php
+      echo '<div class="logo">';
+        echo '<a href="/">Reading Zimbabwe</a>';
+        // echo '<span>Reading </span>';
+        // $categories = $pages->find( 'categories' )->children()->visible();
+        // echo '<div class="select">';
+        // echo '<span>Zimbabwe</span>';
+        // echo '<select id="categories" default="zimbabwe">';
+        // echo '<option>Zimbabwe</option>';
+        // foreach( $categories as $catPath => $category ) {
+        //   $catSlug = $category->slug();
+        //   $books = $pages->find( 'books' )->children();
+        //   if( sizeof( $books ) ) {
+        //     $catTitle = $category->title();
+        //     echo '<option class="category" data-slug="' . $catSlug . '">' . $catTitle . '</option>';
+        //   }
+        // }
+        // echo '</select>';
+        // echo '</div>';
+      echo '</div>';
+      #snippet( 'intro' );
+      ?>
+    </header>
+    <div id="content">

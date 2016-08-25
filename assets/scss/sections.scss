@@ -24,7 +24,7 @@ section#shelf {
 						font-family: 'Elephant';
 						text-transform: uppercase; 
 						&:hover {
-							color: $red;
+							color: $yellow;
 						}
 					}
 					.readMore {
@@ -39,8 +39,8 @@ section#shelf {
 				padding: 2em;
 				margin: 1em auto;
 				background: white;
-				color: $red;
-				border: solid 1px red;
+				color: $yellow;
+				border: solid 1px yellow;
 				border-radius: 4px;
 				display: none;
 			}
@@ -48,7 +48,7 @@ section#shelf {
 				width: calc(100% - 40px);
 				display: table;
 				.title a {
-					color: $red;
+					color: $yellow;
 				}
 				.readMore {
 					display: none !important;
@@ -62,34 +62,42 @@ section#shelf {
 				}
 			}
 		}
-		.book {
-			margin: 20px;
-			display: flex;
-			a {
-				display: table;
-				align-self: flex-end;
-				border-width: 0 2px 2px 0;
-				border-style: solid;
-				background-size: 10px;
-				background-repeat: no-repeat;
-		    background-position: -999999px;
-		    &:hover {
-		    	background-repeat: repeat;
-		    	* {
-		    		display: none;
-		    	}
-		    }
-				.inner {
-					padding: 0.5em;
-					.author {
-						font-size: 0.7em;
-						margin-top: 0.2em;
-					}
+	}
+}
+
+
+.shelf {
+	.book {
+		margin: 20px;
+		display: flex;
+		a {
+			display: table;
+			align-self: flex-end;
+			border-width: 0 2px 2px 0;
+			border-style: solid;
+			background-size: 10px;
+			background-repeat: no-repeat;
+	    background-position: -999999px;
+	    &:hover {
+	    	background-repeat: repeat;
+	    	* {
+	    		display: none;
+	    	}
+	    }
+			.inner {
+				padding: 0.5em;
+				.author {
+					font-size: 0.7em;
+					margin-top: 0.2em;
 				}
 			}
 		}
 	}
 }
+
+
+
+
 section#intro {
 	.text {
 		width: calc(60% - 2em);
@@ -201,7 +209,7 @@ section#paragraph {
 				// font-family: Times;
 				font-family: Helvetica Neue;
 				&:hover {
-					color: $red;
+					color: $yellow;
 				}
 				a {
 					

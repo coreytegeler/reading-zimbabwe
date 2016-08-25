@@ -1,8 +1,30 @@
 $white: #fffffd;
 $grey: #767037;
 $black: #0c0a0b;
-$yellow: #f9ef5a;
+$yellow: yellow;
 $red: #ff0f0f;
 
 $sideWidth: 12em;
 $sidePad: 1.5em;
+
+$phoneWidth: 667px;
+$tabletWidth: 768px;
+$desktopWidth: 1024px;
+
+@mixin phone {
+	@media (max-width: #{$tabletWidth}) {
+		@content;
+	}
+}
+
+@mixin tablet {
+  @media (min-width: #{$tabletWidth}) and (max-width: #{$desktopWidth - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktopWidth}) {
+    @content;
+  }
+}

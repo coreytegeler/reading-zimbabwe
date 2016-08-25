@@ -1,5 +1,18 @@
 body.book {
+	.edge {
+		border: 0;
+		margin: 0;
+	}
+	header#top {
+		width: calc(100% - 2em);
+		padding: 2em 2em 2em 0;
+		.logo {
+			border: solid $white;
+			border-width: 50px 50px 0 0;
+		}
+	}
 	main.book.single {
+		padding: 0;
 		width: 100%;
 		aside {
 			img {
@@ -19,6 +32,13 @@ body.book {
 				&:last-child {
 					transform: translateY(-5px);
 				}
+				@include tablet {
+					margin-left: 0 !important;
+				}
+				@include phone {
+					margin-left: 0 !important;
+					display: block;
+				}
 			}
 			.page {
 				width: 50%;
@@ -28,14 +48,21 @@ body.book {
 				float: left;
 				font-family: 'Lora';
 				font-weight: normal;
+				color: $black;
 				&:first-child {
-					-webkit-box-shadow: inset -150px 0px 128px -163px rgba(0,0,0,1);
+					box-shadow: inset -150px 0px 128px -163px rgba(0,0,0,1);
+					border-right: 0;
 				}
 				&:last-child {
-					-webkit-box-shadow: inset 150px 0px 128px -163px rgba(0,0,0,1);
+					box-shadow: inset 150px 0px 128px -163px rgba(0,0,0,1);
 				}
 				.inner {
 					padding: 10%;
+				}
+				@include phone {
+					// box-shadow: inset 0px -130px 78px -148px rgba(0,0,0,1) !important;
+					border: 1px !important;
+					width: 100% !important;
 				}
 				header {
 					text-align: center;
@@ -74,6 +101,9 @@ body.book {
 		} 
 		.page.meta {
 			width: calc((100vw - 10em)/2 - 5em) !important;
+			@include tablet {
+				width: 50% !important;
+			}
 			ul {
 				list-style: none;
 				padding: 0;
