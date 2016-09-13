@@ -52,8 +52,7 @@ fields:
     width: 1/2
   publishedDate:
     label: Date Published
-    type: date
-    format: MM/YYYY
+    type: text
     width: 1/2
   publishedLoation:
     label: Publisher Location

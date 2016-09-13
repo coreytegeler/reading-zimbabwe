@@ -1,109 +1,88 @@
 body.book {
-	.edge {
-		border: 0;
-		margin: 0;
-	}
-	header#top {
-		width: calc(100% - 2em);
-		padding: 2em 2em 2em 0;
+	header {
+		// background: $blue;
 		.logo {
-			border: solid $white;
-			border-width: 50px 50px 0 0;
+			// color: $blue;
 		}
 	}
 	main.book.single {
 		padding: 0;
 		width: 100%;
-		aside {
-			img {
-				max-width: 100%;
-			}
-		}
+		display: flex;
 		section#book {
-			width: 100%;
+			margin: 0;
+			padding: $patternHeight $patternWidth;
 			display: table;
-			.spread {
-				width: 100%;
-				display: flex;
-				&:first-child {
-					width: 100%;
-					margin-left: 10em;
-				}
-				&:last-child {
-					transform: translateY(-5px);
-				}
-				@include tablet {
-					margin-left: 0 !important;
-				}
-				@include phone {
-					margin-left: 0 !important;
-					display: block;
-				}
-			}
 			.page {
-				width: 50%;
-				display: inline-block;
-				border: solid 1px black;
-				background: white;
-				float: left;
-				font-family: 'Lora';
+				width: calc(100% - 10em);
+				max-width: 900px;
+				max-height: calc(100% - 2em);
+				display: table;
+				margin: auto;
+				background: $white;
+				color: $green;
+				// border-top-right-radius: 8px;
+				// border-top-left-radius: 8px;
 				font-weight: normal;
-				color: $black;
-				&:first-child {
-					box-shadow: inset -150px 0px 128px -163px rgba(0,0,0,1);
-					border-right: 0;
-				}
-				&:last-child {
-					box-shadow: inset 150px 0px 128px -163px rgba(0,0,0,1);
-				}
-				.inner {
-					padding: 10%;
-				}
 				@include phone {
-					// box-shadow: inset 0px -130px 78px -148px rgba(0,0,0,1) !important;
-					border: 1px !important;
+					border: 1px solid $green !important;
 					width: 100% !important;
-				}
-				header {
-					text-align: center;
-					margin: 1em 4%;
-					padding: 1em 0 0 0;
-					h1 {
-						margin: 0;
-						font-size: 2.5em;
-						line-height: 1.2em;
-						font-weight: normal;
-						sub {
-							vertical-align: baseline;
-							font-size: 0.8em;
-						}
-					}
-				}
-			}
-			.page.first {
-				.author {
-					padding: 2em 0;
-					text-align: center;
-					text-transform: uppercase;
-				}
-				.year {
-					text-align: center;
-					font-size: 0.8em; 
 				}
 				.rule {
 					width: 45%;
-					height: 1px;
-					background: black;
+					height: 2px;
+					background: $green;
 					display: table;
 					margin: auto;
+					display: none;
 				}
 			}
 		} 
-		.page.meta {
-			width: calc((100vw - 10em)/2 - 5em) !important;
-			@include tablet {
-				width: 50% !important;
+		.page.first {
+			text-align: center;
+			.title {
+				h1 {
+					margin: 0;
+					font-size: 2.9em;
+					line-height: 1.2em;
+					font-weight: normal;
+					sub {
+						vertical-align: baseline;
+						font-size: 0.8em;
+					}
+				}
 			}
+			.author {
+				padding: 3em 0 1em 0;
+				letter-spacing: 0.3em;
+				text-transform: uppercase;
+				&::before {
+					// content: 'By';
+					width: 100%;
+					padding: 0 0 1em 0;
+					display: block;
+					font-size: 0.7em;
+					text-transform: none;
+				}
+			}
+			.cover {
+				width: 100%;
+				max-width: 300px;
+				display: table;
+				margin: 2em auto;
+				img {
+					width: 100%;
+				}
+			}
+			.publisher {
+				padding: 1em 0 1em 0;
+			}
+			.year {
+				font-size: 0.9em; 
+				letter-spacing: 1em;
+			}
+		}
+		.page.meta {
 			ul {
 				list-style: none;
 				padding: 0;
@@ -119,6 +98,28 @@ body.book {
 				    flex-grow: 1;
 					}
 				}
+			}
+		}
+		.page.text {
+			.chapter {
+				padding-bottom: 2em;
+				.title {
+					width: 100%;
+					display: block;
+					text-align: center;
+					text-transform: uppercase;
+				}
+				.text {
+				}
+				.rule {
+					margin: 1em auto !important;
+				}
+			}
+		}
+		aside {
+			padding: $patternHeight 0;
+			img {
+				max-width: 80%;
 			}
 		}
 	}

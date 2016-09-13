@@ -1,11 +1,14 @@
 aside {
-	width: $sideWidth;
-	position: absolute;
-	left: 0;
-	top: 0;
+	width: calc(10% + #{$sideWidth} - 2em);
+	float: left;
 	z-index: 10;
-	margin: $sidePad 0 0 $sidePad;
-	pointer-events: none;
+	padding: 0 1em;
+	color: $green;
+	background: $white;
+	flex-grow: 1;
+	.group {
+		padding-bottom: 1em;
+	}
 	.select {
 		font-size: 1em;
 		border: solid $white;
@@ -21,7 +24,7 @@ aside {
 			background: transparent;
 			pointer-events: all;
 			&:hover {
-				color: $yellow;
+				color: $black;
 			}
 		}
 	}

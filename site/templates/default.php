@@ -1,7 +1,9 @@
 <?php snippet( 'header' ) ?>
+
 <main>
-	<?php snippet( 'filter' ) ?>
-	<?php snippet( $page->slug() ) ?>
+	<?#php snippet( 'manifesto' ) ?>
+	<?php snippet( 'sections/categoriesRows' ) ?>
+	<?php snippet( 'sections/shelf' ) ?>
 </main>
 
 <?php snippet( 'footer' ) ?>

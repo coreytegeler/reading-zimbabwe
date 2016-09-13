@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
   <title><?php echo $site->title()->html() ?> | <?php echo $page->title()->html() ?></title>
   <meta name="description" content="<?php echo $site->description()->html() ?>">
   <meta name="keywords" content="<?php echo $site->keywords()->html() ?>">
@@ -21,37 +19,18 @@
     echo css( '/assets/css/style.css' );
   endif;
   ?>
-  <?#php echo js(' assets/js/jquery.js' ) ?>
-
 </head>
 <?php
-$endPaper = $page->files()->first();
-if($endPaper) { $endPaperUrl = $endPaper->url(); } else { $endPaperUrl = null; }
+// $endPaper = $page->files()->first();
+// if($endPaper) { $endPaperUrl = $endPaper->url(); } else { $endPaperUrl = null; }
 ?>
-<body class="<?php echo $page->template(); ?>" style="background-image:url(<?php echo $endPaperUrl; ?>)">
-  <div class="edge">
-    <header id="top">
-    <?php
-      echo '<div class="logo">';
-        echo '<a href="/">Reading Zimbabwe</a>';
-        // echo '<span>Reading </span>';
-        // $categories = $pages->find( 'categories' )->children()->visible();
-        // echo '<div class="select">';
-        // echo '<span>Zimbabwe</span>';
-        // echo '<select id="categories" default="zimbabwe">';
-        // echo '<option>Zimbabwe</option>';
-        // foreach( $categories as $catPath => $category ) {
-        //   $catSlug = $category->slug();
-        //   $books = $pages->find( 'books' )->children();
-        //   if( sizeof( $books ) ) {
-        //     $catTitle = $category->title();
-        //     echo '<option class="category" data-slug="' . $catSlug . '">' . $catTitle . '</option>';
-        //   }
-        // }
-        // echo '</select>';
-        // echo '</div>';
-      echo '</div>';
-      #snippet( 'intro' );
-      ?>
-    </header>
-    <div id="content">
+<body class="<?php echo $page->template(); ?>">
+  <header id="top">
+  <?php
+    echo '<div class="logo">';
+      echo '<a href="/">Reading</br>Zimbabwe</a>';
+    echo '</div>';
+    #snippet( 'intro' );
+    ?>
+  </header>
+  <div id="content">

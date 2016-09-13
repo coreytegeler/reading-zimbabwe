@@ -1,9 +1,9 @@
 <?php snippet( 'header' ) ?>
 
-<?#php snippet( 'intro' ) ?>
 <main>
-	<?php snippet( 'shelf' ) ?>
-	<?php snippet( 'filter' ) ?>
+	<?php snippet( 'sections/manifesto' ) ?>
+	<?php snippet( 'sections/categories' ) ?>
+	<?#php snippet( 'sections/shelfWithNav' ) ?>
 </main>
 
 <?php snippet( 'footer' ) ?>

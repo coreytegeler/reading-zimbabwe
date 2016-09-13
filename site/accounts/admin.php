@@ -9,7 +9,7 @@ role: admin
 history:
   - >
     books/mugabe-and-the-politics-of-security-in-zimbabwe
-  - categories/economy
-  - categories/military-security
   - home
+  - about
   - books/when-a-crocodile-eats-the-sun-a-memoir-of-african
+  - books/queen-of-the-ndebele
