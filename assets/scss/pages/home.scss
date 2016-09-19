@@ -1,17 +1,20 @@
 body.home {
-	
-	header {
-		
-	}
-	#content {
-		
-	}
+	color: $white;
 	main {
-		aside {
-			
-		}
-		section {
-			
+		background-image: url(/assets/images/pattern.png);
+		background-color: $green;	
+	}
+	.pattern {
+		display: table;
+	}
+	#categories {
+		.category {
+			color: $white;
+			background-color: $green;
+			&:hover {
+				color: $green;
+				background-color: $white;
+			}
 		}
 	}
 }

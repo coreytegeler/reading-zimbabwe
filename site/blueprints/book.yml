@@ -3,6 +3,11 @@ pages: false
 files:
   sortable: true
 fields:
+  alt:
+    label: Alt
+    type: toggle
+    text: yes/no
+    default: false
   title:
     label: Title
     type: text
@@ -52,6 +57,10 @@ fields:
     width: 1/2
   publishedDate:
     label: Date Published
+    type: text
+    width: 1/2
+  year:
+    label: Year
     type: text
     width: 1/2
   publishedLoation:

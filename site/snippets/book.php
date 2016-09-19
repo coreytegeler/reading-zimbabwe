@@ -3,19 +3,20 @@ $bookTitle = $book->title();
 $bookSlug = $book->slug();
 $bookLink = $book->url();
 $bookAuthor = $book->author();
+$bookYear = $book->publishedDate();
+$bookCategories = $book->category();
 $endPaper = $book->files()->first();
 if($endPaper) { $endPaperUrl = $endPaper->url(); } else { $endPaperUrl = null; }
-echo '<div class="book" data-slug="' . $bookSlug . '">';
-  // $width = strval(mt_rand(150, 200));
-  // $height = strval($width+mt_rand($width/4, $width/2));
+echo '<div class="book" data-slug="' . $bookSlug . '" data-year="' . $bookYear . '" data-categories="' . $bookCategories . '">';
   echo '<a href="' . $bookLink . '">';
     echo '<div class="inner">';
       echo '<div class="title">' . $bookTitle . '</div>';
+      $svg = file_get_contents('./assets/images/currency.svg');
+	    echo '<div class="symbol">' . $svg . '</div>';
       if($bookAuthor) {
         echo '<span class="author">' . $bookAuthor . '</span>';
       }
     echo '</div>';  
   echo '</a>';
-  // echo '<span class="year">' . '(1992)' . '</span>';
 echo '</div>';
 ?>

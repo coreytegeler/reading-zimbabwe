@@ -8,8 +8,8 @@ language: en
 role: admin
 history:
   - >
+    books/land-reform-and-ngos-in-contemporary-zimbabwe
+  - >
     books/mugabe-and-the-politics-of-security-in-zimbabwe
+  - books/mugabe-and-the-white-african
   - home
-  - about
-  - books/when-a-crocodile-eats-the-sun-a-memoir-of-african
-  - books/queen-of-the-ndebele

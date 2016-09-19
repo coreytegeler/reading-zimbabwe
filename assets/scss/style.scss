@@ -8,7 +8,7 @@ html, body {
 	margin: 0;
 	padding: 0;
 	background-color: $white;
-	font-family: 'Helvetica';
+	font-family: 'Helvetica Neue';
   font-weight: 600;
 	font-size: 19px;
 	color: $green;
@@ -17,6 +17,15 @@ html, body {
 	-webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+main {
+	width: 100%;
+	min-height: 100%;
+  display: table;
+  background-image: url(/assets/images/patternG.png);
+  background-size: $patternWidth;
+  background-repeat: repeat;
+  background-color: $white;
 }
 ////////////////////////////////////////////////
 a, a:hover, a:visited {
@@ -41,17 +50,6 @@ select {
 	}
 }
 ////////////////////////////////////////////////
-#content {
-	width: 100%;
-	display: table;
-	padding: 0;
-	position: relative;
-}
-.edge {
-	// margin: 2em 2em 0 0;
-	// border: solid $white;
-	// border-width: 50px 50px 0 0;
-}
 ////////////////////////////////////////////////
 header#top {
 	width: 100%;
@@ -114,49 +112,8 @@ header#top {
 		}
 	}
 }
+
 ////////////////////////////////////////////////
-
-.pageWrap {
-	width: 100%;
-	// height: 100%;
-	position: fixed;
-	left: 0;
-	bottom: 0;
-	pointer-events: none;
-	display: none;
-	&.opened {
-		display: block;
-	}
-}
-.page {
-	width: calc(100% - 4em);
-	max-width: 900px;
-	max-height: calc(100% - 2em);
-	margin: auto;
-	color: $green;
-	// border-top-right-radius: 8px;
-	// border-top-left-radius: 8px;
-	pointer-events: all;
-	header {
-    width: 88% !important;
-    padding: 1em 0;
-		margin: 1em 6%;
-		border-bottom: .3em solid $green;
-		span {
-			float: right;
-		}
-	}
-	.text {
-		padding: 1em 6% 2em 6%;
-		display: table;
-		// margin: auto;
-		text-align: justify;
-		p {
-			margin: 0 0 1em 0;
-		}
-	}
-}
-
 
 .horz {
 	display: table;
@@ -170,3 +127,4 @@ header#top {
 
 @import 'pages/home';
 @import 'pages/book';
+@import 'pages/category';

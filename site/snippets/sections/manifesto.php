@@ -1,4 +1,4 @@
-<section id="manifesto">
+<section id="manifesto" class="matchHeight">
 <?php
 $manifesto = $pages->find( 'home' )->intro();
 echo '<div class="inner">';

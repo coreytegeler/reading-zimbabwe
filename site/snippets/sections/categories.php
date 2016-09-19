@@ -13,9 +13,6 @@ if( $categories ) {
 					echo '<div class="title">' . $catTitle . '</div>';
 				echo '</a>';
 		echo '</div>';
-		if( $index != sizeof( $categories ) ) {
-			echo '<div class="symbol"></div>';
-		}
 	}
 }
 ?>

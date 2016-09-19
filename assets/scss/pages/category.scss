@@ -1,0 +1,112 @@
+body.category {
+	header {
+		width: 100%;
+		min-height: calc(100vh - #{$patternHeight}*12);
+		display: table;
+		font-size: 1.3em;
+		line-height: 1.5em;
+		font-weight: 700;
+	  .inner {
+	  	h1 {
+	  		text-align: left;
+	  		// margin-bottom: $patternHeight;
+	  	}
+	  	margin: #{$patternHeight*6} #{$patternWidth*3};
+	  	width: calc(100% - #{$patternWidth*6});
+	  	height: calc(100vh - #{$patternHeight*12});
+	  	background-color: $white;
+	  	display: table;
+	  }
+	  .vert {
+			// padding: 0 .5em;
+		}
+		.horz {
+			padding: 0 $patternWidth;
+			max-width: 900px;
+		}
+		.symbols {
+	    display: flex;
+	    align-items: center;
+	    margin-bottom: #{$patternHeight*2};
+			.wrap {
+				height: 3em;
+			  overflow: hidden;
+			  line-height: 3em;
+			  text-align: center;
+				.symbol {
+			    margin: 0 .5em;
+					display: inline-block;
+					svg {
+						width: auto;
+						height: 3em;
+						display: table;
+					}
+				}
+			}
+		}
+		@include phone {
+			height: auto;
+			display: block;
+		}
+		.half {
+			width: 50%;
+			overflow: hidden;
+			width: calc(50% - 3em);
+			&:first-child {
+		    overflow: hidden;
+			}		
+			&:last-child {
+		    height: calc(100% - 4em);
+				position: absolute;
+				top: 2em;
+				left: 50%;
+			}
+			&.symbols {
+		    display: flex;
+		    align-items: center;
+				.wrap {
+					max-height: 10em;
+				  overflow: hidden;
+				  line-height: 10em;
+				  text-align: center;
+					.symbol {
+				    margin: 1em .5em;
+						display: inline-table;
+						svg {
+							width: auto;
+							height: 100%;
+							display: table;
+						}
+					}
+				}
+			}
+			&.info {
+				min-height: 10em;
+				display: table;
+			}
+		}
+		h1 {
+			margin: 0;
+			font-size: 1.5em;
+			line-height: 1.2em;
+			font-weight: 900;
+			text-align: left;
+		}
+		.text {
+			text-align: left;
+		}
+	}
+	@include phone {
+		.half{
+			width: calc(100% - 2em) !important;
+			padding: 0 0 2em 0;
+			display: block;
+			position: static;
+			left: auto;
+			top: auto;
+			position: static !important;
+			.info {
+			}
+		}
+	}
+}

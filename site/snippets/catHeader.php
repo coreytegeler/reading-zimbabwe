@@ -1,0 +1,33 @@
+<?php
+echo '<header>';
+  // echo '<h1>';
+  //   echo $category->title();
+  // echo '</h1>';
+  echo '<div class="inner">';
+    echo '<div class="vert">';
+      echo '<div class="horz">';
+        echo '<h1>' . $category->title() . '</h1>';
+        echo $category->text();
+      echo '</div>';
+    echo '</div>';
+  echo '</div>';
+// echo '<div class="half symbols">';
+//   $svg = file_get_contents('./assets/images/currency.svg');
+//   echo '<div class="wrap">';
+//     echo '<div class="symbol">' . $svg . '</div>';
+//     echo '<div class="symbol">' . $svg . '</div>';
+//     echo '<div class="symbol">' . $svg . '</div>';
+//     echo '<div class="symbol">' . $svg . '</div>';
+//     echo '<div class="symbol">' . $svg . '</div>';
+//     echo '<div class="symbol">' . $svg . '</div>';
+//     echo '<div class="symbol">' . $svg . '</div>';
+//     echo '<div class="symbol">' . $svg . '</div>';
+//     echo '<div class="symbol">' . $svg . '</div>';
+//     echo '<div class="symbol">' . $svg . '</div>';
+//     echo '<div class="symbol">' . $svg . '</div>';
+//     echo '<div class="symbol">' . $svg . '</div>';
+//     echo '<div class="symbol">' . $svg . '</div>';
+//   echo '</div>';
+// echo '</div>';
+echo '</header>';
+?>
