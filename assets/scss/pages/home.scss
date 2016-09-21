@@ -1,20 +1,12 @@
 body.home {
-	color: $white;
+	color: $light;
 	main {
-		background-image: url(/assets/images/pattern.png);
-		background-color: $green;	
+
 	}
-	.pattern {
-		display: table;
+	section {
+		background: transparent !important;
 	}
 	#categories {
-		.category {
-			color: $white;
-			background-color: $green;
-			&:hover {
-				color: $green;
-				background-color: $white;
-			}
-		}
+		
 	}
 }

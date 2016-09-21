@@ -1,5 +1,13 @@
-<section id="categories">
 <?php
+if( !isset( $class ) ) {
+	$class = '';
+}
+echo '<section id="categories" class="categories bricks pattern ' . $class . '">';
+echo '<div class="category brick">';
+	echo '<a href="/books" class="vert">';
+		echo '<div class="title">All</div>';
+	echo '</a>';
+echo '</div>';
 $categories = $pages->find( 'category' )->children()->visible();
 if( $categories ) {
 	$index = 0;
@@ -8,12 +16,12 @@ if( $categories ) {
 		$catSlug = $category->slug();
 		$catText = $category->text()->kirbytext();
 		$catTitle = $category->title();
-		echo '<div class="category" data-category="' . $catSlug . '">';
+		echo '<div class="category brick" data-category="' . $catSlug . '">';
 			echo '<a href="/category/' . $catSlug . '" class="vert">';
 					echo '<div class="title">' . $catTitle . '</div>';
 				echo '</a>';
 		echo '</div>';
 	}
 }
+echo '</section>';
 ?>
-</section>

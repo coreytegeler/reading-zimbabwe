@@ -1,29 +1,15 @@
 section {
 	width: calc(100% - #{$patternWidth*6});
-	margin: $patternHeight*3 $patternWidth*3;
+	padding: $patternWidth*3;
+	margin: 0;
 	position: relative;
+	@include tablet {
+		width: calc(100% - #{$patternWidth*2});
+		padding: $patternWidth;
+	}
 	@include phone {
 		width: 100%;
-		padding-left: 0;
-		padding-right: 0;
-	}
-	aside {
-		
-	}
-	&.border {
-		background-image: url(/assets/images/patternG.png);
-	  background-size: $patternWidth;
-	  background-repeat: repeat;
-	  background-color: $white;
-	  background-position: top left;
-	  .bg {
-	  	width: calc(100% - #{$patternWidth});
-	  	margin-left: $patternWidth;
-	  	background-color: $white;
-	  	.middle {
-	  		width: calc(100% - #{$patternWidth*2});
-	  	}
-	  }
+		padding: $patternWidth 0;
 	}
 	.middle {
 		min-height: 100%;
@@ -38,21 +24,17 @@ section {
 		}
 	}
 }
-section#manifesto {
-	width: calc(100% - #{$patternWidth*6});
+section.frame {
 	min-height: calc(100vh - #{$patternHeight}*12);
-	margin: $patternHeight*6 $patternWidth*3;
-	color: $white;
-	background-color: $green;
 	display: table;
 	font-size: 1.3em;
 	line-height: 1.5em;
 	font-weight: 700;
-	// box-shadow: $box-shadow;
+	color: $light;
   .inner {
   	width: 100%;
   	height: calc(100vh - #{$patternHeight}*12);
-  	background-color: $green;
+  	background-color: $dark;
   	display: table;
   }
   .vert {
@@ -62,170 +44,14 @@ section#manifesto {
 		padding: $patternHeight $patternWidth;
 		max-width: 900px;
 	}
-}
-section.shelf {
-	width: calc(100% - #{$patternWidth*6});
-	min-height: calc(100% - #{$patternHeight*6});
-	margin: #{$patternHeight*3} #{$patternWidth*3};
-	display: inline-flex;
-	.horz {
-		display: table;
-		margin: auto;
-	}
-	.middle {
-		width: 100%;
-		padding: 0;
-	}
-	.books {
-		display: flex;
-		flex-wrap: wrap;
-		flex-direction: row;
-	}
-	.book {
-		width: calc(#{$patternWidth} * 5);
-    height: calc(#{$patternHeight} * 14);
-    margin: 0 #{$patternWidth} #{$patternHeight} 0;
-    display: flex;
-    background-color: $white;
-    color: $green;
-    float: left;
-    &.hide {
-    	display: none;
-    }
-		a {
-			width: 100%;
-			height: 100%;
-			display: table;
-			align-self: flex-end;
-			background-size: 10px;
-			background-repeat: no-repeat;
-	    background-position: -999999px;
-	    font-size: .8em;
-			.inner {
-				width: calc(100% - .5em);
-				height: 100%;
-				display: table;
-				padding: 0.5em;
-				.title {
-					line-height: 1.3em;
-					font-weight: 500;
-					padding-bottom: 10px;
-				}
-				.symbol {
-					width: 100%;
-					margin: 0.2em 0;
-					svg {
-						width: auto;
-						height: 1em;
-						display: table;
-						margin: auto;
-						fill: $green;
-						* {
-							fill: $green;
-						}
-					}
-				}
-				.author {
-					font-size: .8em;
-					line-height: 1.1em;
-					font-weight: 600;
-					margin-top: .2em;
-					display: table-footer-group;
-				}
-			}
-			&:hover {
-	    	background-color: $green;
-	    	color: $white;
-	    	svg, svg * {
-		    	fill: $white !important;
-		    }
-	    }
+	&.invert {
+		color: $dark;
+		.inner {
+			background-color: $light;
 		}
-	}
-}
-section#categories {
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: row;
-	font-size: 1em;
-	line-height: 1.1em;
-	font-weight: 700;
-	list-style: none;
-	white-space: normal;
-	.category {
-		height: $patternHeight*4;
-		margin: 0 #{$patternHeight*2} #{$patternHeight*2} 0;
-		display: inline-table;
-		color: $green;
-		background-color: $white;
-		// border: solid $white;
-		// border-width: 0 3px 3px 0;
-    // box-shadow: $box-shadow;
-		a {
-			padding: 0 .5em;
-			font-size: 1.3em;
-			line-height: 1em;
-	    display: table-cell;
-	    vertical-align: middle;
-	    text-align: center;
-		}
-		&:hover {
-			background-color: $green;
-			color: $white;
-		}
-	}
-	.inner {
-	  margin: 0 1em $patternHeight/2 0;
-		padding: .5em;
-		display: inline-table;
-		color: $white;
-		background-color: $green;
-		font-size: 1.3em;
-		line-height: 1.4em;
-		text-transform: none;
 	}
 }
 
-section#colophon {	
-	font-size: 0.6em;
-	line-height: 1.3;	
-	ol {
-		margin: 0;
-		padding: 0;
-		font-size: 2.5em;
-		line-height: 1.3;
-		list-style: none;
-		ol {
-			font-size: inherit;		
-		}
-		li {
-			display: flex;
-			overflow: hidden;
-			.index {
-				&::after {
-					font-style: normal;
-					content: '\00a0';
-				}
-			}
-			.dots {
-				position: relative;
-				flex-grow: 1;
-				span {
-					width: 100%;
-					height: 100%;
-					position: absolute;
-					left: 0;
-					top: 0;
-					overflow: hidden;
-					font-family: Times;
-					letter-spacing: 0.1em;
-				}
-			}
-			.count {
-				font-style: normal;
-				font-family: Helvetica Neue;
-				opacity: 0.5;
-			}
-		}
-	}
+section#categories {
+	z-index: 10;
 }

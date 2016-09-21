@@ -2,7 +2,7 @@
 snippet( 'header' );
 echo '<main>';
 snippet( 'sections/shelf' );
-// snippet( 'sections/categories' );
+snippet( 'sections/categories' );
 echo '</main>';
 snippet( 'footer' );
 ?>

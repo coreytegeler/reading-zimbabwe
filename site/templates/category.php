@@ -2,7 +2,7 @@
 $category = $page;
 snippet( 'header' );
 echo '<main>';
-	echo '<header>';
+	echo '<section class="frame pattern invert">';
 	  echo '<div class="inner matchHeight">';
 	    echo '<div class="vert">';
 	      echo '<div class="horz">';
@@ -11,9 +11,10 @@ echo '<main>';
 	      echo '</div>';
 	    echo '</div>';
 	  echo '</div>';
-	echo '</header>';
+	echo '</section>';
 $slug = $category->slug();
 snippet( 'sections/shelf', array( 'category' => $slug ) );
+// snippet( 'sections/categories', array( 'class' => 'invert' ) );
 echo '</main>';
 snippet( 'footer' );
 ?>

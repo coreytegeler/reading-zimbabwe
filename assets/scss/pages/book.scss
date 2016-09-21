@@ -1,20 +1,19 @@
 body.book {
+
 	main {
 		width: 100%;
 		padding: 0;
-		.pattern {
-			display: table;
+		section#title {
+			h1 {
+				font-size: 6em;
+				line-height: 1.1em;
+				font-weight: 900;
+				margin: 0;
+			}
 		}
 		section#book {
 			width: calc(100% - #{$patternWidth*6});
-			min-height: calc(100vh - #{$patternHeight}*12);
-			margin: $patternHeight*6 $patternWidth*3;
-			display: flex;
-			background: $white;
-			color: $green;
-			.inner {
-				padding: $patternHeight;
-			}
+			color: $dark;
 			.group {
 				margin-top: 1em;
 			}
@@ -37,16 +36,16 @@ body.book {
 			}
 		}
 	}
-	aside {
-		li {
-			margin-bottom: 0.5em;
+	#content {
+		.tabs:not(.fixed) {
+			// width: calc(100% - #{$patternWidth*6});
+			// left: 0;
 		}
-		.cover {
-			display: table;
-			img {
-				max-width: 100%;
+		.page {
+			min-height: 300px;
+			.content {
 				display: table;
-				margin: auto;
+				padding: $patternHeight;
 			}
 		}
 	}
