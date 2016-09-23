@@ -12,17 +12,16 @@ var resizeBricks = function(e) {
 }
 
 var resizeHeights = function(e) {
-	$elems = $('.matchHeight')
-	$elems.each(function(i, elem) {
-		var $elem = $(elem)
-		var elemHeight = $elem.innerHeight()
-		var patHeight = 15
-		var newElemHeight = Math.round(elemHeight/patHeight)*patHeight
-		console.log(newElemHeight)
-		$elem.css({
-			height: newElemHeight
-		})
-	})
+	// $elems = $('.matchHeight')
+	// $elems.each(function(i, elem) {
+	// 	var $elem = $(elem)
+	// 	var elemHeight = $elem.innerHeight()
+	// 	var patHeight = 15
+	// 	var newElemHeight = Math.round(elemHeight/patHeight)*patHeight
+	// 	$elem.css({
+	// 		height: newElemHeight
+	// 	})
+	// })
 }
 
 $(function() {
@@ -34,13 +33,16 @@ $(function() {
 	$main.scroll(function(e) {
 		$('.folder').each(function() {			
 			$folder = $(this)
-			scrollTop = $folder.scrollTop()
-			$tabs = $folder.find('.tabs')
+			$tabs = $folder.find('.tabs:not(.dummy)')
+			if(!$tabs.length) {return}
+			var scrollTop = $folder.scrollTop()
+			$dummy = $folder.find('.tabs.dummy')
+			var dummyTop = $dummy.offset().top
 			var folderTop = $folder.offset().top
 			var folderBottom = folderTop + $folder.innerHeight()
 			if(folderBottom - $tabs.innerHeight() <= 0) {
 				$tabs.removeClass('fixed').addClass('bottom')
-			} else if(folderTop <= 0) {
+			} else if(dummyTop <= 0) {
 				$tabs.removeClass('bottom').addClass('fixed')
 			} else if(!$main.is('.noScroll')) {
 				$tabs.removeClass('bottom').removeClass('fixed')
@@ -51,22 +53,24 @@ $(function() {
 	$(window).resize(function(e) {
 		resizeBricks()
 		resizeHeights()
+		$main.scroll()
 	}).resize()
 
 	$('.tab').click(function(e) {
 		$tab = $(this)
-		$tabs = $tab.parents('.tabs')
+		$tabs = $tab.parents('.tabs:not(.dummy)')
 		type = this.dataset.type
 		$page = $('.page.'+type)
 		$pages = $page.parents('.pages')
-		if($pages.is('#filterLists')) {
-			var pagesTop = $page.parents('.pages').offset().top
-			$main.scrollTop(pagesTop)
+		var isFilter = $pages.is('#filterLists')
+		if(isFilter) {
+			var sectionTop = $page.parents('section')[0].offsetTop
+			$main.scrollTop(sectionTop)
 			$page.scrollTop(0)
 		}
-		if($tab.is('.selected')) {
+		if($tab.is('.selected') && isFilter) {
 			$main.removeClass('noScroll')
-			$tabs.removeClass('top')
+			$tabs.removeClass('top').removeClass('fixed')
 			$tab.removeClass('selected')
 			$pages.removeClass('show')
 			$page.removeClass('show')
@@ -78,7 +82,7 @@ $(function() {
 			$page.addClass('show')
 			resizeBricks()
 		} else {
-			if($pages.is('#filterLists')) {
+			if(isFilter) {
 				$main.addClass('noScroll')
 				$tabs.addClass('fixed').addClass('top')
 			}

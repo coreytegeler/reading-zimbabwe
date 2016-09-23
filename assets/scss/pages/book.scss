@@ -1,14 +1,19 @@
 body.book {
-
 	main {
 		width: 100%;
 		padding: 0;
 		section#title {
+			font-family: 'Libre Baskerville';
 			h1 {
-				font-size: 6em;
-				line-height: 1.1em;
-				font-weight: 900;
+				font-size: 5em;
+				line-height: 1.3em;
+				font-weight: normal;
 				margin: 0;
+			}
+			.author {
+				font-size: 1.2em;
+				letter-spacing: 1px;
+				text-transform: uppercase;font-weight: normal;
 			}
 		}
 		section#book {
@@ -16,36 +21,39 @@ body.book {
 			color: $dark;
 			.group {
 				margin-top: 1em;
-			}
-			h1 {
-				font-size: 2.5em;
-				line-height: 1.2em;
-				margin: 0;
-				text-align: left;
+				margin-bottom: 1em;
 			}
 			.author {
 				
 			}
 			h2 {
-				margin-right: .5em;
-				font-size: 1em; 
-				display: inline;
+				width: 100%;
+				font-family: 'Libre Baskerville';
+				font-size: 1em;
+				font-size: 1.2em;
+				font-weight: normal;
+				letter-spacing: 1px;
+				text-transform: uppercase;
+				text-align: center;
 			}
 			.text {
-				display: inline
+				display: table;
+				margin-bottom: 1em;
 			}
 		}
-	}
-	#content {
-		.tabs:not(.fixed) {
-			// width: calc(100% - #{$patternWidth*6});
-			// left: 0;
-		}
-		.page {
-			min-height: 300px;
-			.content {
-				display: table;
-				padding: $patternHeight;
+		#content {
+			position: relative;
+			.page {
+				min-height: 300px;
+				.content {
+					max-width: 800px;
+					display: table;
+					margin: auto;
+					padding: $patternWidth*3 $patternWidth;
+					font-family: 'Libre Baskerville';
+					line-height: 1.5em;
+					font-weight: normal;
+				}
 			}
 		}
 	}

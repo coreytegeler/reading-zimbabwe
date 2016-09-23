@@ -4,9 +4,35 @@ body.home {
 
 	}
 	section {
-		background: transparent !important;
+		// background: transparent;
 	}
-	#categories {
-		
+	#manifesto {
+		height: calc(100% - #{$patternHeight*12});
+		background: $dark;
+		background-size: 120%;
+		background-image: url(/assets/images/map.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+		color: $light;
+		.inner {
+			max-width: 900px;
+			display: table;
+			margin: auto;	
+			font-size: 1.2em;
+			line-height: 1.5em;
+			font-weight: normal;
+			letter-spacing: 1px;
+			h1 {
+				text-align: center;
+				margin: 0;
+			}
+			.text {
+				font-family: 'Libre Baskerville';
+				strong {
+					font-family: Archivo Black;
+				}
+			}
+		}
 	}
+	
 }

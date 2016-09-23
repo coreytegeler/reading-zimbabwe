@@ -4,12 +4,12 @@ section {
 	margin: 0;
 	position: relative;
 	@include tablet {
-		width: calc(100% - #{$patternWidth*2});
-		padding: $patternWidth;
+		width: calc(100% - #{$patternWidth*2}) !important;
+		padding: $patternWidth !important;
 	}
 	@include phone {
-		width: 100%;
-		padding: $patternWidth 0;
+		width: calc(100% - #{$patternWidth*2}) !important;
+		padding: $patternWidth !important;
 	}
 	.middle {
 		min-height: 100%;
@@ -38,10 +38,9 @@ section.frame {
   	display: table;
   }
   .vert {
-		padding: 0 .5em;
 	}
 	.horz {
-		padding: $patternHeight $patternWidth;
+		padding: $patternWidth*2;
 		max-width: 900px;
 	}
 	&.invert {

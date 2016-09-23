@@ -7,9 +7,7 @@ email: coreytegeler@gmail.com
 language: en
 role: admin
 history:
-  - >
-    books/land-reform-and-ngos-in-contemporary-zimbabwe
-  - >
-    books/mugabe-and-the-politics-of-security-in-zimbabwe
-  - books/mugabe-and-the-white-african
   - home
+  - books/land-reform-and-ngos-in-contemporary-zimbabwe
+  - books/mugabe-and-the-politics-of-security-in-zimbabwe
+  - books/mugabe-and-the-white-african

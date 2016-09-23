@@ -12,6 +12,7 @@
 		padding: 0;
 	}
 	.books {
+		padding-top: $patternHeight*2;
 		display: flex;
 		flex-wrap: wrap;
 		flex-direction: row;
@@ -24,6 +25,8 @@
     background-color: $dark;
     color: $light;
     float: left;
+    font-family: 'Libre Baskerville';
+    font-weight: normal;
     @include noTouch;
     &.hide {
     	display: none;
@@ -36,7 +39,6 @@
 			background-size: 10px;
 			background-repeat: no-repeat;
 	    background-position: -999999px;
-	    font-size: .8em;
 			.inner {
 				width: calc(100% - 1em);
 				height: 100%;
@@ -44,8 +46,8 @@
 				display: flex;
 				flex-direction: column;
 				.title {
-					line-height: 1.3em;
-					font-weight: 500;
+					font-size: .7em;
+					line-height: 1.4em;
 				}
 				.symbol {
 					width: 100%;
@@ -64,9 +66,9 @@
 					}
 				}
 				.author {
-					font-size: .8em;
-					line-height: 1.1em;
-					font-weight: 600;
+					font-size: .6em;
+					line-height: 1.2em;
+					font-weight: normal;
 					display: table-footer-group;
 				}
 			}
@@ -80,35 +82,38 @@
 		}
 	}
 }
-#filterLists {
-	width: calc(100% - #{$patternWidth*6});
-	height: calc(100% - #{$patternHeight*12});
-	position: fixed;
-	left: 0;
-	top: 0;
-	padding: $patternHeight*6 $patternWidth*3;
-	background: $light;
-	overflow: hidden;
-	display: none;
-	z-index: 2;
-	.inner {
-		height: 100%;
+#filterButtons {
+	&.top {
+		#filterLists {
+			height: 100%;
+		}
 	}
-	&.show {
-		display: block;
-		z-index: 10;
-	}
-	.filterList {
-		
-	}
-	.bricks {
-		min-height: calc(100% - #{$patternHeight*2});
-		padding-bottom: #{$patternHeight*2};
-		.brick {
-			margin: #{$patternHeight*2} 0 0 #{$patternHeight*2};
-			&.selected {
-				background: $light;
-				color: $dark;
+	#filterLists {
+		width: 100%;
+		background: $light;
+		overflow: hidden;
+		display: none;
+		z-index: 2;
+		.inner {
+			max-height: calc(100% - #{$patternWidth*5});
+			width: 100%;
+			padding: 0;
+		}
+		&.show {
+			display: table;
+			z-index: 10;
+		}
+		.page.filterList {
+			width: 100%;
+		}
+		.bricks {
+			padding-bottom: #{$patternHeight*2};
+			.brick {
+				margin: #{$patternHeight*2} 0 0 #{$patternHeight*2};
+				&.selected {
+					background: $light;
+					color: $dark;
+				}
 			}
 		}
 	}

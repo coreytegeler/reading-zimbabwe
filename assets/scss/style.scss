@@ -7,7 +7,7 @@ html, body {
 	margin: 0;
 	padding: 0;
 	background-color: $light;
-	font-family: 'Helvetica Neue', Helvetica, Arial;
+	font-family: Archivo Black, Helvetica, Arial;
   font-weight: 600;
 	color: $dark;
 	text-rendering: optimizeLegibility;
@@ -76,18 +76,24 @@ select {
 	position: relative;
 }
 .tabs {
-	width: calc(100% - #{$patternWidth*6});
+	width: 100%;
+	// height: $patternWidth*3;
 	position: absolute;
-	left: #{$patternWidth*3};
-	bottom: calc(100% - 90px);
-  overflow: hidden;
-  z-index: 3;
-  border-bottom: 3px solid $dark;
+	left: 0;
+	top: 0;
+  display: block;
+  z-index: 100;
   .inner {
   	width: 100%;
-  	padding: $patternWidth 0 0 0;
+  	padding: $patternHeight 0 0 0;
   	display: flex;
   	color: $dark; 
+  	border-bottom: 2px solid $dark;
+  	&.hide {
+  		opacity: 0;
+  		pointer-events: none;
+
+  	}
   	.tab {
   		padding: .5em .5em 1em .5em;
   		text-align: center;
@@ -97,11 +103,10 @@ select {
 	    border-top-right-radius: 5px;
 	    margin-right: .5em;
 	    border: solid $dark;
-	    border-width: 3px 3px 0 3px;
+	    border-width: 2px 2px 0 2px;
 			@include noTouch;
 			span {
-				font-size: 1.3em;
-				line-height: 1em;
+				
 			}
 			&:hover {
 				cursor: pointer;
@@ -116,13 +121,34 @@ select {
 			}
   	}
   }
-	&.fixed {
-		position: fixed;
-		.inner {
+	&.real {
+		&.fixed {
+			width: calc(100% - #{$patternWidth*6});
+			left: #{$patternWidth*3};
+			position: fixed;
 			background-color: $light;
+			.inner {
+				max-height: calc(100% - #{$patternWidth*12});
+				overflow: auto;
+				&.hide {
+					display: none;
+				}
+			}
+			@include tablet {
+				width: calc(100% - #{$patternWidth*2}) !important;
+				left: $patternWidth;
+			}
+			@include phone {
+				width: calc(100% - #{$patternWidth*2}) !important;
+				left: $patternWidth;
+			}
 		}
 	}
+	&.dummy {
+  	position: relative;
+  }
 	&.top {
+		height: 100%;
 		z-index: 100;
 	}
 	&.bottom {
@@ -168,6 +194,7 @@ select {
 	    display: table-cell;
 	    vertical-align: middle;
 	    text-align: center;
+	    white-space: pre;
 		}
 		&:hover {
 			color: $medium;
