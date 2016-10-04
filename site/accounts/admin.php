@@ -7,7 +7,8 @@ email: coreytegeler@gmail.com
 language: en
 role: admin
 history:
-  - home
-  - books/land-reform-and-ngos-in-contemporary-zimbabwe
-  - books/mugabe-and-the-politics-of-security-in-zimbabwe
-  - books/mugabe-and-the-white-african
+  - books/queen-of-the-ndebele
+  - cities/bulawayo
+  - books/the-struggle-continues-50-years-of-tyranny-in-zimbabwe
+  - authors/timothy-scarnecchia
+  - books/mugabe-s-war-machine

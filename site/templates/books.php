@@ -1,8 +1,9 @@
 <?php
 snippet( 'header' );
-echo '<main>';
-snippet( 'sections/shelf' );
-snippet( 'sections/categories' );
-echo '</main>';
+echo '<div class="relative">';
+snippet( 'filter' );
+snippet( 'shelf' );
+echo '</div>';
+snippet( 'categories' );
 snippet( 'footer' );
 ?>

@@ -24,3 +24,6 @@
 // if($endPaper) { $endPaperUrl = $endPaper->url(); } else { $endPaperUrl = null; }
 ?>
 <body class="<?php echo $page->template() . $alt ?>">
+<main>
+  <!-- <div class="wrapper"> -->
+    <?php snippet( 'side' ) ?>

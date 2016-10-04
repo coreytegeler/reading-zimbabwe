@@ -1,9 +1,9 @@
 $black: black;
-$pink: #ca93ad;
 
-$dark: #009b52;
-$medium: #afddc4;
-$light: #eef8f3;
+$dark: #972068;
+$medium: #ca93ad;
+$light: #fff3f9;
+$highlight: pink;
 
 $sideWidth: 18em;
 $sidePad: 1.5em;
@@ -16,6 +16,29 @@ $tabletWidth: 768px;
 $desktopWidth: 1024px;
 
 $box-shadow: 0 0 1px 2px rgba(0,0,0,.08);
+
+@mixin xLargeText {
+	font-size: 2.5em;
+	line-height: 1.3em;
+}
+@mixin largeText {
+	font-size: 1.8em;
+	line-height: 1.1em;
+}
+@mixin mediumText {
+	font-size: 1.2em;
+	line-height: 1.4em;
+}
+@mixin smallText {
+	font-size: .75em;
+	line-height: 1.3em;
+}
+@mixin xSmallText {
+	font-size: .6em;
+	line-height: 1.3em;
+}
+
+
 
 @mixin phone {
 	@media (max-width: #{$tabletWidth}) {
@@ -33,6 +56,21 @@ $box-shadow: 0 0 1px 2px rgba(0,0,0,.08);
   @media (min-width: #{$desktopWidth}) {
     @content;
   }
+}
+
+@mixin placeholder($color) {
+	&::-webkit-input-placeholder {
+		color: $color;
+	}
+	&:-moz-placeholder {
+		color: $color;
+	}
+	&::-moz-placeholder {
+		color: $color;
+	}
+	&:-ms-input-placeholder {  
+		color: $color;
+	}
 }
 
 @font-face {
@@ -70,3 +108,18 @@ $box-shadow: 0 0 1px 2px rgba(0,0,0,.08);
 	font-weight: bold;
 	font-style: normal;
 }
+
+@font-face {
+	font-family: 'Archivo Black';
+	src: url('/assets/fonts/ArchivoBlack-Regular.eot');
+	src: url('/assets/fonts/ArchivoBlack-Regular.eot?#iefix') format('embedded-opentype'),
+		url('/assets/fonts/ArchivoBlack-Regular.woff2') format('woff2'),
+		url('/assets/fonts/ArchivoBlack-Regular.woff') format('woff'),
+		url('/assets/fonts/ArchivoBlack-Regular.ttf') format('truetype'),
+		url('/assets/fonts/ArchivoBlack-Regular.svg#ArchivoBlack-Regular') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}
+
+
+

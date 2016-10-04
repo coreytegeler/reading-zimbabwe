@@ -1,141 +1,258 @@
-var resizeBricks = function(e) {
-	$bricks = $('.brick')
-	$bricks.each(function(i, brick) {
-		var $brick = $(brick)
-		var brickWidth = $brick.innerWidth()
-		var patWidth = 30
-		var newRectWidth = Math.ceil(brickWidth/patWidth)*patWidth
-		$brick.css({
-			width: newRectWidth
-		})
-	})
-}
-
-var resizeHeights = function(e) {
-	// $elems = $('.matchHeight')
-	// $elems.each(function(i, elem) {
-	// 	var $elem = $(elem)
-	// 	var elemHeight = $elem.innerHeight()
-	// 	var patHeight = 15
-	// 	var newElemHeight = Math.round(elemHeight/patHeight)*patHeight
-	// 	$elem.css({
-	// 		height: newElemHeight
-	// 	})
-	// })
-}
-
 $(function() {
 	$body = $('body')
 	$main = $('main')
 	$shelf = $('#shelf')
 	$filterLists = $('#filterLists')
 
-	$main.scroll(function(e) {
-		$('.folder').each(function() {			
-			$folder = $(this)
-			$tabs = $folder.find('.tabs:not(.dummy)')
-			if(!$tabs.length) {return}
-			var scrollTop = $folder.scrollTop()
-			$dummy = $folder.find('.tabs.dummy')
-			var dummyTop = $dummy.offset().top
-			var folderTop = $folder.offset().top
-			var folderBottom = folderTop + $folder.innerHeight()
-			if(folderBottom - $tabs.innerHeight() <= 0) {
-				$tabs.removeClass('fixed').addClass('bottom')
-			} else if(dummyTop <= 0) {
-				$tabs.removeClass('bottom').addClass('fixed')
-			} else if(!$main.is('.noScroll')) {
-				$tabs.removeClass('bottom').removeClass('fixed')
+	var resizeBricks = function(e) {
+		$bricks = $('.brick')
+		$bricks.each(function(i, brick) {
+			var $brick = $(brick)
+			var textWidth = $brick.find('.title').innerWidth()
+			var patWidth = 30
+			var newBrickWidth = Math.ceil(textWidth/patWidth)*patWidth
+			bricksWidth = $brick.parents('.bricks').width()
+			$brick.css({
+				width: newBrickWidth,
+				maxWidth: bricksWidth
+			})
+		})
+	}
+	resizeBricks()
+	var clickButton = function() {
+		var scrollTop = $main.scrollTop()
+		var bottom = $main[0].scrollHeight
+		if($(this).is('.search')) {
+			$search = $('.search form').eq(0)
+			if($body.is('.search')) {
+				bottom = 0
+			}
+			$main.animate({ scrollTop: bottom }, 300)
+			$search.find('input[type="search"]').focus()
+		} else if($(this).is('.down')) {
+			var catTop = $('#categories').position().top
+			if($('.fixed').length) {
+				catTop -= $('.fixed').innerHeight()
+			}
+			$main.animate({ scrollTop: scrollTop + catTop }, 300)
+		}
+	}
+
+	var clickFilterTab = function(e) {
+		var $tab = $(this)
+		var $tabs = $tab.parents('.tabs:not(.dummy)')
+		var $dummy = $tab.parents('.tabs.dummy')
+		var slug = this.dataset.slug
+		$filterList = $('.page.'+slug)
+		$filterLists = $filterList.parents('#filterLists')
+		if($tab.is('.selected')) {
+			$main.removeClass('noScroll')
+			$tab.removeClass('selected')
+			$filterLists.removeClass('show')
+			$filterList.removeClass('show')
+			$body.scroll()
+		} else if($('.filter.tab.selected').length) {
+			$('.filter.tab.selected').removeClass('selected')
+			$('.filterList.show').removeClass('show')
+			$tab.addClass('selected')
+			$filterList.addClass('show')
+			if($tabs.innerHeight() >= $(window).innerHeight()) { $main.addClass('noScroll') }
+			resizeBricks()
+		} else {
+			$tab.addClass('selected')
+			$filterLists.addClass('show')
+			$filterList.addClass('show')
+			if($tabs.innerHeight() >= $(window).innerHeight()) { $main.addClass('noScroll') }
+			resizeBricks()
+		}
+	}
+
+	var clickViewTab = function(e) {
+		var views = ['grid', 'list']
+		var $tabs = $('#filterButtons')
+		var curView = $shelf.attr('class')
+		var curIndex = views.indexOf(curView)
+		if(curIndex < views.length - 1) {
+			var nextIndex = curIndex+1
+		} else {
+			var nextIndex = 0
+		}
+		var nextView = views[nextIndex]
+		$shelf.attr('class', nextView)
+	}
+
+	var fixFilter = function(e) {
+		var $tabs = $('#filterButtons')
+		if(!$tabs.length) {return}
+		var $dummy = $('.tabs.dummy')
+		var dummyTop = $dummy.offset().top
+		var scrollTop = $(window).scrollTop()
+		if(dummyTop <= 0) {
+			$tabs.addClass('fixed')
+		} else if(!$main.is('.noScroll')) {
+			$tabs.removeClass('fixed')
+		}
+		var $groups = $('#shelf .group')
+		var scrollPast = []
+		$groups.each(function (i, group) {
+			var scrollTop = $main.scrollTop()
+			var groupTop = $(group).offset().top - $('#filterButtons').innerHeight() - 15
+			var slug = group.dataset.slug
+			if(groupTop <= 0) {
+				scrollPast.push(slug)
+			}
+			if(scrollPast.length && i+1 == $groups.length) {
+				var active = scrollPast.slice(-1)[0] 
+				$('.filterList .filter.selected').removeClass('selected')
+				$('.filterList .filter[data-slug="'+active+'"]').addClass('selected')
 			}
 		})
+		if($shelf.offset().top + $shelf.innerHeight() < $tabs.innerHeight()) {
+			$('#filter').addClass('bottom')
+			$shelf.css({
+				marginTop: $('#filter').innerHeight()
+			})
+		} else {
+			$('#filter').removeClass('bottom')
+			$shelf.css({
+				marginTop: 0
+			})
+		}
+	}
+
+	var clickFilter = function(e) {
+		e.preventDefault()
+		var slug = $(this).data('slug')
+		var type = $(this).parents('.filterList').data('type')
+		$filter = $(this).parents('.filter')
+		$filterList = $(this).parents('.filterList')
+		if($filter.is('.selected')) {
+			$filter.removeClass('selected')
+			slug = 'null';
+		} else {
+			$('.filterList .selected').removeClass('selected')
+			$filter.addClass('selected')
+		}
+		order(type)
+		var $group = $shelf.find('.group.'+type+'[data-slug="'+slug+'"]')
+		if($group.length) {
+			var groupTop = $group.offset().top - $('#filterButtons').innerHeight() - 15
+			var scrollTop = $main.scrollTop()
+			console.log(scrollTop, groupTop)
+			$main.scrollTop(scrollTop + groupTop)
+		}
+		$body.scroll()
+	}
+	
+	if($('#filterButtons').length) {
+		var labels = {
+			'year': {},
+			'location': allRegions
+		}
+
+		var firstYear = 1950
+		var decade = firstYear
+		for (var year = firstYear; year <= (new Date().getFullYear()); year++) {
+			if(year % 10 === 0  ) {
+		  	decade = year
+		  }
+			if(!labels.year[decade+'s']) {labels.year[decade+'s'] = []}
+		  labels.year[decade+'s'].push([year, year])
+		}
+	}
+	
+	var order = function(type) {
+		var $books = $('#shelf .books')
+		var $booksArray = $books.find('.book');
+		var $sortedBooks = $booksArray.sort(sortIt)
+		$books.html('')
+		var allSublabels = labels[type]
+		var sortedSublabels = Object.keys(allSublabels)
+		if(type == 'year') {
+			sortedSublabels = sortedSublabels.reverse()
+		}
+		for(i in sortedSublabels) {
+			label = sortedSublabels[i]
+			var sublabels = allSublabels[label];
+			$group = $('<div class="group '+type+'" data-slug="'+label+'"></div>')
+			for(j in sublabels) {
+				var sublabel = sublabels[j]
+				var sublabelSlug = sublabel[0]
+				var sublabelTitle = sublabel[1]
+				var $sublabel = $('<div class="sublabel '+type+'"><span>' + sublabelTitle + '</span></div>')
+				var length = $sortedBooks.filter('[data-'+type+'="'+sublabelSlug+'"]').length
+				if(!length) {
+					$sublabel.addClass('empty')
+					if(j != sublabels.length - 1) {
+						$sublabel.addClass('comma')
+					}
+				}
+				$group.append($sublabel)
+				$subgroup = $('<div class="subgroup"></div>')
+				$sortedBooks.each(function(l, book) {
+					var $book = $(book)
+					var bookType = $book.data(type)
+					if(bookType == sublabelSlug) {
+						$book.removeClass('hide')
+						$sortedBooks.splice(l, 1)
+						$subgroup.append($book)
+					}
+				})
+				if(length) {
+					$group.append($subgroup)
+				}
+			}
+			$books.append($group)
+		}
+		$sortedBooks.each(function(i, book) {
+			var $book = $(book)
+			var sortedIndex = $book.data('index')
+			$book.addClass('hide')
+			$('.books').append($book)
+		})
+	}
+
+	var styleLabel = function(label) {
+		switch(label) {
+			case 'africa':
+				return 'Africa'
+			case 'europe':
+				return 'Europe'
+			case 'north-america':
+				return 'North America'
+			case 'asia':
+				return 'Asia'
+			case 'australia':
+				return 'Australia'
+			default:
+				return label
+		}
+	}
+
+	var sortIt = function(a, b) {
+		var valA = $(a).attr('data-year');
+		var valB = $(b).attr('data-year');
+		if (valA < valB) {
+	    return -1;
+	  }
+	  if (valA > valB) {
+	    return 1;
+	  }
+	  return 0;
+	}
+
+	$('.filterList a').click(clickFilter)
+	$('.button').click(clickButton)
+	$('.tab.view').click(clickViewTab)
+	$('.tab.filter').click(clickFilterTab)
+
+	$main.scroll(function(e) {
+		fixFilter(e)
 	})
 
 	$(window).resize(function(e) {
 		resizeBricks()
-		resizeHeights()
 		$main.scroll()
 	}).resize()
 
-	$('.tab').click(function(e) {
-		$tab = $(this)
-		$tabs = $tab.parents('.tabs:not(.dummy)')
-		type = this.dataset.type
-		$page = $('.page.'+type)
-		$pages = $page.parents('.pages')
-		var isFilter = $pages.is('#filterLists')
-		if(isFilter) {
-			var sectionTop = $page.parents('section')[0].offsetTop
-			$main.scrollTop(sectionTop)
-			$page.scrollTop(0)
-		}
-		if($tab.is('.selected') && isFilter) {
-			$main.removeClass('noScroll')
-			$tabs.removeClass('top').removeClass('fixed')
-			$tab.removeClass('selected')
-			$pages.removeClass('show')
-			$page.removeClass('show')
-			$body.scroll()
-		} else if($('.tab.selected').length) {
-			$('.tab.selected').removeClass('selected')
-			$tab.addClass('selected')
-			$('.page.show').removeClass('show')
-			$page.addClass('show')
-			resizeBricks()
-		} else {
-			if(isFilter) {
-				$main.addClass('noScroll')
-				$tabs.addClass('fixed').addClass('top')
-			}
-			$tab.addClass('selected')
-			$pages.addClass('show')
-			$page.addClass('show')
-			resizeBricks()
-		}
-	});
-
-	$('.filterList a').click(function(e) {
-		e.preventDefault()
-		var val = $(this).data('slug')
-		var type = $(this).parents('.filterList').data('type')
-		$filterRect = $(this).parents('.brick')
-		$filterList = $(this).parents('.filterList')
-		if($filterRect.is('.selected')) {
-			$filterRect.removeClass('selected')
-			val = 'null';
-		} else {
-			$('.filterList .brick.selected').removeClass('selected')
-			$filterRect.addClass('selected')
-		}
-		$('.book').each(function() {
-			var bookVal = this.dataset[type]
-			$(this).removeClass('hide')
-			if(val == 'null') {
-				$(this).removeClass('hide')
-			} else if(type == 'year') {
-				if(!(bookVal > val && bookVal < val+10)) {
-					$(this).addClass('hide')
-				}
-			} else if(type == 'category') {
-				if(bookVal) {
-					bookVal = bookVal.split(',')
-					if($.inArray(val, bookVal) < 0) {
-						$(this).addClass('hide')
-					} else {
-						$(this).removeClass('hide')
-					}
-				} else {
-					$(this).addClass('hide')
-				}
-			} 
-		})
-		$('.tab.selected').removeClass('selected')
-		var shelfTop = $shelf[0].offsetTop
-		$tabs.removeClass('top')
-		$filterLists.removeClass('show')
-		$filterList.removeClass('show')
-		$filterList.scrollTop(0)
-		$main.removeClass('noScroll')
-		$main.scrollTop(shelfTop)
-		$body.scroll()
-	})
 })

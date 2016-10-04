@@ -1,6 +1,5 @@
 #shelf {
-	min-height: calc(100% - #{$patternHeight*12});
-	padding-top: #{$patternHeight*9};
+	// min-height: calc(100% - #{$patternHeight*6});
 	background: $light;
 	position: relative;
 	.horz {
@@ -11,110 +10,208 @@
 		width: 100%;
 		padding: 0;
 	}
-	.books {
-		padding-top: $patternHeight*2;
-		display: flex;
-		flex-wrap: wrap;
-		flex-direction: row;
-	}
-	.book {
-		width: calc(#{$patternWidth} * 5);
-    height: calc(#{$patternHeight} * 14);
-    margin: 0 #{$patternWidth} #{$patternHeight*2} 0;
-    display: flex;
-    background-color: $dark;
-    color: $light;
-    float: left;
-    font-family: 'Libre Baskerville';
-    font-weight: normal;
-    @include noTouch;
-    &.hide {
-    	display: none;
-    }
-		a {
+	.group {
+		width: 100%;
+		// padding-bottom: #{$patternWidth*2};
+		display: table;
+		.subgroup {
 			width: 100%;
-			height: 100%;
+			padding-top: $patternHeight;
 			display: table;
-			align-self: flex-end;
-			background-size: 10px;
-			background-repeat: no-repeat;
-	    background-position: -999999px;
-			.inner {
-				width: calc(100% - 1em);
+		}
+	}
+	&.grid {
+		.books {
+			padding: $patternHeight*2 auto;
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: row;
+		}
+		.book {
+			font-size: 19px;
+			width: calc(#{$patternWidth} * 5);
+	    height: calc(#{$patternHeight} * 14);
+	    margin: 0 #{$patternWidth} #{$patternHeight*2} 0;
+	    display: flex;
+	    float: left;
+	    color: $light;
+	    font-family: 'Libre Baskerville';
+	    font-weight: normal;
+	    @include noTouch;
+	    // &:last-child {
+	    // 	float: none;
+	    // 	clear: both;
+	    // }
+	    &.hide {
+	    	display: none;
+	    }
+			a {
+				width: 100%;
 				height: 100%;
-				padding: 0.5em;
-				display: flex;
-				flex-direction: column;
-				.title {
-					font-size: .7em;
-					line-height: 1.4em;
-				}
-				.symbol {
-					width: 100%;
-					padding: 0.5em 0;
+				display: table;
+				align-self: flex-end;
+				background-color: $dark;
+				background-size: 10px;
+				background-repeat: no-repeat;
+		    background-position: -999999px;
+				.inner {
+					width: calc(100% - 1em);
+					height: 100%;
+					padding: .5em;
 					display: flex;
-					flex-grow: 1;
-					svg {
-						width: auto;
-						height: 1.5em;
-						display: table;
-						margin: auto;
-						fill: $light;
-						* {
-							fill: $light;
-						}
+					flex-direction: column;
+					.title {
+						width: 100%;
+						padding: 0 0 .1em 0;
+						@include smallText;
+					}
+					.subtitle {
+						width: 100%;
+						padding: 0 0 0 0;
+						@include xSmallText;
+					}
+					.author {
+						width: 100%;
+						padding: 0;
+						display: flex;
+						flex-grow: 1;
+				    align-items: flex-end;
+				    font-weight: normal;
+						@include xSmallText;
 					}
 				}
-				.author {
-					font-size: .6em;
-					line-height: 1.2em;
-					font-weight: normal;
-					display: table-footer-group;
+				&:hover {
+		    	display: block;
+		    	overflow: hidden;
+		    	background-color: transparent;
+			    .inner {
+			    	display: none !important;
+			    }
+			    .patterns {
+			    	display: block;
+			    }
+				}
+				.patterns {
+					width: 100%;
+					height: 100%;
+					display: none;
+					.pattern {
+		    		width: 100%;
+		    		height: $patternHeight !important;
+			    	display: table !important;
+			    }
 				}
 			}
-			&:hover {
-	    	background-color: $light;
-	    	color: $dark;
-	    	svg, svg * {
-		    	fill: $dark !important;
-		    }
+		}
+	}
+	&.list {
+		.item {
+			width: 100%;
+			padding: $patternHeight 0;
+			display: flex;
+			a {
+				&:hover {
+					.inner * {
+						color: $highlight !important;
+					}
+				}
+				.inner {
+					width: 100%;
+					.title {
+						width: 100%;
+						font-family: 'Libre Baskerville';
+						font-size: 2.5em;
+						line-height: 1.3em;
+						font-weight: normal;
+						margin: 0;
+					}
+					.subtitle {
+						font-family: 'Libre Baskerville';
+						font-size: 2.5em;
+						line-height: 1.3em;
+						color: $medium;
+						font-weight: normal;
+						margin: 0 0 $patternHeight 0;	
+					}
+					.author {
+						width: 100%;
+						font-family: 'Libre Baskerville';
+						font-size: 1em;
+						line-height: 1.2em;
+						font-weight: normal;
+						letter-spacing: 1px;
+						text-transform: uppercase;
+						margin: 0 0 $patternWidth 0;
+						@include noTouch;
+						cursor: default;
+					}
+					.symbols {
+						display: none;
+						svg {
+
+						}
+					}
+					.template {
+						text-transform: capitalize;
+					}
+				}
+			}
+			&.hide {
+	    	display: none;
 	    }
 		}
-	}
-}
-#filterButtons {
-	&.top {
-		#filterLists {
-			height: 100%;
+		.sublabel {
+			
 		}
 	}
-	#filterLists {
+	.break {
 		width: 100%;
-		background: $light;
-		overflow: hidden;
-		display: none;
-		z-index: 2;
-		.inner {
-			max-height: calc(100% - #{$patternWidth*5});
-			width: 100%;
-			padding: 0;
-		}
-		&.show {
-			display: table;
-			z-index: 10;
-		}
-		.page.filterList {
-			width: 100%;
-		}
-		.bricks {
-			padding-bottom: #{$patternHeight*2};
-			.brick {
-				margin: #{$patternHeight*2} 0 0 #{$patternHeight*2};
-				&.selected {
-					background: $light;
-					color: $dark;
+		height: 1px;
+		float: none;
+		clear: both;
+		display: block;
+	}
+	.label {
+		cursor: default;
+		width: 100%;
+		padding: #{$patternHeight*2} #{$patternWidth} #{$patternHeight*2} 0;
+    display: block;
+    float: none;
+    clear: both;
+    span {
+    	width: 100%;
+    	display: block;
+    	font-family: 'Libre Baskerville';
+    	font-size: 2.5em;
+    	font-weight: normal;
+    	line-height: 1.1em;
+    	text-align: center;
+    }
+	}
+	.sublabel {
+		text-align: left;
+		cursor: default;
+    display: table;
+    &.empty {
+    	float: left;
+			clear: none;
+			color: $medium;
+			&.comma {
+				float: left;
+				span::after {
+					content: ',\00a0';
 				}
 			}
 		}
+		&:not(.empty) {
+
+		}
+    span {
+    	font-size: 1em;
+    	line-height: 1.1em;
+    }
+	}
+	.sublabel.empty:not(.year) {
+		display: none;
 	}
 }

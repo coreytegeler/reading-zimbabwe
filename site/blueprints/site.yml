@@ -4,6 +4,10 @@ pages:
     - default
     - categories
     - books
+    - cities
+    - publishers
+    - authors
+    - search
 fields:
   title:
     label: Title

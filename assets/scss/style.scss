@@ -7,7 +7,7 @@ html, body {
 	margin: 0;
 	padding: 0;
 	background-color: $light;
-	font-family: Archivo Black, Helvetica, Arial;
+	font-family: 'Archivo Black', Helvetica, Arial;
   font-weight: 600;
 	color: $dark;
 	text-rendering: optimizeLegibility;
@@ -31,15 +31,81 @@ body {
 main {
 	width: 100%;
 	height: 100%;
+	overflow-x: hidden;
 	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
   &.noScroll {
 		overflow: hidden;		
 	}
 }
+section {
+	width: calc(100% - #{$patternWidth*8});
+	min-height: calc(100% - #{$patternWidth*6});
+	padding: $patternWidth*3;
+	padding-left: $patternWidth*5;
+	margin: 0;
+	position: relative;
+	@include tablet {
+		width: calc(100% - #{$patternWidth*2}) !important;
+		padding: $patternWidth !important;
+	}
+	@include phone {
+		width: calc(100% - #{$patternWidth*2}) !important;
+		padding: $patternWidth !important;
+	}
+	.middle {
+		min-height: 100%;
+		display: block;
+		font-weight: normal;
+		padding: 0 $patternWidth;
+		.inner {
+			max-width: 700px;
+			padding: $patternHeight*2 0;
+			// margin: auto;
+			// display: table;
+		}
+	}
+	&.intro {
+		.inner {
+			width: 100%;
+			max-width: 900px;
+	  	// height: calc(100vh - #{$patternHeight}*12);
+			display: table;
+			margin: auto;	
+			font-weight: normal;
+			letter-spacing: 1px;
+			h1 {
+				text-align: center;
+				display: table;
+				margin: 0 auto 1em auto;
+				@include largeText;
+				.beta {
+					font-size: .5em;
+			    line-height: 1.3em;
+			    text-transform: uppercase;
+			    opacity: .2;
+				}
+			}
+			.text {
+				font-family: 'Libre Baskerville';
+				font-weight: normal;
+				@include mediumText;
+			}
+			// .horz {
+			// 	padding: $patternWidth*2;
+			// 	max-width: 900px;
+			// }
+		}
+	}
+}
+
 ////////////////////////////////////////////////
-a, a:hover, a:visited {
+a, a:visited {
 	color: inherit;
 	text-decoration: none;
+	&:hover {
+		// color: $highlight;
+	}
 }
 select, input {
   background: $light;
@@ -62,114 +128,120 @@ select {
 	background-image: url(/assets/images/pattern.png);
   background-size: $patternWidth;
   background-repeat: repeat;
-	background-color: $dark;
+	background-color: $light;
 	color: $light;
 	&.invert {
-		background-image: url(/assets/images/patternG.png);
+		background-image: url(/assets/images/pattern.png);
 		background-color: $light;
 		color: $dark;
 	}
 }
+p {
+	margin: 0;
+	&:not(:first-child) {
+		margin-bottom: 1em;
+	}
+}
 ////////////////////////////////////////////////
 ////////////////////////////////////////////////
+aside {
+	width: $patternWidth;
+	height: 0;
+	position: fixed;
+	left: $patternWidth*2;
+	top: #{$patternHeight*7};
+	z-index: 100;
+	display: table;
+	pointer-events: none;
+	@include phone {
+		left: 0;
+	}
+	.inner {
+		display: table-cell;
+		vertical-align: middle;
+		.button {
+			width: $patternWidth;
+			height: $patternWidth;
+			// background: $light;
+			padding: 4px 0;
+			cursor: pointer;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: $patternWidth;
+			pointer-events: all;
+			@include phone {
+				background-size: calc(#{$patternWidth} - 10px);
+			}
+			a {
+				width: 100%;
+				height: 100%;
+				display: block;
+			}
+			&:first-child {
+				padding-top: 10px;
+			}
+			&:last-child {
+				padding-bottom: 10px;
+			}
+			&.home {
+				background-image: url(/assets/images/home.svg);
+			}
+			&.search {
+				background-image: url(/assets/images/search.svg);
+			}
+			&.book {
+				background-image: url(/assets/images/book.svg);
+			}
+			&.twitter {
+				background-image: url(/assets/images/twitter.svg);
+			}
+			&.facebook {
+				background-image: url(/assets/images/facebook.svg);
+			}
+			&.down {
+				background-image: url(/assets/images/down.svg);
+			}
+		}
+		.symbol {
+			width: $patternWidth;
+			height: $patternHeight;
+			margin-bottom: $patternHeight;
+			background-image: url(/assets/images/pattern.png);
+			background-size: $patternWidth;
+		}
+	}
+}
+////////////////////////////////////////////////
+////////////////////////////////////////////////
+.search {
+	form {
+		height: $patternHeight*6;
+		input {
+			height: $patternHeight*6;
+			font-family: 'Archivo Black', Helvetica, Arial;
+			font-size: 3em;
+			line-height: 1.3em;
+			color: $dark;
+			border: 0;
+			border-radius: 0;
+			padding: $patternHeight $patternHeight $patternHeight 0;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			text-align: center;
+		}
+		input[type="search"] {
+			width: 100%;
+		}
+		input[type="submit"] {
+			width: 20%;	
+			display: none;
+		}
+	}
+}
 .folder {
 	position: relative;
 }
-.tabs {
-	width: 100%;
-	// height: $patternWidth*3;
-	position: absolute;
-	left: 0;
-	top: 0;
-  display: block;
-  z-index: 100;
-  .inner {
-  	width: 100%;
-  	padding: $patternHeight 0 0 0;
-  	display: flex;
-  	color: $dark; 
-  	border-bottom: 2px solid $dark;
-  	&.hide {
-  		opacity: 0;
-  		pointer-events: none;
 
-  	}
-  	.tab {
-  		padding: .5em .5em 1em .5em;
-  		text-align: center;
-			background: $light;
-			color: $dark;
-			border-top-left-radius: 5px;
-	    border-top-right-radius: 5px;
-	    margin-right: .5em;
-	    border: solid $dark;
-	    border-width: 2px 2px 0 2px;
-			@include noTouch;
-			span {
-				
-			}
-			&:hover {
-				cursor: pointer;
-				color: $medium;
-			}
-			&.selected {
-				background: $dark;
-				color: $light;
-				&:hover {
-					color: $medium;
-				}
-			}
-  	}
-  }
-	&.real {
-		&.fixed {
-			width: calc(100% - #{$patternWidth*6});
-			left: #{$patternWidth*3};
-			position: fixed;
-			background-color: $light;
-			.inner {
-				max-height: calc(100% - #{$patternWidth*12});
-				overflow: auto;
-				&.hide {
-					display: none;
-				}
-			}
-			@include tablet {
-				width: calc(100% - #{$patternWidth*2}) !important;
-				left: $patternWidth;
-			}
-			@include phone {
-				width: calc(100% - #{$patternWidth*2}) !important;
-				left: $patternWidth;
-			}
-		}
-	}
-	&.dummy {
-  	position: relative;
-  }
-	&.top {
-		height: 100%;
-		z-index: 100;
-	}
-	&.bottom {
-		position: absolute !important;
-		top: auto;
-		bottom: 0;
-	}
-}
-.pages {
-	min-height: 400px;
-	.page {
-		height: 100%;
-		border: solid $dark;
-		border-width: 0 3px 3px 3px;
-		display: none;
-		overflow: scroll;
-		&.show {
-			display: block;
-		}
-	}
-}
 
 .bricks {
 	font-size: 1em;
@@ -177,27 +249,32 @@ select {
 	font-weight: 700;
 	list-style: none;
 	white-space: normal;
+	background-color: $light;
+	background-image: url(/assets/images/pattern.png);
 	.brick {
 		height: calc(#{$patternHeight*4} - 6px);
 		margin: 0 #{$patternHeight*2} #{$patternHeight*2} 0;
 		display: inline-table;
-		color: $light;
-		background-color: $dark;
+		color: $dark;
+		background-color: $light;
 		border-style: solid;
-		border-color: $dark;
+		border-color: $light;
 		border-width: 3px 0;
 		@include noTouch;
 		a {
-			padding: 0 .5em;
-			font-size: 1.3em;
 			line-height: 1em;
 	    display: table-cell;
 	    vertical-align: middle;
 	    text-align: center;
 	    white-space: pre;
+	    .title {
+	    	display: table;
+	    	margin: auto;
+	    	padding: 0 .5em;
+	    }
 		}
 		&:hover {
-			color: $medium;
+			color: $highlight;
 			// background-color: $light;
 			// color: $dark;
 		}
@@ -226,7 +303,11 @@ select {
 		}
 	}
 }
-
+body.books {
+	aside {
+		top: #{$patternHeight*9};
+	}
+}
 ////////////////////////////////////////////////
 
 .horz {
@@ -238,8 +319,11 @@ select {
 	display: table-cell;
 	vertical-align: middle;
 }
-@import 'sections';
+@import 'filter';
 @import 'shelf';
+@import 'footer';
 @import 'pages/home';
 @import 'pages/book';
 @import 'pages/category';
+@import 'pages/authors';
+@import 'pages/search';

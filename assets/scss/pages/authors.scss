@@ -1,0 +1,13 @@
+body.authors {
+	#shelf {
+		display: table;
+		.item {
+			width: calc(50% - #{$patternWidth});
+			float: left;
+			margin-right: $patternWidth;
+			h1 {
+				margin: 0;
+			}
+		}
+	}
+}

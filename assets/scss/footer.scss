@@ -1,0 +1,73 @@
+footer {
+	.row {
+		height: $patternHeight*6;
+	  background-size: $patternWidth;
+	  background-repeat: repeat;
+		background-color: $light;
+		color: $dark;
+		position: relative;
+		&.twitter {
+			background-image: url(/assets/images/twitter.svg);
+		}
+		&.instagram {
+			background-image: url(/assets/images/instagram.svg);
+		}
+		&.mail {
+			background-image: url(/assets/images/mail.svg);
+		}
+		&:hover {
+			background: $highlight;
+			color: $dark;
+			a span {
+				display: table-cell;
+			}		
+		}
+		a {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			display: table;
+			span {
+				text-align: center;
+		    @include mediumText;
+		    line-height: 1em;
+		    vertical-align: middle;
+		    display: none;
+			}
+			&:hover {
+				color: $dark;
+			}
+		}
+		input {
+			// padding-left: $patternWidth*3;
+			background-image: url(/assets/images/search.svg);
+			color: transparent;
+			@include mediumText;
+			line-height: 1em;
+			text-align: center;
+			background-size: $patternWidth;
+			@include placeholder(transparent);
+			&:hover, &:active, &:focus {
+				@include placeholder($medium);
+				background: $highlight;
+				color: $dark;
+				// background-image: url(/assets/images/search.svg);
+				// background-position: $patternWidth center;
+				// background-repeat: no-repeat;
+			}
+		}
+	}
+	#colophon {
+		width: calc(100% - #{$patternWidth*8});
+		padding: $patternWidth $patternWidth*3 $patternWidth $patternWidth*5;
+		ul {
+			padding: 0;
+			margin: 0;
+			li {
+				list-style: none;
+			}
+		}
+	}
+}

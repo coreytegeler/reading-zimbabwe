@@ -1,0 +1,23 @@
+body.search {
+	#search {
+		width: 100%;
+		padding: 0;
+		form {
+			input {
+				// padding-left: $patternWidth*3;
+				font-size: 1.3em;
+				text-align: center;
+				@include placeholder($light);
+				background: $highlight;
+				// background-image: url(/assets/images/search.svg);
+				// background-position: $patternWidth center;
+				// background-size: $patternWidth;
+				// background-repeat: no-repeat;
+			}
+		}
+	}
+	main {
+		section#shelf {
+		}
+	}
+}

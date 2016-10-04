@@ -1,20 +1,23 @@
 <?php
 $category = $page;
 snippet( 'header' );
-echo '<main>';
-	echo '<section class="frame pattern invert">';
-	  echo '<div class="inner matchHeight">';
-	    echo '<div class="vert">';
-	      echo '<div class="horz">';
-	        echo '<h1>' . $category->title() . '</h1>';
+echo '<section class="intro">';
+	echo '<div class="inner">';
+	  echo '<div class="vert">';
+	    echo '<div class="horz">';
+	      echo '<h1>' . $category->title() . '</h1>';
+	      echo '<div class="text">';
 	        echo $category->text();
-	      echo '</div>';
+	    	echo '</div>';    
 	    echo '</div>';
 	  echo '</div>';
-	echo '</section>';
+	echo '</div>';
+echo '</section>';
 $slug = $category->slug();
-snippet( 'sections/shelf', array( 'category' => $slug ) );
-// snippet( 'sections/categories', array( 'class' => 'invert' ) );
-echo '</main>';
+echo '<div class="relative">';
+snippet( 'filter' );
+snippet( 'shelf', array( 'type' => 'category', 'value' => $slug ) );
+echo '</div>';
+snippet( 'categories' );
 snippet( 'footer' );
 ?>
