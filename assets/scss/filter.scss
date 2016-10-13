@@ -64,6 +64,9 @@
 	  &.fixed {
 	  	position: fixed !important;
 	  	z-index: 200;
+	  	@include tablet {
+	  		top: calc(#{$patternWidth} + 8px);
+	  	}
 	  }
 	}
 	#filterLists {

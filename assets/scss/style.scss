@@ -19,10 +19,12 @@ html, body {
   @include tablet {
   	font-size: 17px;
 	  line-height: 1.3em;
+	  content: 'tablet';
   }
   @include phone {
   	font-size: 15px;
 	  line-height: 1.3em;
+	  content: 'phone';
   }
 }
 h1 {
@@ -38,8 +40,8 @@ main {
 		overflow: hidden;		
 	}
 	@include tablet {
-		height: calc(100% - #{$patternWidth} - 8px);
-		padding-top: calc(#{$patternWidth} + 8px);
+		height: calc(100% - #{$patternWidth} - 8px) !important;
+		padding-top: calc(#{$patternWidth} + 8px) !important;
 	}
 }
 section {

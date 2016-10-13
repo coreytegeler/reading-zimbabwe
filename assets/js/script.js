@@ -24,6 +24,7 @@ $(function() {
 	}
 
 	var resizeBricks = function(e) {
+		console.log(sizeCheck())
 		$bricks = $('.brick')
 		$bricks.each(function(i, brick) {
 			var $brick = $(brick)
@@ -105,9 +106,10 @@ $(function() {
 		var $tabs = $('#filterButtons')
 		if(!$tabs.length) {return}
 		var $dummy = $('.tabs.dummy')
-		var dummyTop = $dummy.offset().top
+		var dummyTop = $dummy.offset().top - parseInt($main.css('paddingTop'))
 		var scrollTop = $(window).scrollTop()
 		if(dummyTop <= 0) {
+			console.log('!!')
 			$tabs.addClass('fixed')
 		} else if(!$main.is('.noScroll')) {
 			$tabs.removeClass('fixed')
@@ -258,6 +260,10 @@ $(function() {
 	    return 1;
 	  }
 	  return 0;
+	}
+
+	var sizeCheck = function() {
+		return $body.css('content').replace(/['"]+/g, '')
 	}
 
 	resizeBricks()

@@ -157,6 +157,8 @@
 			padding: $patternHeight 0;
 			display: flex;
 			a {
+				width: 100%;
+				display: block;
 				&:hover {
 					.inner * {
 						color: $highlight !important;

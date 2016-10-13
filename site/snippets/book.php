@@ -42,9 +42,9 @@ echo '<div class="book item ' . ($hasCover ? 'hasCover' : 'noCover') . '" data-s
             $author = $pages->find( 'authors' )->children()->find( $authorSlug );
             if( $author ) {
               echo $author->title();
-              if ( $index == sizeof( $authors ) - 2 ) {
+              if ( $index == sizeof( $authorsArray ) - 2 ) {
                 echo ' & ';
-              } else if( $index < sizeof( $authors ) - 1 ) {
+              } else if( $index < sizeof( $authorsArray ) - 1 ) {
                 echo ', ';
               }
             }
