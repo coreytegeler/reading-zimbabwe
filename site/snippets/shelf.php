@@ -20,15 +20,15 @@ echo '<section id="shelf" class="grid">';
 					array_push( $booksArray, $filteredBook );
 				}
 			}
+			shuffle( $booksArray );
+			$max = 12;
+			if( sizeof( $booksArray ) > $max ) {
+				$booksArray = array_splice( $booksArray, 0, $max );
+			}
 		} else {
 			foreach( $books as $book ) {
 				array_push( $booksArray, $book );
 			}
-		}
-		shuffle( $booksArray );
-		$max = 12;
-		if( sizeof( $booksArray ) > $max ) {
-			$booksArray = array_splice( $booksArray, 0, $max );
 		}
 		$index = 0;
 		foreach( $booksArray as $book ) {

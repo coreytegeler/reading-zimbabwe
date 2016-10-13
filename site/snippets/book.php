@@ -14,9 +14,19 @@ $bookCategories = $book->category();
 if( $bookCategories ) {
   $bookCategoriesArray = $bookCategories->split(',');
 }
+$files = $book->files();
+if( $files->first() ) {
+  $cover = $files->first()->resize(150, null)->url();
+  $hasCover = true;
+} else {
+  $hasCover = false;
+}
 
-echo '<div class="book item" data-slug="' . $bookSlug . '" data-year="' . $bookYear . '" data-category="' . $bookCategories . '" data-location="' . $bookCity . '" data-index="' . $index . '">';
+echo '<div class="book item ' . ($hasCover ? 'hasCover' : 'noCover') . '" data-slug="' . $bookSlug . '" data-year="' . $bookYear . '" data-category="' . $bookCategories . '" data-location="' . $bookCity . '" data-index="' . $index . '">';
   echo '<a href="' . $bookLink . '">';
+    if( $hasCover ) {
+      echo '<img class="cover"/ data-src="' . $cover . '">';
+    }
     echo '<div class="inner">';
       echo '<div class="title">';
         echo $bookTitle;
@@ -26,7 +36,7 @@ echo '<div class="book item" data-slug="' . $bookSlug . '" data-year="' . $bookY
           echo $bookSubtitle;
         echo '</div>';
       }
-      if( is_array( $authors ) ) {
+      if( is_array( $authorsArray ) ) {
         echo '<div class="author">';
           foreach( $authorsArray as $index => $authorSlug ) {
             $author = $pages->find( 'authors' )->children()->find( $authorSlug );

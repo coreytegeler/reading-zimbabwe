@@ -21,7 +21,11 @@
 	  	&.hide {
 	  		opacity: 0;
 	  		pointer-events: none;
-
+	  	}
+	  	@include tablet {
+	  		width: calc(100% - #{$patternHeight}*2);
+	  		padding-left: $patternHeight;
+	  		padding-right: $patternHeight;
 	  	}
 	  	.tab {
 	  		padding: .5em;
@@ -99,12 +103,19 @@
 			list-style: none;
 			white-space: normal;
 			background-color: $medium;
+			@include tablet {
+	  		padding-left: $patternHeight;
+	  		padding-bottom: #{$patternHeight/2};
+	  	}
 			.filter {
 				background-color: transparent;
 				margin: 0 $patternHeight $patternHeight $patternHeight;
 				border-color: transparent;
 				color: $highlight;
 				display: inline-table;
+				@include tablet {
+					margin: 0 #{$patternHeight/2} #{$patternHeight/2} #{$patternHeight/2};
+				}
 				&.selected {
 					color: $dark;
 					&:hover {

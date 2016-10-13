@@ -114,12 +114,12 @@ echo '<section id="book">';
 					echo '<li>Paperback</li>';
 					echo '<li>' . $paperBackCount . ' pages</li>';
 				}
-				if( $cover ) {
-					echo '<li>';
-						echo '<img src="' . $cover . '">';
-					echo '</li>';
-				}
 			echo '</ul>';
+			if( $cover ) {
+				echo '<div class="cover">';
+					echo '<img src="' . $cover . '">';
+				echo '</div>';
+			}
 		echo '</div>';
 		echo '<div class="texts">';
 			if( isset( $synopsis ) && $synopsis != '' ) {

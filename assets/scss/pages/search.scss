@@ -16,8 +16,10 @@ body.search {
 			}
 		}
 	}
-	main {
-		section#shelf {
+	section#shelf {
+		min-height: calc(100% - #{$patternWidth}*9);
+		.noResults {
+			color: $medium;
 		}
 	}
 }

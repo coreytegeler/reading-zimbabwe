@@ -5,6 +5,10 @@ body.authors {
 			width: calc(50% - #{$patternWidth});
 			float: left;
 			margin-right: $patternWidth;
+			@include phone {
+				width: 100%;
+				margin-right: 0;
+			}
 			h1 {
 				margin: 0;
 			}

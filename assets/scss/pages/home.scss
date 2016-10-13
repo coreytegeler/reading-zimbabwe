@@ -7,7 +7,7 @@ body.home {
 		// background: transparent;
 	}
 	#manifesto {
-		height: calc(100% - #{$patternHeight*12});
+		min-height: calc(100% - #{$patternHeight*12});
 		// background: $dark;
 		// background-size: 120%;
 		// background-image: url(/assets/images/map.svg);

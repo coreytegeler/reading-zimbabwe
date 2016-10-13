@@ -17,6 +17,11 @@
   else:
     echo css( '/assets/css/style.css' );
   endif;
+  echo js(array(
+    'assets/js/jquery.js',
+    'assets/js/masonry.js',
+    'assets/js/imagesloaded.js'
+  ));
   ?>
 </head>
 <?php

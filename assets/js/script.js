@@ -4,6 +4,25 @@ $(function() {
 	$shelf = $('#shelf')
 	$filterLists = $('#filterLists')
 
+	var loadCovers = function() {
+		if(!$shelf.length) {return}
+		$shelf.find('.book').each(function(i, book) {
+			var $book = $(book)
+			if($book.is('.hasCover')) {
+				var $image = $book.find('img')
+				var src = $image.data('src')
+				var image = new Image()
+				image.src = src
+				$image.attr('src', src)
+				setTimeout(function() {
+					imagesLoaded( $image, function( ) {
+					  $book.addClass('loaded')
+					}, 1)
+				})
+			}
+		})
+	}
+
 	var resizeBricks = function(e) {
 		$bricks = $('.brick')
 		$bricks.each(function(i, brick) {
@@ -18,7 +37,7 @@ $(function() {
 			})
 		})
 	}
-	resizeBricks()
+
 	var clickButton = function() {
 		var scrollTop = $main.scrollTop()
 		var bottom = $main[0].scrollHeight
@@ -68,10 +87,11 @@ $(function() {
 	}
 
 	var clickViewTab = function(e) {
-		var views = ['grid', 'list']
+		var views = ['grid', 'list', 'covers']
 		var $tabs = $('#filterButtons')
 		var curView = $shelf.attr('class')
 		var curIndex = views.indexOf(curView)
+		console.log(curIndex)
 		if(curIndex < views.length - 1) {
 			var nextIndex = curIndex+1
 		} else {
@@ -138,7 +158,6 @@ $(function() {
 		if($group.length) {
 			var groupTop = $group.offset().top - $('#filterButtons').innerHeight() - 15
 			var scrollTop = $main.scrollTop()
-			console.log(scrollTop, groupTop)
 			$main.scrollTop(scrollTop + groupTop)
 		}
 		$body.scroll()
@@ -208,7 +227,7 @@ $(function() {
 			var $book = $(book)
 			var sortedIndex = $book.data('index')
 			$book.addClass('hide')
-			$('.books').append($book)
+			$('#shelf .books').append($book)
 		})
 	}
 
@@ -241,10 +260,13 @@ $(function() {
 	  return 0;
 	}
 
-	$('.filterList a').click(clickFilter)
-	$('.button').click(clickButton)
-	$('.tab.view').click(clickViewTab)
-	$('.tab.filter').click(clickFilterTab)
+	resizeBricks()
+	loadCovers()
+
+	$body.on('click', '.filterList a', clickFilter)
+	$body.on('click', '.button', clickButton)
+	$body.on('click', '.tab.view', clickViewTab)
+	$body.on('click', '.tab.filter', clickFilterTab)
 
 	$main.scroll(function(e) {
 		fixFilter(e)

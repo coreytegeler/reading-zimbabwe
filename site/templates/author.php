@@ -7,7 +7,7 @@ echo '<section class="intro">';
 	    echo '<div class="horz">';
 	      echo '<h1>' . $author->title() . '</h1>';
 	      echo '<div class="text">';
-	        echo $author->text();
+	        echo $author->text()->kirbytext();
 	    	echo '</div>';    
 	    echo '</div>';
 	   echo '</div>';

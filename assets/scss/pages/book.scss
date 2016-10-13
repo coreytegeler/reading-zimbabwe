@@ -21,7 +21,9 @@ body.book {
 				text-align: center;
 				display: table;
 				margin: auto;
-				// padding-left: calc(#{$patternWidth*10});
+				@include tablet {
+					width: 100%;
+				}
 			}
 			h1 {
 				@include xLargeText;
@@ -54,6 +56,10 @@ body.book {
 			position: relative;
 			display: flex;
 			padding: $patternWidth*3 0 $patternWidth*3 0;
+			@include phone {
+				display: block;
+				padding-top: 0;
+			}
 			.meta {
 				width: calc(#{$patternWidth*6});
 				@include smallText;
@@ -73,10 +79,20 @@ body.book {
 								content: ' ';
 							}
 						}
-						img {
-							padding-top: 1em;
-							width: 100%;
-						}
+					}
+				}
+				.cover {
+					width: 100%;
+					img {
+						padding-top: 1em;
+						width: 100%;
+					}
+				}
+				@include phone {
+					width: 100%;
+					@include mediumText;
+					h3 {
+						display: none;
 					}
 				}
 			}
@@ -112,6 +128,13 @@ body.book {
 							background-color: $light;
 							color: $dark;
 						}
+					}
+				}
+				@include phone {
+					width: 100%;
+					.text {
+						width: 100%;
+						padding-left: 0;
 					}
 				}
 			}
