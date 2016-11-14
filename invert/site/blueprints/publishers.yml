@@ -1,8 +1,0 @@
-title: Publishers
-pages:
-  template: publisher
-files: false
-fields:
-  title:
-    label: Title
-    type: text

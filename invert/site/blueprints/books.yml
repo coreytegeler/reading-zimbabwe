@@ -1,8 +1,0 @@
-title: Books
-pages:
-  template: book
-files: false
-fields:
-  title:
-    label: Title
-    type:  text
