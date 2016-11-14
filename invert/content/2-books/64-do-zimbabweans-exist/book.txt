@@ -1,0 +1,89 @@
+Alt: false
+
+----
+
+Title: Do Zimbabweans Exist?
+
+----
+
+Author: 
+
+----
+
+Language: English
+
+----
+
+Category: nation-building
+
+----
+
+Hardcover: false
+
+----
+
+Hardcovercount: 
+
+----
+
+Paperback: true
+
+----
+
+Paperbackcount: 426
+
+----
+
+Publisher: peter-lang
+
+----
+
+Publisherlink: https://www.peterlang.com/
+
+----
+
+Publisheddate: 
+
+----
+
+Year: 2009
+
+----
+
+Publishedloation: Berlin
+
+----
+
+Isbnx: 3039119419
+
+----
+
+Isbnxiii: 978-3039119417
+
+----
+
+Tags: 
+
+----
+
+Synopsis: This book examines the triumphs and tribulations of the Zimbabwean national project, providing a radical and critical analysis of the fossilisation of Zimbabwean nationalism against the wider context of African nationalism in general. The book departs radically from the common ‘praise-texts’ in seriously engaging with the darker aspects of nationalism, including its failure to create the nation-as-people, and to install democracy and a culture of human rights. The author examines how the various people inhabiting the lands between the Limpopo and Zambezi Rivers entered history and how violence became a central aspect of the national project of organising Zimbabweans into a collectivity in pursuit of a political end.
+
+----
+
+Review: An exciting theoretical-historiographical exploration of Zimbabwean history from the pre-colonial to the contemporary period. - Brian Raftopoulos
+
+----
+
+Aboutauthor: Sabelo J. Ndlovu-Gatsheni is the director of the Archie Mafeje Research Institute (AMRI) and is also a professor in the Department of Development Studies at the University of South Africa.
+
+----
+
+Subtitle: Trajectories of Nationalism, National Identity Formation & Crisis in a Postcolonial State
+
+----
+
+City: bern
+
+----
+
+Status: 

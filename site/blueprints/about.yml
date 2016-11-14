@@ -1,0 +1,26 @@
+title: About
+pages: false
+files: images
+fields:
+  title:
+    label: Title
+    type: text
+  blocks:
+    label: Blocks
+    type: structure
+    entry: >
+      <strong>{{title}}</strong>
+    fields:
+      title:
+        label: Title
+        type: text
+      image:
+        label: Image
+        type: selector
+        mode: single
+        types:
+          - image
+      text:
+        label: Text
+        type: textarea
+      

@@ -1,0 +1,94 @@
+title: Book
+pages: false
+files:
+  sortable: true
+fields:
+  title:
+    label: Title
+    type: text
+  subtitle:
+    label: Subtitle
+    type: text
+  author:
+    label: Author
+    type: multiselect
+    search: true
+    options: query
+    query:
+      fetch: pages
+      template: author
+  language:
+    label: Language
+    type: text
+    width: 1/2
+  category:
+    label: Category
+    type: multiselect
+    search: true
+    options: query
+    width: 1/2
+    query:
+      fetch: pages
+      template: category
+  hardCover:
+    label: Hardcover
+    type: toggle
+    text: yes/no
+    width: 1/2
+    default: false
+  hardCoverCount:
+    label: Page Count
+    type: text
+    width: 1/2
+  paperBack:
+    label: Paperback
+    type: toggle
+    text: yes/no
+    width: 1/2
+    default: false
+  paperBackCount:
+    label: Page Count
+    type: text
+    width: 1/2
+  year:
+    label: Year Published
+    type: text
+    width: 1/2
+  city:
+    label: City
+    type: multiselect
+    search: true
+    options: query
+    width: 1/2
+    query:
+      fetch: pages
+      template: city
+  publisher:
+    label: Publisher
+    type: multiselect
+    search: true
+    options: query
+    query:
+      fetch: pages
+      template: publisher
+  isbnX:
+    label: ISBN-10
+    type: text
+    width: 1/2
+  isbnXIII:
+    label: ISBN-13
+    type: text
+    width: 1/2
+  tags:
+    label: Tags
+    type: tags
+    index: all
+  synopsis:
+    label: Synopsis
+    type: textarea
+  review:
+    label: Editorial Review
+    type: textarea
+  status:
+    label: Status
+    type: text

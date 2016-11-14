@@ -1,9 +1,15 @@
 $black: black;
 
 $dark: #972068;
-$medium: #ca93ad;
+$medium: #ccaed3;
 $light: #fff3f9;
-$highlight: pink;
+$highlight: #ed62b2;
+
+
+$dark: #ef1837;
+$medium: #e8a298;
+$light: #f8e5e3;
+$highlight: #feec34;
 
 $sideWidth: 18em;
 $sidePad: 1.5em;
@@ -11,115 +17,16 @@ $sidePad: 1.5em;
 $patternWidth: 30px;
 $patternHeight: 15px;
 
-$phoneWidth: 667px;
-$tabletWidth: 768px;
-$desktopWidth: 1024px;
+$minWidth: 285px;
+
+$xSmallWidth: 480px;
+$smallWidth: 600px;
+$mediumWidth: 840px;
+$largeWidth: 1024px;
+$xLargeWidth: 1280px;
 
 $box-shadow: 0 0 1px 2px rgba(0,0,0,.08);
 
-@mixin xLargeText {
-	font-size: 2.5em;
-	line-height: 1.3em;
-}
-@mixin largeText {
-	font-size: 1.8em;
-	line-height: 1.1em;
-}
-@mixin mediumText {
-	font-size: 1.2em;
-	line-height: 1.4em;
-}
-@mixin smallText {
-	font-size: .75em;
-	line-height: 1.3em;
-}
-@mixin xSmallText {
-	font-size: .6em;
-	line-height: 1.3em;
-}
-
-
-
-@mixin phone {
-	@media (max-width: #{$tabletWidth}) {
-		@content;
-	}
-}
-
-@mixin tablet {
-  @media (max-width: #{$desktopWidth}) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media (min-width: #{$desktopWidth}) {
-    @content;
-  }
-}
-
-@mixin placeholder($color) {
-	&::-webkit-input-placeholder {
-		color: $color;
-	}
-	&:-moz-placeholder {
-		color: $color;
-	}
-	&::-moz-placeholder {
-		color: $color;
-	}
-	&:-ms-input-placeholder {  
-		color: $color;
-	}
-}
-
-@font-face {
-	font-family: 'Libre Baskerville';
-	src: url('/assets/fonts/LibreBaskerville-Regular.eot');
-	src: url('/assets/fonts/LibreBaskerville-Regular.eot?#iefix') format('embedded-opentype'),
-		url('/assets/fonts/LibreBaskerville-Regular.woff2') format('woff2'),
-		url('/assets/fonts/LibreBaskerville-Regular.woff') format('woff'),
-		url('/assets/fonts/LibreBaskerville-Regular.ttf') format('truetype'),
-		url('/assets/fonts/LibreBaskerville-Regular.svg#LibreBaskerville-Regular') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Libre Baskerville Italic';
-	src: url('/assets/fonts/LibreBaskerville-Italic.eot');
-	src: url('/assets/fonts/LibreBaskerville-Italic.eot?#iefix') format('embedded-opentype'),
-		url('/assets/fonts/LibreBaskerville-Italic.woff2') format('woff2'),
-		url('/assets/fonts/LibreBaskerville-Italic.woff') format('woff'),
-		url('/assets/fonts/LibreBaskerville-Italic.ttf') format('truetype'),
-		url('/assets/fonts/LibreBaskerville-Italic.svg#LibreBaskerville-Italic') format('svg');
-	font-weight: normal;
-	font-style: italic;
-}
-
-@font-face {
-	font-family: 'Libre Baskerville Bold';
-	src: url('/assets/fonts/LibreBaskerville-Bold.eot');
-	src: url('/assets/fonts/LibreBaskerville-Bold.eot?#iefix') format('embedded-opentype'),
-		url('/assets/fonts/LibreBaskerville-Bold.woff2') format('woff2'),
-		url('/assets/fonts/LibreBaskerville-Bold.woff') format('woff'),
-		url('/assets/fonts/LibreBaskerville-Bold.ttf') format('truetype'),
-		url('/assets/fonts/LibreBaskerville-Bold.svg#LibreBaskerville-Bold') format('svg');
-	font-weight: bold;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Archivo Black';
-	src: url('/assets/fonts/ArchivoBlack-Regular.eot');
-	src: url('/assets/fonts/ArchivoBlack-Regular.eot?#iefix') format('embedded-opentype'),
-		url('/assets/fonts/ArchivoBlack-Regular.woff2') format('woff2'),
-		url('/assets/fonts/ArchivoBlack-Regular.woff') format('woff'),
-		url('/assets/fonts/ArchivoBlack-Regular.ttf') format('truetype'),
-		url('/assets/fonts/ArchivoBlack-Regular.svg#ArchivoBlack-Regular') format('svg');
-	font-weight: bold;
-	font-style: normal;
-}
-
-
-
+$sans: 'Archivo Black', 'Arial Black', Arial, sans-serif;
+$serif: 'Libre Baskerville', Times, serif;
+$sansItalic: 'Libre Baskerville Italic', Times, serif;

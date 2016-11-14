@@ -3,12 +3,12 @@
 @import 'mixins';
 html, body {
 	width: 100%;
+	min-width: $minWidth;
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	background-color: $light;
-	font-family: 'Archivo Black', Helvetica, Arial;
-  font-weight: 600;
+	font-family: $sans;
+  background-color: $light;
 	color: $dark;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
@@ -16,15 +16,21 @@ html, body {
   overflow: hidden;
   font-size: 19px;
   line-height: 1.3em;
-  @include tablet {
-  	font-size: 17px;
-	  line-height: 1.3em;
-	  content: 'tablet';
-  }
-  @include phone {
+  font-weight: normal;
+  @include medium {
   	font-size: 15px;
 	  line-height: 1.3em;
-	  content: 'phone';
+	  content: 'medium';
+  }
+  @include small {
+  	font-size: 17px;
+	  line-height: 1.3em;
+	  content: 'small';
+  }
+  @include xSmall {
+  	font-size: 17px;
+	  line-height: 1.3em;
+	  content: 'xSmall';
   }
 }
 h1 {
@@ -39,23 +45,17 @@ main {
   &.noScroll {
 		overflow: hidden;		
 	}
-	@include tablet {
+	@include small {
 		height: calc(100% - #{$patternWidth} - 8px) !important;
 		padding-top: calc(#{$patternWidth} + 8px) !important;
 	}
 }
 section {
 	width: calc(100% - #{$patternWidth*8});
-	// min-height: calc(100% - #{$patternWidth*6});
-	padding: $patternWidth*3;
-	padding-left: $patternWidth*5;
+	padding: $patternWidth*3 $patternWidth*3 $patternWidth*3 $patternWidth*5;
 	margin: 0;
 	position: relative;
-	@include tablet {
-		width: calc(100% - #{$patternWidth*2}) !important;
-		padding: $patternWidth !important;
-	}
-	@include phone {
+	@include small {
 		width: calc(100% - #{$patternWidth*2}) !important;
 		padding: $patternWidth !important;
 	}
@@ -71,31 +71,47 @@ section {
 			// display: table;
 		}
 	}
+	h1 {
+		height: #{$patternWidth * 2};
+		text-align: center;
+		display: table;
+		margin: 0 auto #{$patternHeight*3} auto;
+		@include largeText;
+		line-height: 1em;
+		position: relative;
+		.beta {
+			width: 100%;
+			position: absolute;
+	    bottom: 0;
+	    left: 0;
+			font-size: .5em;
+	    line-height: 1.3em;
+	    text-transform: uppercase;
+	    opacity: .2;
+		}
+	}
 	&.intro {
 		.inner {
-			width: 100%;
-			max-width: 900px;
-	  	// height: calc(100vh - #{$patternHeight}*12);
-			display: table;
-			margin: auto;	
+			width: calc(100% - #{$patternWidth*10});
+			max-width: 800px;
+			padding: 0 $patternWidth*2 $patternWidth $patternWidth*8;
 			font-weight: normal;
 			letter-spacing: 1px;
-			h1 {
-				text-align: center;
-				display: table;
-				margin: 0 auto 1em auto;
-				@include largeText;
-				.beta {
-					font-size: .5em;
-			    line-height: 1.3em;
-			    text-transform: uppercase;
-			    opacity: .2;
-				}
+			@include medium {
+				width: 100%;
+				padding-left: 0;
+				padding-right: 0;
+			}
+			@include small {
+				width: 100%;
+				padding-left: 0;
+				padding-right: 0;
 			}
 			.text {
 				font-family: 'Libre Baskerville';
 				font-weight: normal;
-				@include mediumText;
+				@include baseText;
+				padding-bottom: #{$patternWidth*3};
 			}
 			// .horz {
 			// 	padding: $patternWidth*2;
@@ -114,7 +130,7 @@ a, a:visited {
 	}
 }
 select, input {
-  background: $light;
+  background: $dark;
   border: solid 1px $black;
   border-radius: 4px;
 	font-rendering: optimizeLegibility;
@@ -131,13 +147,13 @@ select {
 	}
 }
 .pattern {
-	background-image: url(/assets/images/pattern.png);
+	background-image: url(/assets/images/pattern.svg);
   background-size: $patternWidth;
   background-repeat: repeat;
 	background-color: $light;
 	color: $light;
 	&.invert {
-		background-image: url(/assets/images/pattern.png);
+		background-image: url(/assets/images/pattern.svg);
 		background-color: $light;
 		color: $dark;
 	}
@@ -154,13 +170,14 @@ aside {
 	width: $patternWidth;
 	height: 0;
 	position: fixed;
-	left: $patternWidth*2;
-	top: #{$patternHeight*7};
+	left: $patternWidth;
+	top: #{$patternWidth*5};
 	z-index: 100;
 	display: table;
 	pointer-events: none;
-	@include tablet {
+	@include small {
 		width: 100%;
+		min-width: $minWidth;
 		height: $patternWidth;
 		left: 0 !important;
 		top: 0 !important;
@@ -169,27 +186,24 @@ aside {
 	.inner {
 		display: table-cell;
 		vertical-align: middle;
-		@include tablet {
+		@include small {
 			display: flex;
 			flex-direction: row;
 			align-items: center;
 		}
 		.button {
-			width: $patternWidth;
-			height: $patternWidth;
-			// background: $light;
-			padding: 4px 0;
+			// width: $patternWidth;
+			// height: $patternWidth;
+			margin: 0 0 $patternHeight 0;
 			cursor: pointer;
 			background-repeat: no-repeat;
 			background-position: center;
 			background-size: $patternWidth;
 			pointer-events: all;
-			@include tablet {
+			@include small {
 				display: table;
 				margin: auto;
 				padding: 4px;
-			}
-			@include phone {
 				background-size: calc(#{$patternWidth} - 10px);
 			}
 			a {
@@ -197,45 +211,39 @@ aside {
 				height: 100%;
 				display: block;
 			}
-			&.home {
-				background-image: url(/assets/images/home.svg);
+			&:hover {
+				color: black;
 			}
-			&.search {
-				background-image: url(/assets/images/search.svg);
-			}
-			&.books {
-				background-image: url(/assets/images/book.svg);
-			}
-			&.authors {
-				background-image: url(/assets/images/author.svg);
-			}
-			&.twitter {
-				background-image: url(/assets/images/twitter.svg);
-			}
-			&.facebook {
-				background-image: url(/assets/images/facebook.svg);
-			}
-			&.down {
-				background-image: url(/assets/images/down.svg);
-			}
+			// &.home {
+			// 	height: calc(#{$patternWidth} + 5px);
+			// 	background-image: url(/assets/images/side/home.svg);
+			// 	@include small {
+			// 		width: #{$patternWidth + $patternHeight};
+			// 		height: $patternWidth;
+			// 		background-image: url(/assets/images/logo.svg);
+			// 		background-size: calc(#{$patternWidth * 2} - 10px);
+			// 	}
+			// }
+			// &.about {
+			// 	background-image: url(/assets/images/side/about.svg);
+			// }
+			// &.books {
+			// 	background-image: url(/assets/images/side/book.svg);
+			// }
+			// &.authors {
+			// 	background-image: url(/assets/images/side/author.svg);
+			// }
+			// &.search {
+			// 	background-image: url(/assets/images/side/search.svg);
+			// }
 		}
 		.symbol {
 			width: $patternWidth;
 			height: $patternHeight;
 			margin-bottom: $patternHeight;
-			background-image: url(/assets/images/pattern.png);
+			background-image: url(/assets/images/pattern.svg);
 			background-size: $patternWidth;
 		}
-	}
-}
-body.books {
-	aside {
-		top: #{$patternHeight*9};
-	}
-}
-body.search {
-	aside {
-		top: #{$patternHeight*13};
 	}
 }
 ////////////////////////////////////////////////
@@ -245,7 +253,7 @@ body.search {
 		height: $patternHeight*6;
 		input {
 			height: $patternHeight*6;
-			font-family: 'Archivo Black', Helvetica, Arial;
+			font-family: 'Archivo Black', 'Arial Black', Arial;
 			font-size: 3em;
 			line-height: 1.3em;
 			color: $dark;
@@ -269,72 +277,76 @@ body.search {
 	position: relative;
 }
 
-
-.bricks {
-	font-size: 1em;
-	line-height: 1.1em;
-	font-weight: 700;
-	list-style: none;
-	white-space: normal;
+#subscribe {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
 	background-color: $light;
-	background-image: url(/assets/images/pattern.png);
-	.brick {
-		height: calc(#{$patternHeight*4} - 6px);
-		margin: 0 #{$patternHeight*2} #{$patternHeight*2} 0;
-		display: inline-table;
-		color: $dark;
-		background-color: $light;
-		border-style: solid;
-		border-color: $light;
-		border-width: 3px 0;
-		@include noTouch;
-		@include tablet {
-			height: calc(#{$patternHeight*3} - 6px);
-		}
-		a {
-			line-height: 1em;
-	    display: table-cell;
-	    vertical-align: middle;
-	    text-align: center;
-	    white-space: pre;
-	    .title {
-	    	display: table;
-	    	margin: auto;
-	    	padding: 0 .5em;
-	    }
-		}
-		&:hover {
-			color: $highlight;
-			// background-color: $light;
-			// color: $dark;
-		}
+	background-image: url(/assets/images/pattern.svg);
+	z-index: 10000;
+	display: none;
+	&.open {
+		display: block;
 	}
 	.inner {
-	  margin: 0 1em $patternHeight/2 0;
-		padding: .5em;
-		display: inline-table;
-		color: $light;
-		background-color: $dark;
-		font-size: 1.3em;
-		line-height: 1.4em;
-		text-transform: none;
+		width: calc(100% - #{$patternWidth*6});
+		max-width: 800px;
+		display: table;
+		margin: auto;
+		padding: #{$patternWidth*3};
 	}
-}
-.invert.bricks {
-	.brick {
-		color: $dark;
-		background-color: $light;
-		border-color: $light;
-		&:hover {
-			color: $medium;
-			// color: $light;
-			// background-color: $dark;
-			// border-color: $light;
+	.row {
+		width: 100%;
+		margin-bottom: $patternWidth;
+		input {
+			padding: $patternHeight;
+			border: 0;
+			border-radius: 0;
+			font-family: 'Archivo Black', 'Arial Black', Arial;
+			font-size: 3em;
+			line-height: 1.3em;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			text-align: center;
+			background-color: $light;
+			@include placeholder($medium);
+			color: $dark;
+			&[type="text"] {
+				width: calc(100% - #{$patternHeight});
+				height: $patternHeight*6;
+				padding-left: 0;
+			}
+			&[type="submit"] {
+				width: calc(50% - #{$patternHeight});
+				height: $patternHeight*8;
+				float: left;
+				&:first-child {
+					margin-right: $patternWidth;
+				}
+				&:hover {
+					color: $medium;
+					cursor: pointer;
+				}
+			}
 		}
 	}
 }
-////////////////////////////////////////////////
 
+.top.patterns {
+	height: #{$patternHeight*3};
+	.pattern {
+		background-color: transparent;
+		width: 100%;
+		height: $patternHeight;
+	}
+}
+
+////////////////////////////////////////////////
+.min {
+	min-height: 100%;
+}
 .horz {
 	display: table;
 	margin-left: auto;
@@ -348,7 +360,12 @@ body.search {
 @import 'shelf';
 @import 'footer';
 @import 'pages/home';
+@import 'pages/about';
+@import 'pages/lexicon';
+@import 'pages/books';
 @import 'pages/book';
 @import 'pages/category';
+@import 'pages/author';
 @import 'pages/authors';
 @import 'pages/search';
+@import 'invert';

@@ -1,0 +1,17 @@
+Title: Emma Hunter
+
+----
+
+Text: Emma Hunter is a lecturer in African history at the University of Edinburgh. Previously, she was a lecturer in history at Gonville and Caius College, Cambridge.
+
+----
+
+Tags: 
+
+----
+
+Firstname: Emma
+
+----
+
+Surname: Hunter

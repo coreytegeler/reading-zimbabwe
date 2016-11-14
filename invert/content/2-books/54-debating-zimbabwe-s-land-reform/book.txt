@@ -1,0 +1,77 @@
+Alt: false
+
+----
+
+Title: Debating Zimbabwe's Land Reform
+
+----
+
+Author: Ian Scoones
+
+----
+
+Language: English
+
+----
+
+Category: land-politics
+
+----
+
+Hardcover: false
+
+----
+
+Hardcovercount: 
+
+----
+
+Paperback: true
+
+----
+
+Paperbackcount: 234
+
+----
+
+Publisher: 
+
+----
+
+Publisherlink: 
+
+----
+
+Publisheddate: 
+
+----
+
+Year: 2010
+
+----
+
+Publishedloation: Seattle, Washington
+
+----
+
+Isbnx: 1493680625
+
+----
+
+Isbnxiii: 978-1493680627
+
+----
+
+Tags: 
+
+----
+
+Synopsis: Zimbabwe’s land reform has been intensely controversial. Yet debate has been plagued by bias and misinformation. This book aims to offer a more considered discussion, rooted in field-based, empirical research carried out over 13 years since the 2000 land reform. The 60 chapters of this book originally appeared on the (link: www.zimbabweland.wordpress.com text: Zimbabweland blog). They are organised in eight thematic sections, each introduced with a short overview essay. These cover agricultural and livestock production, the economy, political dimensions, land, livelihoods and rural development, aid and development, comparative lessons and researching land and agrarian change. As Zimbabwe looks to the future, the challenges of agriculture and rural development are pressing. The reflections in this book provide pointers to the way forward.
+
+----
+
+Review: 
+
+----
+
+Aboutauthor: Ian Scoones is a Professorial Fellow at the Institute of Development Studies at the University of Sussex.

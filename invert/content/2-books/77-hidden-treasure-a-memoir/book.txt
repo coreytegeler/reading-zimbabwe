@@ -1,0 +1,77 @@
+Alt: false
+
+----
+
+Title: Hidden Treasure: A Memoir
+
+----
+
+Author: Patricia Chater
+
+----
+
+Language: English
+
+----
+
+Category: autobiographies
+
+----
+
+Hardcover: false
+
+----
+
+Hardcovercount: 
+
+----
+
+Paperback: true
+
+----
+
+Paperbackcount: 168
+
+----
+
+Publisher: Weaver Press
+
+----
+
+Publisherlink: http://weaverpresszimbabwe.com/
+
+----
+
+Publisheddate: 
+
+----
+
+Year: 2012
+
+----
+
+Publishedloation: Harare
+
+----
+
+Isbnx: 177922186X
+
+----
+
+Isbnxiii: 978-1779221865
+
+----
+
+Tags: 
+
+----
+
+Synopsis: Patricia Chater wrote this account of her life from the unique position of an English woman who became absorbed into a religious community when she joined the caring and spiritual church of St Francis in Zimbabwe in the early 1960s. In a sympathetic, understated and matter-of-fact manner, she describes what it meant for the members of the community to struggle for liberation in their own land and then to face the challenges of the post-independence years. Her memoir is a contribution to the story of Zimbabwe, showing how national events impact on one particular place and on one particular group of people.
+
+----
+
+Review: 
+
+----
+
+Aboutauthor: Patricia Chater was an English woman who wrote and lived in a small village in Rusape, Zimbabwe.

@@ -1,0 +1,25 @@
+body.search {
+	#search {
+		width: 100%;
+		padding: 0;
+		form {
+			input {
+				// padding-left: $patternWidth*3;
+				font-size: 1.3em;
+				text-align: center;
+				@include placeholder($light);
+				background: $highlight;
+				// background-image: url(/assets/images/search.svg);
+				// background-position: $patternWidth center;
+				// background-size: $patternWidth;
+				// background-repeat: no-repeat;
+			}
+		}
+	}
+	section#shelf {
+		min-height: calc(100% - #{$patternWidth}*9);
+		.noResults {
+			color: $medium;
+		}
+	}
+}

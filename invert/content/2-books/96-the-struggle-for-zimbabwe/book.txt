@@ -1,0 +1,77 @@
+Alt: false
+
+----
+
+Title: The Struggle for Zimbabwe
+
+----
+
+Author: David Martin and Phyllis Johnson
+
+----
+
+Language: English
+
+----
+
+Category: chimurenga, colonialism
+
+----
+
+Hardcover: false
+
+----
+
+Hardcovercount: 
+
+----
+
+Paperback: true
+
+----
+
+Paperbackcount: 400
+
+----
+
+Publisher: Zimbabwe Publishing House
+
+----
+
+Publisherlink: 
+
+----
+
+Publisheddate: 
+
+----
+
+Year: 1981
+
+----
+
+Publishedloation: Harare
+
+----
+
+Isbnx: 0853455996
+
+----
+
+Isbnxiii: 978-0853455998
+
+----
+
+Tags: 
+
+----
+
+Synopsis: 
+
+----
+
+Review: 
+
+----
+
+Aboutauthor: 

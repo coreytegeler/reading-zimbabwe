@@ -1,23 +1,31 @@
 <?php
 $category = $page;
 snippet( 'header' );
-echo '<section class="intro">';
-	echo '<div class="inner">';
-	  echo '<div class="vert">';
-	    echo '<div class="horz">';
-	      echo '<h1>' . $category->title() . '</h1>';
-	      echo '<div class="text">';
-	        echo $category->text();
-	    	echo '</div>';    
-	    echo '</div>';
-	  echo '</div>';
+echo '<div class="relative min">';
+	echo '<div class="patterns top">';  
+	  $j = 0;
+	  for ( $i = 0; $i < 3; $i++ ) {
+	    $symbol = $page->symbol();
+	    if( $symbol->empty() ) {
+	      $symbol = 'default';
+	    }
+	    $symbolUrl = kirby()->urls()->assets() . '/images/symbols/' . $symbol . '.svg';
+	    echo '<div class="pattern" style="background-image:url(' . $symbolUrl . ')"></div>';
+	    $j++;
+	  }
 	echo '</div>';
-echo '</section>';
-$slug = $category->slug();
-echo '<div class="relative">';
-snippet( 'filter' );
-snippet( 'shelf', array( 'type' => 'category', 'value' => $slug ) );
+	echo '<section class="intro">';
+		echo '<div class="inner">';
+      echo '<h1>' . $category->title() . '</h1>';
+      if( !$category->text()->empty() ) {
+	      echo '<div class="text">';
+	        echo $category->text()->kirbytext();
+	    	echo '</div>';    
+	    }
+		echo '</div>';
+	echo '</section>';
+	$slug = $category->slug();
+	snippet( 'shelf', array( 'type' => 'category', 'value' => $slug ) );
 echo '</div>';
-snippet( 'categories' );
 snippet( 'footer' );
 ?>

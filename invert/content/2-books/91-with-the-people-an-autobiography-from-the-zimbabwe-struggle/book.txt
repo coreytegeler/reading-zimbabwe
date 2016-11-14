@@ -1,0 +1,77 @@
+Alt: false
+
+----
+
+Title: With the People: An Autobiography from the Zimbabwe Struggle
+
+----
+
+Author: Maurice Nyagumbo
+
+----
+
+Language: English
+
+----
+
+Category: autobiographies
+
+----
+
+Hardcover: false
+
+----
+
+Hardcovercount: 
+
+----
+
+Paperback: true
+
+----
+
+Paperbackcount: 192
+
+----
+
+Publisher: Allison & Busby
+
+----
+
+Publisherlink: http://www.allisonandbusby.com/
+
+----
+
+Publisheddate: 
+
+----
+
+Year: 1980
+
+----
+
+Publishedloation: London
+
+----
+
+Isbnx: 0850313627
+
+----
+
+Isbnxiii: 978-0850313628
+
+----
+
+Tags: 
+
+----
+
+Synopsis: 
+
+----
+
+Review: 
+
+----
+
+Aboutauthor: 

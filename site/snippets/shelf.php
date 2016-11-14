@@ -1,10 +1,13 @@
 <?php
-echo '<section id="shelf" class="grid">';
+echo '<section id="shelf" class="covers" data-view="covers">';
 	if( isset( $value ) && is_array( $value ) ) {
 		echo '<h3>Related Books</h3>';
 	}
-	echo '<div class="books">';
-		$books = $pages->find( 'books' )->children()->visible();
+	echo '<div class="books columns">';
+		$books = $pages->find( 'books' )->children()->visible()->shuffle();
+		if( isset( $hidden ) ) {
+			$books->not( $hidden );
+		}
 		$booksArray = [];
 		if( isset( $type ) && isset( $value ) ) {
 			if( is_array( $value ) ) {
@@ -20,9 +23,7 @@ echo '<section id="shelf" class="grid">';
 					array_push( $booksArray, $filteredBook );
 				}
 			}
-			shuffle( $booksArray );
-			$max = 12;
-			if( sizeof( $booksArray ) > $max ) {
+			if( isset( $max ) ) {
 				$booksArray = array_splice( $booksArray, 0, $max );
 			}
 		} else {
@@ -31,6 +32,7 @@ echo '<section id="shelf" class="grid">';
 			}
 		}
 		$index = 0;
+		$booksArray = $booksArray;
 		foreach( $booksArray as $book ) {
 			snippet( 'book', array( 'book' => $book->slug(), 'index' => $index ) );
 			$index++;

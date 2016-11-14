@@ -1,20 +1,16 @@
 body.home {
-	// color: $dark;
-	main {
-
-	}
-	section {
-		// background: transparent;
-	}
 	#manifesto {
-		min-height: calc(100% - #{$patternHeight*12});
-		// background: $dark;
-		// background-size: 120%;
-		// background-image: url(/assets/images/map.svg);
-  //   background-repeat: no-repeat;
-  //   background-position: center;
-		// color: $light;
-		
+		padding-top: #{$patternHeight*3};
+		min-height: calc(100% - #{$patternHeight*3});
+		// padding: $patternHeight $patternWidth*3 $patternWidth $patternWidth*5;
+		.inner {
+			.text {
+				@include largeText;
+				font-family: 'Archivo Black', 'Arial Black', Arial;
+				@include medium {
+					@include mediumText;
+				}
+			}
+		}
 	}
-	
 }

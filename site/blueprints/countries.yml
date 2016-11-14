@@ -1,0 +1,8 @@
+title: Countries
+pages:
+  template: country
+files: false
+fields:
+  title:
+    label: Title
+    type: text

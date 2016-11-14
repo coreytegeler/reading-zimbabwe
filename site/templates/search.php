@@ -11,31 +11,43 @@ echo '<section id="search">';
 	echo '</form>';
 echo '</section>';
 echo '<section id="shelf" class="list">';
-	if( sizeof( $results ) ) {
-		foreach($results as $result) {
-			echo '<div class="result item">';
-				echo '<a href="' . $result->url() . '">';
-					echo '<div class="inner">';
-						echo '<div class="title">';
-							echo $result->title();
+	echo '<div class="authors items columns">';
+		if( sizeof( $results ) ) {
+			foreach($results as $result) {
+				$template = $result->intendedTemplate();
+				if( in_array( $template, array( 'publisher' ) ) ) {
+					return;
+				}
+				echo '<div class="result item">';
+					if( $template == 'term' ) {
+						$url = $pages->find( 'lexicon' )->url();
+					} else if( $template == 'symbol' ) {
+						$url = $pages->find( 'about' )->url();
+					} else {
+						$url = $result->url();
+					}
+					echo '<a href="' . $url . '">';
+						echo '<div class="inner">';
+							echo '<div class="title">';
+								echo $result->title();
+							echo '</div>';
+							echo '<div class="template">';
+								echo $template;
+							echo '</div>';
 						echo '</div>';
-						echo '<div class="template">';
-							echo $result->intendedTemplate();
-						echo '</div>';
-					echo '</div>';
-				echo '</a>';
+					echo '</a>';
+				echo '</div>';
+			}
+		} else {
+			echo '<div class="horz">';
+				if( $query ) {
+					echo '<h1 class="noResults">No results for "' . $query . '".</h1>';
+				} else {
+					echo '<h1 class="noResults">No results.</h1>';
+				}
 			echo '</div>';
 		}
-	} else {
-		echo '<div class="horz">';
-			if( $query ) {
-				echo '<h1 class="noResults">No results for "' . $query . '".</h1>';
-			} else {
-				echo '<h1 class="noResults">No results.</h1>';
-			}
-		echo '</div>';
-	}
+	echo '</div>';
 echo '</section>';
-// snippet( 'categories' );
 snippet( 'footer' );
 ?>

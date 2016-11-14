@@ -1,0 +1,31 @@
+title: Site
+pages: 
+  template:
+    - default
+    - categories
+    - books
+    - cities
+    - publishers
+    - authors
+    - search
+fields:
+  title:
+    label: Title
+    type:  text
+  description:
+    label: Description
+    type:  textarea
+  keywords:
+    label: Keywords
+    type:  tags
+  email:
+    label: Email
+    type:  text
+  twitter:
+    label: Twitter
+    type:  text
+    help: Do not include '@'
+  instagram:
+    label: Instagram
+    type:  text
+    help: Do not include '@'

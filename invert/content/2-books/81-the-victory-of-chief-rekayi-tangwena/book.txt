@@ -1,0 +1,77 @@
+Alt: false
+
+----
+
+Title: The Victory of Chief Rekayi Tangwena
+
+----
+
+Author: Henry V. Moyana
+
+----
+
+Language: English
+
+----
+
+Category: land-politics
+
+----
+
+Hardcover: false
+
+----
+
+Hardcovercount: 
+
+----
+
+Paperback: true
+
+----
+
+Paperbackcount: 49
+
+----
+
+Publisher: Longman Zimbabwe
+
+----
+
+Publisherlink: http://www.longmanafrica.co.za/zimbabwe/
+
+----
+
+Publisheddate: 
+
+----
+
+Year: 1987
+
+----
+
+Publishedloation: Harare
+
+----
+
+Isbnx: 0908308213
+
+----
+
+Isbnxiii: 978-0908308217
+
+----
+
+Tags: 
+
+----
+
+Synopsis: The book deals with Chief Rekayi Tangwena a famous land rights activist whose stand against the Rhodesia government and its discriminatory land policies were key to the liberation struggle.
+
+----
+
+Review: 
+
+----
+
+Aboutauthor: 

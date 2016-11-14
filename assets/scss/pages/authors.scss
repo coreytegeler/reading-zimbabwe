@@ -1,15 +1,26 @@
 body.authors {
 	#shelf {
+		padding-top: #{$patternHeight*3};
 		display: table;
+		.inner {
+			margin: 0;
+			padding-bottom: 0;
+		}
 		.item {
 			width: calc(50% - #{$patternWidth});
 			float: left;
 			margin-right: $patternWidth;
-			@include phone {
+			&.author {
+				font-family: 'Libre Baskerville';
+			}
+			@include medium {
 				width: 100%;
 				margin-right: 0;
 			}
-			h1 {
+			h4 {
+				@include baseText;
+				font-weight: normal;
+				text-transform: uppercase;
 				margin: 0;
 			}
 		}

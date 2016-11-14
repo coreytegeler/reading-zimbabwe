@@ -1,0 +1,77 @@
+Alt: false
+
+----
+
+Title: The Making of Zimbabwe: Decolonization in Regional and International Politics
+
+----
+
+Author: M. Tamarkin
+
+----
+
+Language: English
+
+----
+
+Category: nation-building
+
+----
+
+Hardcover: false
+
+----
+
+Hardcovercount: 
+
+----
+
+Paperback: true
+
+----
+
+Paperbackcount: 342
+
+----
+
+Publisher: Routledge
+
+----
+
+Publisherlink: https://www.routledge.com/
+
+----
+
+Publisheddate: 
+
+----
+
+Year: 1990
+
+----
+
+Publishedloation: London
+
+----
+
+Isbnx: 
+
+----
+
+Isbnxiii: 9780714633558
+
+----
+
+Tags: 
+
+----
+
+Synopsis: 
+
+----
+
+Review: 
+
+----
+
+Aboutauthor: Mordechai (Mottie) Tamarkin is Professor Emeritus at the Department of Modern Middle Eastern and African History  and a Senior Research Fellow Emeritus at the Moshe Dayan Center for Middle Eastern and African Studies, Tel Aviv University.

@@ -1,25 +1,108 @@
 footer {
+	.categories {
+		padding-bottom: $patternWidth;
+		font-size: 1em;
+		line-height: 1.2em;
+		font-weight: 700;
+		list-style: none;
+		white-space: normal;
+		background-color: transparent;
+		background-image: url(/assets/images/pattern.svg);
+		.category {
+			height: calc(#{$patternHeight*4} - 6px);
+			margin: 0 #{$patternHeight*2} #{$patternHeight*2} 0;
+			display: inline-table;
+			color: $dark;
+			background-color: transparent;
+			border-style: solid;
+			background-color: $light;
+			border-color: $light;
+			border-width: 3px 0;
+			@include noTouch;
+			@include xSmall {
+				width: 100%;
+				display: block;
+				margin-bottom: $patternHeight;
+			}
+			a {
+				width: 100%;
+				height: 100%;
+				line-height: 1em;
+		    text-align: center;
+		    position: relative;
+		    display: table;
+		    .title {
+		    	width: calc(100% - 1em);
+		    	padding: 0 .5em;
+		    	text-align: center;
+    	    white-space: nowrap;
+		    }
+		    .pattern {
+		    	width: 100%;
+		    	height: 100%;
+		    	position: absolute;
+		    	left: 0;
+		    	top: 0;
+		    	display: none;
+		    }
+			}
+			&:hover {
+				height: calc(#{$patternHeight*4});
+				border: none;
+				color: black;
+				.title {
+					visibility: none;
+				}
+				.pattern {
+					display: block;
+				}
+			}
+		}
+		.inner {
+		  margin: 0 1em $patternHeight/2 0;
+			padding: .5em;
+			display: inline-table;
+			color: $light;
+			background-color: $dark;
+			font-size: 1.3em;
+			line-height: 1.4em;
+			text-transform: none;
+		}
+	}
 	.row {
-		height: $patternHeight*6;
+		width: 	100%;
+		height: #{$patternHeight*6};
+		display: table;
 	  background-size: $patternWidth;
 	  background-repeat: repeat;
 		background-color: $light;
 		color: $dark;
 		position: relative;
 		&.twitter {
-			background-image: url(/assets/images/twitter.svg);
+			background-image: url(/assets/images/footer/twitter.svg);
 		}
 		&.instagram {
-			background-image: url(/assets/images/instagram.svg);
+			background-image: url(/assets/images/footer/instagram.svg);
+		}
+		&.soundcloud {
+			background-image: url(/assets/images/footer/soundcloud.svg);
 		}
 		&.mail {
-			background-image: url(/assets/images/mail.svg);
+			background-image: url(/assets/images/footer/mail.svg);
+		}
+		&.subscribe {
+			background-image: url(/assets/images/footer/subscribe.svg);
 		}
 		&:hover {
-			background: $highlight;
+			background: none;
 			color: $dark;
-			a span {
-				display: table-cell;
+			a {
+				height: calc(100% - .2em);
+				margin: .1em 0;
+				span {
+					background: $highlight;
+					display: table-cell;
+				}
 			}		
 		}
 		a {
@@ -42,7 +125,8 @@ footer {
 		}
 		input {
 			// padding-left: $patternWidth*3;
-			background-image: url(/assets/images/search.svg);
+			background-image: url(/assets/images/footer/search.svg);
+			background-color: $light;
 			color: transparent;
 			@include mediumText;
 			line-height: 1em;
@@ -50,7 +134,7 @@ footer {
 			background-size: $patternWidth;
 			@include placeholder(transparent);
 			&:hover, &:active, &:focus {
-				@include placeholder($medium);
+				@include placeholder($dark);
 				background: $highlight;
 				color: $dark;
 				// background-image: url(/assets/images/search.svg);

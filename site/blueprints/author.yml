@@ -9,13 +9,41 @@ fields:
   firstname:
     label: First Name
     type: text
+    width: 1/2
   surname:
     label: Surname
     type: text
+    width: 1/2
   text:
     label: Text
     type: textarea
- tags:
+  place:
+    label: Place of Origin
+    type: select
+    options:
+      zimbabwe: Zimbabwe
+      africa: Rest of Africa
+      europe: Europe
+      north-america: North America
+      asia: Asia
+      australia: Australia
+  gender:
+    label: Gender
+    type: select
+    width: 1/2
+    options:
+      female: Female
+      male: Male
+      other: Other
+  race:
+    label: Race
+    type: select
+    width: 1/2
+    options:
+      black: Black
+      white: White
+      other: Other
+  tags:
     label: Tags
     type: tags
     index: all

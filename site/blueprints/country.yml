@@ -1,0 +1,17 @@
+title: Country
+pages: false
+files:
+  sortable: true
+fields:
+  title:
+    label: Title
+    type: text
+  continent:
+    label: Continent
+    type: select
+    options:
+      africa: Africa
+      europe: Europe
+      north-america: North America
+      asia: Asia
+      australia: Australia

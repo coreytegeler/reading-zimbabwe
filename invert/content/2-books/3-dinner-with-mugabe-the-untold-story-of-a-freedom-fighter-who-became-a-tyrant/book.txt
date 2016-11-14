@@ -1,0 +1,97 @@
+Title: Dinner with Mugabe
+
+----
+
+Author: 
+
+----
+
+Language: English
+
+----
+
+Hardcover: false
+
+----
+
+Hardcovercount: 
+
+----
+
+Paperback: true
+
+----
+
+Paperbackcount: 
+
+----
+
+Publisher: 
+
+----
+
+Publisherlink: 
+
+----
+
+Publisheddate: 
+
+----
+
+Publishedloation: Johannesburg
+
+----
+
+Isbn10: 
+
+----
+
+Isbn13: 
+
+----
+
+Category: mugabe
+
+----
+
+Tags: 
+
+----
+
+Synopsis: This penetrating, timely portrait of robert mugabe is the psychobiography of a man whose once brilliant career has ruined zimbabwe and cast shame on the african continent heidi Holland's tireless investigation begins with her having dinner with mugabe, the freedom fighter, and ends in a searching interview with Zimbabwe's president more than 30 years later the author charts Mugabe’s gradual self-destruction, and uncovers some of the most respectable international players in the zimbabwe tragedy probing the mystery of African’s loyalty to one of its worst dictators, holland explores the contradictions that cloud the life of the man who had embodied a continents promise
+
+----
+
+Review: If you want to understand the situation in Zimbabwe Holland makes it accessible and her analysis of Mugabe's character is logical and based on painstaking research.
+
+----
+
+Aboutauthor: Heidi Holland, also known as Heidi Hull, was a South African journalist.
+
+----
+
+Alt: false
+
+----
+
+Year: 2009
+
+----
+
+Isbnx: 0141040793
+
+----
+
+Isbnxiii: 978-0141040790
+
+----
+
+Subtitle: The Untold Story of a Freedom Fighter Who Became a Tyrant
+
+----
+
+City: 
+
+----
+
+Status: 

@@ -1,0 +1,11 @@
+body.category {
+	.tabs#filterButtons {
+		position: absolute;
+	}
+	section.intro {
+		padding-bottom: 0;
+		.text {
+			@include baseText;
+		}
+	}
+}

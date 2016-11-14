@@ -17,8 +17,14 @@ body.search {
 		}
 	}
 	section#shelf {
-		min-height: calc(100% - #{$patternWidth}*9);
+		padding-top: $patternWidth;
+		min-height: calc(100% - #{$patternWidth}*7);
 		.noResults {
+			margin: 0;
+			color: $medium;
+		}
+		.template {
+			text-transform: capitalize;
 			color: $medium;
 		}
 	}

@@ -1,0 +1,89 @@
+Alt: false
+
+----
+
+Title: Lifebuoy Men, Lux Women
+
+----
+
+Author: timothy-burke
+
+----
+
+Language: English
+
+----
+
+Category: colonialism, disease-health, whiteness-in-zimbabwe
+
+----
+
+Hardcover: false
+
+----
+
+Hardcovercount: 
+
+----
+
+Paperback: true
+
+----
+
+Paperbackcount: 312
+
+----
+
+Publisher: duke-university-press
+
+----
+
+Publisherlink: https://www.dukeupress.edu/
+
+----
+
+Publisheddate: 
+
+----
+
+Year: 1996
+
+----
+
+Publishedloation: Durham, North Carolina
+
+----
+
+Isbnx: 0822317621
+
+----
+
+Isbnxiii: 978-0822317623
+
+----
+
+Tags: 
+
+----
+
+Synopsis: How do people come to need products they never even knew they wanted? How, for example, did indigenous Zimbabweans of the 1940s begin to believe that they required Lifebuoy soap? Offering a glimpse into the intimate workings of modern colonialism and global capitalism, Timothy Burke takes up these questions in Lifebuoy Men, Lux Women, a study of post-World War II commodity culture in Zimbabwe. With particular attention to cosmetic products and the contrast between colonial and pre-colonial ideas of cleanliness, Burke examines the role played by commodity culture, changing patterns of consumption, and the spread of advertising in the making of modern Zimbabwe.
+
+----
+
+Review: An exciting and original contribution to a number of areas of study: the history of Africa, the history of the body, and the history of commodification. It is clearly the result of painstakingly thorough research combined with considerable analytical skill and historical imagination. It is one of the few pieces of African historical writing I have read recently which successfully combines empirical research with a real grasp of theory.--Megan Anne Vaughan, Oxford University
+
+----
+
+Aboutauthor: Timothy Burke is a professor in the Department of History at Swarthmore College, located just outside of Philadelphia.
+
+----
+
+Subtitle: Commodification, Consumption, and Cleanliness in Modern Zimbabwe
+
+----
+
+City: durham-nc
+
+----
+
+Status: The book is available in North America, not in Zimbabwe.

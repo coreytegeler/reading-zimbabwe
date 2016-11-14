@@ -1,7 +1,7 @@
 title: Book
 pages: false
 files:
-  sortable: true
+  limit: 1
 fields:
   title:
     label: Title
@@ -47,6 +47,16 @@ fields:
     width: 1/2
     default: false
   paperBackCount:
+    label: Page Count
+    type: text
+    width: 1/2
+  eBook:
+    label: eBook
+    type: toggle
+    text: yes/no
+    width: 1/2
+    default: false
+  eBookCount:
     label: Page Count
     type: text
     width: 1/2

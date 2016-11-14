@@ -15,9 +15,12 @@ for more information: http://getkirby.com/license
 
 */
 
-c::set('license', 'put your license key here');
-c::set('autopublish.templates', array('book', 'category', 'author', 'publisher', 'city'));
-c::set('scssNestedCheck', true);
+c::set( 'license', 'put your license key here' );
+c::set( 'autopublish.templates', array(
+	'book', 'category', 'author', 'city', 'symbol', 'term', 'publisher'
+));
+c::set( 'scssNestedCheck', true );
+c::set( 'cache.ignore', array( 'sitemap' ) );
 
 /*
 

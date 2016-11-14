@@ -1,0 +1,17 @@
+Title: Ian Smith
+
+----
+
+Text: Ian Smith was a politician, farmer and fighter pilot who served as Prime Minister of Rhodesia (now Zimbabwe) from 1964 to 1979.
+
+----
+
+Tags: 
+
+----
+
+Firstname: Ian
+
+----
+
+Surname: Smith

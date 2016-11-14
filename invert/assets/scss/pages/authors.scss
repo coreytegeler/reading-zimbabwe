@@ -1,0 +1,24 @@
+body.authors {
+	.inner {
+		width: 100%;
+	}
+	#shelf {
+		display: table;
+		.item {
+			width: calc(50% - #{$patternWidth});
+			float: left;
+			margin-right: $patternWidth;
+			font-family: 'Libre Baskerville';
+			@include medium {
+				width: 100%;
+				margin-right: 0;
+			}
+			h3 {
+				@include mediumText;
+				font-weight: normal;
+				text-transform: uppercase;
+				margin: 0;
+			}
+		}
+	}
+}

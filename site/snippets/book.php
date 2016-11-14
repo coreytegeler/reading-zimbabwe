@@ -10,6 +10,7 @@ if( $authors ) {
 }
 $bookYear = $book->year();
 $bookCity = $book->city();
+$bookPublisher = $book->publisher();
 $bookCategories = $book->category();
 if( $bookCategories ) {
   $bookCategoriesArray = $bookCategories->split(',');
@@ -22,10 +23,10 @@ if( $files->first() ) {
   $hasCover = false;
 }
 
-echo '<div class="book item ' . ($hasCover ? 'hasCover' : 'noCover') . '" data-slug="' . $bookSlug . '" data-year="' . $bookYear . '" data-category="' . $bookCategories . '" data-location="' . $bookCity . '" data-index="' . $index . '">';
+echo '<div class="book item ' . ($hasCover ? 'hasCover' : 'noCover') . '" data-slug="' . $bookSlug . '" data-year="' . $bookYear . '" data-category="' . $bookCategories . '" data-location="' . $bookCity . '" data-index="' . $index . '" data-publisher="' . $bookPublisher . '" >';
   echo '<a href="' . $bookLink . '">';
     if( $hasCover ) {
-      echo '<img class="cover"/ data-src="' . $cover . '">';
+      echo '<img class="cover" data-source="' . $cover . '">';
     }
     echo '<div class="inner">';
       echo '<div class="title">';
@@ -53,23 +54,23 @@ echo '<div class="book item ' . ($hasCover ? 'hasCover' : 'noCover') . '" data-s
       }
     echo '</div>';
     echo '<div class="patterns">';        
-      if( sizeof( $bookCategoriesArray ) >= 1 ) {
-        $j = 0;
-        for ( $i = 0; $i < 14; $i++ ) {
-          if( $j > ( sizeof( $bookCategoriesArray ) - 1 ) ) { $j = 0; }
+      $j = 0;
+      for ( $i = 0; $i < 18; $i++ ) {
+        if( $j > ( sizeof( $bookCategoriesArray ) - 1 ) ) { $j = 0; }
+        if( is_array( $bookCategoriesArray ) && sizeof( $bookCategoriesArray ) > 0 ) {
           $bookCategory = $bookCategoriesArray[$j];
           $categoryPage = $pages->find( 'category' )->children()->find( $bookCategory );
           $categorySymbol = null;
           if( $categoryPage ) {
             $categorySymbol = $categoryPage->symbol();
           }
-          if( !$categorySymbol || $categorySymbol == '' ) {
-            $categorySymbol = 'default';
-          }
-          $bookSvgUrl = '/assets/images/symbols/' . $categorySymbol . '.png';
-          echo '<div class="pattern" style="background-image:url(' . $site->url() . $bookSvgUrl . ')"></div>';
-          $j++;
         }
+        if( !isset( $categorySymbol ) || $categorySymbol == '') {
+          $categorySymbol = 'default';
+        }
+        $symbolUrl = kirby()->urls()->assets() . '/images/symbols/' . $categorySymbol . '.svg';
+        echo '<div class="pattern" style="background-image:url(' . $symbolUrl . ')"></div>';
+        $j++;
       }
     echo '</div>';
   echo '</a>';

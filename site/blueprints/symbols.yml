@@ -1,0 +1,11 @@
+title: Symbols
+pages:
+  template: symbol
+files: false
+fields:
+  title:
+    label: Title
+    type: text
+  note:
+    label: Note
+    type: textarea

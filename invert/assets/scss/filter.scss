@@ -1,0 +1,170 @@
+.relative {
+	position: relative;
+}
+#filter {
+	.tabs {
+		width: 100%;
+		min-width: $minWidth;
+		max-height: 100%;
+		left: 0;
+		top: 0;
+		position: absolute;
+	  display: flex;
+	  flex-direction: column;
+	  z-index: 10;
+	  @include noTouch;
+		background-color: $highlight;
+	  .inner {
+	  	width: calc(100% - #{$patternWidth*8});
+	  	height: #{$patternHeight*3};
+	  	padding: 0 $patternWidth*3 0 $patternWidth*5;
+	  	color: $dark; 
+	  	display: table;
+	  	.vert {
+	  		display: table-cell;
+	  		vertical-align: middle;
+	  	}
+	  	&.hide {
+	  		opacity: 0;
+	  		pointer-events: none;
+	  	}
+	  	@include small {
+	  		width: calc(100% - #{$patternHeight}*4);
+	  		padding-left: $patternWidth;
+	  		padding-right: $patternWidth;
+	  	}
+	  	.tab {
+	  		padding: .5em 0 .5em 0;
+	  		text-align: center;
+				background: transparent;
+				color: $dark;
+		    margin-right: $patternWidth;
+		    float: left;
+		    display: table;
+		    span {
+		    	display: table;
+		    }
+		    @include small {
+		    	padding: .25em .5em .25em 0;
+		    }
+				&.button {
+					&:hover {
+						color: $light;
+						cursor: pointer;
+					}
+					&.selected {
+						color: $light;
+						&:hover {
+							color: $light;
+						}
+					}
+				}
+	  	}
+	  }
+		&.dummy {
+	  	position: relative !important;
+	  }
+	  &.fixed {
+	  	position: fixed !important;
+	  	z-index: 200;
+	  	@include small {
+	  		top: calc(#{$patternWidth} + 8px);
+	  	}
+	  }
+	}
+	#filterLists {
+		width: 100%;
+		height: #{$patternHeight*3};
+		overflow: hidden;
+		display: none;
+		z-index: 10;
+		flex-grow: 1;
+		background-color: $highlight !important;
+		overflow-x: hidden;
+		overflow-y: auto;
+		.inner {
+			width: 100%;
+			padding: 0;
+			position: relative;
+			display: block;
+		}
+		&.show {
+			display: flex;
+		}
+		.page.filterList {
+			width: 100%;
+		}
+	}
+	.filterList {
+		width: 100%;
+		height: 100%;
+		display: none;
+		overflow: scroll;
+		background-color: $medium;
+		&.show {
+			display: block;
+		}
+		.filters {
+			height: 100%;
+			padding: 0 $patternWidth*3 0 $patternWidth*5;
+			font-weight: 700;
+			list-style: none;
+			white-space: normal;
+			display: table;
+			@include small {
+	  		padding-left: $patternHeight;
+	  		padding-bottom: #{$patternHeight/2};
+	  	}
+			.filter {
+				background-color: transparent;
+				margin: 0 $patternWidth 0 0;
+				border-color: transparent;
+				color: $dark;
+				display: table;
+				float: left;
+				@include small {
+					margin: 0 #{$patternHeight} #{$patternHeight/2} 0;
+				}
+				&.selected {
+					color: $light;
+					&:hover {
+						color: $light;
+					}
+				}
+				&:hover {
+					color: $light;
+				}
+			}
+		}
+	}
+	.view {
+		display: table;
+		padding: .5em; 
+		float: left;
+	  &:hover {
+			cursor: pointer;
+			color: $medium;
+		}
+	  .option {
+	  	display: block;
+	  	&.hidden {
+	  		display: none;
+	  	}
+	  }
+	}
+	&.bottom {
+		.dummy {
+			position: static !important;
+		}
+		#filterButtons {
+			width: 100%;
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			top: auto;
+			&.fixed {
+				position: absolute !important;
+			}
+		}
+	}
+}

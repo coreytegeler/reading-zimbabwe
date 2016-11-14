@@ -1,71 +1,78 @@
 body.book {
+	background-color: $light;
 	main {
 		width: 100%;
 		padding: 0;
-		.patterns {
-			.pattern {
-				background-color: transparent;
-				width: 100%;
-				height: $patternHeight;
-			}
-		}
 		section#book {
 			width: calc(100% - #{$patternWidth*6});
+			min-height: calc(100% - #{$patternHeight*4});
+			padding-top: #{$patternHeight*6.5};
+			padding-bottom: $patternWidth;
 			color: $dark;
 			font-family: 'Libre Baskerville';
 			a {
 				border-bottom: 1px solid;
 			}
 			.title {
-				width: calc(100% - #{$patternWidth*8});
+				width: calc(100% - #{$patternWidth*10});
+				max-width: 800px;
+				padding: 0 $patternWidth*2 $patternWidth $patternWidth*8;
 				text-align: center;
-				display: table;
-				margin: auto;
-				@include tablet {
+				@include medium {
 					width: 100%;
+					padding-left: 0;
+					max-width: 100%;
 				}
 			}
 			h1 {
-				@include xLargeText;
+				width: 100%;
+				@include largeText;
 				font-weight: normal;
 				margin: 0;
-				// text-transform: uppercase;
+				&.sub {
+					color: $medium;
+					margin-bottom: $patternHeight;
+				}
 			}
-			h2 {
-				@include xLargeText;
-				color: $medium;
-				font-weight: normal;
-				margin: 0 0 $patternHeight 0;				
-			}
-			h3 {
-				line-height: 1.8em;
+			h3, h4 {
+				@include mediumText;
+				letter-spacing: 1px;
 				width: 100%;
 				font-weight: normal;
-				letter-spacing: 1px;
 				text-transform: uppercase;
 				text-align: center;
-				margin: 0 0 $patternWidth 0;
-				@include noTouch;
+				margin: 0 0 $patternHeight 0;
+				cursor: default;
 				cursor: default;
 				&.author {
-					padding-top: $patternWidth;
+					@include baseText;
+					width: auto;
+					display: table;
+					margin: 5px auto 0 auto;
+					text-align: center;
+					padding-top: 0;
 				}
 			}
 		}
 		#content {
 			position: relative;
 			display: flex;
-			padding: $patternWidth*3 0 $patternWidth*3 0;
-			@include phone {
+			padding: $patternWidth 0 $patternWidth 0;
+			@include medium {
 				display: block;
 				padding-top: 0;
 			}
-			.meta {
+			.side {
+				display: table;
 				width: calc(#{$patternWidth*6});
-				@include smallText;
+				font-size: 19px;
+				@include medium {
+					padding-bottom: $patternWidth;
+				}
 				ul {
+					@include smallText;
 					margin: 0;
-					padding: .8em 0 0 0;
+					padding: 0 0 1em 0;
 					li {
 						width: 100%;
 						margin: 0;
@@ -79,18 +86,64 @@ body.book {
 								content: ' ';
 							}
 						}
+						&.share {
+							display: none;
+							@include medium {
+								display: table;
+							}
+						}
 					}
 				}
 				.cover {
+					padding: 0 0 1em 0;
 					width: 100%;
 					img {
-						padding-top: 1em;
 						width: 100%;
+						max-width: calc(#{$patternWidth*6});
+						vertical-align: middle;
 					}
 				}
-				@include phone {
+				.share {
+					display: table;
+					margin: auto;
+					a {
+						width: $patternWidth;
+						height: $patternWidth;
+						margin-right: 5px;
+						float: left;
+						background-color: transparent;
+						background-position: center;
+						background-repeat: no-repeat;
+						background-size: $patternWidth;
+						text-decoration: none;
+						border: none;
+						&.facebook {
+							background-image: url(/assets/images/facebook.svg);
+						}
+						&.twitter {
+							background-image: url(/assets/images/twitter.svg);	
+						}
+					}
+					@include medium {
+						display: none;
+					}
+				}
+				@include medium {
 					width: 100%;
-					@include mediumText;
+					h3 {
+						display: none;
+					}
+					ul, .cover {
+						width: 50%;
+						float: left;
+					}
+					.cover img {
+						width: calc(100% - #{$patternHeight});
+						padding-right: $patternHeight;
+					}
+				}
+				@include xSmall {
+					width: 100%;
 					h3 {
 						display: none;
 					}
@@ -98,9 +151,8 @@ body.book {
 			}
 			.texts {
 				width: calc(100% - #{$patternWidth*8});
-				font-family: 'Libre Baskerville';
-				line-height: 1.5em;
-				font-weight: normal;
+				font-family: $serif;
+				@include baseText;
 				.text {
 					width: calc(100% - #{$patternWidth*2});
 					max-width: 800px;
@@ -130,7 +182,7 @@ body.book {
 						}
 					}
 				}
-				@include phone {
+				@include medium {
 					width: 100%;
 					.text {
 						width: 100%;
@@ -145,8 +197,14 @@ body.book {
 		margin-bottom: 0;
 		padding-top: 0;
 		min-height: 0;
-		.book {
-			
+		background-color: $light;
+		h3 {
+			padding-top: $patternHeight;
+			text-align: center;
+			border-top: 1px solid $dark;
+		}
+		.book a {
+			background-color: $dark;
 		}
 	}
 	section#categories {

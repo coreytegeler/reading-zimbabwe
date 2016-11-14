@@ -1,0 +1,95 @@
+body.lexicon {
+	section#lexicon {
+		min-height: auto;
+		padding: $patternHeight $patternWidth*3 $patternWidth $patternWidth*5;
+		display: table;
+		.inner {
+			width: 100%;
+			max-width: 100%;
+			padding: 0;
+			.text {
+				font-family: $serif;
+				@include largeText;
+				a {
+					border-bottom: 1px solid;
+				}
+			}
+		}
+		h3, h4 {
+			@include mediumText;
+			font-family: $serif;
+			letter-spacing: 1px;
+			width: 100%;
+			font-weight: normal;
+			text-transform: uppercase;
+			text-align: center;
+			margin: 0 0 $patternHeight 0;
+			cursor: default;
+			cursor: default;
+			&.author {
+				@include baseText;
+				width: auto;
+				display: table;
+				margin: 5px auto 0 auto;
+				text-align: center;
+				padding-top: 0;
+			}
+		}
+		.row {
+			width: 100%;
+			display: table;
+			padding-bottom: $patternWidth;
+			.name {
+				width: calc(#{$patternWidth*6});
+				float: left;
+				text-align: center;
+				text-transform: uppercase;
+				.icon {
+					width: calc(#{$patternWidth*6});
+					height: calc(#{$patternWidth*3});
+					background-position: -999999999px;
+					background-repeat: no-repeat;
+					background-size: $patternWidth;
+					float: left;
+					background-image: none;
+					display: block;
+					svg {
+						width: calc(#{$patternWidth*6});
+						height: calc(#{$patternWidth*3});
+					}
+					&:hover {
+						background-position: top left;
+						background-repeat: repeat;
+						// cursor: none;
+						svg {
+							opacity: 0;
+						}
+					}
+				}
+				.caption {
+					font-family: $sansItalic;
+					@include smallText;
+					text-align: center;
+					text-transform: none;
+				}
+			}
+			.definition, .note {
+				width: calc(100% - #{$patternWidth*9});
+				max-width: 800px;
+				float: left;
+				display: table;
+				font-family: $serif;
+				@include baseText;
+				padding: 0 0 0 #{$patternWidth};
+			}
+			.note {
+				font-family: $serif;
+				padding-left: #{$patternWidth*7};
+				.text {
+					@include smallText;
+					margin: 0;	
+				}
+			}
+		}
+	}
+}

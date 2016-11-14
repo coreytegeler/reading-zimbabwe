@@ -2,6 +2,10 @@
 	// min-height: calc(100% - #{$patternHeight*6});
 	background: $light;
 	position: relative;
+	font-size: 19px;
+	@include small {
+  	font-size: 13px;
+  }
 	.horz {
 		display: table;
 		margin: auto;
@@ -13,13 +17,30 @@
 	.group {
 		width: 100%;
 		display: table;
+		border-bottom: 1px solid $dark;
+		padding: #{$patternWidth} 0 $patternWidth 0;
+		&:first-child {
+			padding-top: 0;
+		}
+		&:last-child {
+			padding-bottom: 0;
+		}
+		.no {
+			color: $medium;
+			padding-bottom: 20px;
+			span {
+				text-transform: capitalize;
+			}
+		}
 		.subgroup {
 			width: 100%;
 			padding-top: $patternHeight;
 		}
 	}
-	.book.hide {
-  	display: none !important;
+	.book {
+		&.hide {
+	  	display: none !important;
+	  }
   }
 	&.grid, &.covers {
 		.subgroup {
@@ -33,36 +54,60 @@
 			flex-direction: row;
 		}
 		.book {
-			font-size: 19px;
-			width: calc(#{$patternWidth} * 5);
+			width: calc(#{$patternHeight} * 10);
 	    margin: 0 #{$patternWidth} #{$patternHeight*2} 0;
-	    display: flex;
+	    display: table;
 	    float: left;
 	    @include noTouch;
 	    &.hide {
 	    	display: none;
-	    }
-	    @include tablet {
-	    	margin-left: auto;
-	    	margin-right: auto;
 	    }
 			a {
 				width: 100%;
 				height: 100%;
 				display: table;
 				align-self: flex-end;
-				background-color: $dark;
 				background-size: 10px;
 				background-repeat: no-repeat;
 		    background-position: -999999px;
+		    color: white;
 			}
 		}
 	}
-	&.grid .book, &.covers .book.noCover {
-		height: calc(#{$patternHeight} * 14);
+	&.grid .book, &.covers .book {
+		height: calc(#{$patternHeight} * 13);
 		color: $light;
     font-family: 'Libre Baskerville';
     font-weight: normal;
+    a {
+    	position: relative;
+    }
+    &.noCover {
+    	border: 1px solid $dark;
+    	* {
+	    	color: $dark;
+	    }
+    }
+    &:hover {
+    	display: block;
+    	overflow: hidden;
+    	background-color: transparent;
+    	border-color: transparent;
+    	a {
+    		background-color: transparent;
+    	}
+    	.inner, img {
+	    	visibility: hidden;
+	    }
+	    .patterns {
+	    	display: block;
+	    }
+    }
+    @include small {
+    	width: calc(#{$patternHeight} * 7);
+			height: calc(#{$patternHeight} * 10);
+    	margin: 0 #{$patternHeight/2} #{$patternHeight/2} 0;
+    }
 		.inner {
 			width: calc(100% - 1em);
 			height: 100%;
@@ -92,7 +137,11 @@
 		.patterns {
 			width: 100%;
 			height: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
 			display: none;
+			overflow: hidden;
 			.pattern {
     		width: 100%;
     		height: $patternHeight !important;
@@ -103,26 +152,10 @@
 			display: none;
 		}
 	}
-	&.grid {
-		.book {
-			&:hover {
-	    	display: block;
-	    	overflow: hidden;
-	    	background-color: transparent;
-		    .inner {
-		    	display: none !important;
-		    }
-		    .patterns {
-		    	display: block;
-		    }
-			}
-		}
-	}
 	&.covers {
 		.book {
 			&.hasCover {
 				height: calc(#{$patternHeight} * 14);
-				background: $medium;
 				display: table;
 				.inner {
 					display: none;
@@ -152,16 +185,21 @@
 		.subgroup {
 			display: table;
 		}
+		.patterns {
+			display: none;
+		}
 		.item {
-			width: 100%;
-			padding: $patternHeight 0;
+			width: calc(100% - #{$patternWidth*10});
+			padding: 0 0 $patternWidth 0;
 			display: flex;
-			a {
+			@include medium {
 				width: 100%;
-				display: block;
+			}
+			a {
+				display: table;
 				&:hover {
 					.inner * {
-						color: $highlight !important;
+						color: black !important;
 					}
 				}
 				.cover {
@@ -170,30 +208,27 @@
 				.inner {
 					width: 100%;
 					.title {
-						width: 100%;
-						font-family: 'Libre Baskerville';
-						font-size: 2.5em;
-						line-height: 1.3em;
+						display: table;
+						font-family: $serif;
 						font-weight: normal;
+						@include mediumText;
 						margin: 0;
 					}
 					.subtitle {
-						font-family: 'Libre Baskerville';
-						font-size: 2.5em;
-						line-height: 1.3em;
+						display: table;
+						margin: 0;	
+						font-family: $serif;
 						color: $medium;
 						font-weight: normal;
-						margin: 0 0 $patternHeight 0;	
+						@include mediumText;
 					}
 					.author {
 						width: 100%;
-						font-family: 'Libre Baskerville';
-						font-size: 1em;
-						line-height: 1.2em;
+						font-family: $serif;
+						@include smallText;
 						font-weight: normal;
 						letter-spacing: 1px;
-						text-transform: uppercase;
-						margin: 0 0 $patternWidth 0;
+						text-transform: uppercase;						
 						@include noTouch;
 						cursor: default;
 					}
@@ -203,14 +238,31 @@
 
 						}
 					}
-					.template {
-						text-transform: capitalize;
-					}
 				}
 			}
 		}
-		.sublabel {
-			
+		.columns {
+			column-count: 3;
+			column-gap: $patternHeight;
+			@include medium {
+				column-count: 2;
+			}
+			@include small {
+				column-count: 2;
+			}
+			@include xSmall {
+				column-count: 1;
+				column-gap: 0;
+			}
+			.item {
+				width: 100%;
+				margin: 0;
+				break-inside: avoid;
+				padding: 0 0 $patternHeight 0;
+				&.book {
+					padding-bottom: $patternWidth;
+				}
+			}
 		}
 	}
 	.break {
@@ -230,7 +282,7 @@
     span {
     	width: 100%;
     	display: block;
-    	font-family: 'Libre Baskerville';
+    	font-family: $serif;
     	font-size: 2.5em;
     	font-weight: normal;
     	line-height: 1.1em;
@@ -256,8 +308,8 @@
 
 		}
     span {
-    	font-size: 1em;
-    	line-height: 1.1em;
+    	// font-size: 1em;
+    	// line-height: 1.1em;
     }
 	}
 	.sublabel.empty:not(.year) {

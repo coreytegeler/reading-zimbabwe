@@ -1,0 +1,10 @@
+title: Term
+pages: flase
+files: false
+fields:
+  title:
+    label: Title
+    type: text
+  definition:
+    label: Definition
+    type: textarea

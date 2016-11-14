@@ -4,6 +4,7 @@
 #filter {
 	.tabs {
 		width: 100%;
+		min-width: $minWidth;
 		max-height: 100%;
 		left: 0;
 		top: 0;
@@ -12,50 +13,54 @@
 	  flex-direction: column;
 	  z-index: 10;
 	  @include noTouch;
-		background-color: $highlight;
+		background-color: $light;
 	  .inner {
 	  	width: calc(100% - #{$patternWidth*8});
+	  	height: #{$patternHeight*3};
 	  	padding: 0 $patternWidth*3 0 $patternWidth*5;
-	  	color: $dark; 
 	  	display: table;
+	  	.vert {
+	  		display: table-cell;
+	  		vertical-align: middle;
+	  	}
 	  	&.hide {
 	  		opacity: 0;
 	  		pointer-events: none;
 	  	}
-	  	@include tablet {
-	  		width: calc(100% - #{$patternHeight}*2);
-	  		padding-left: $patternHeight;
-	  		padding-right: $patternHeight;
-	  	}
 	  	.tab {
-	  		padding: .5em;
+	  		padding: .5em 0 .5em 0;
 	  		text-align: center;
 				background: transparent;
-				color: $dark;
-		    margin-right: .5em;
+				color: $dark; 
+		    margin-right: $patternWidth;
 		    float: left;
 		    display: table;
 		    span {
 		    	display: table;
 		    }
-				&.button {
-					&:hover {
-						color: $medium;
-						cursor: pointer;
-					}
+		    @include small {
+		    	padding: .25em .5em .25em 0;
+		    }
+				&.tab {
 					&.selected {
-						color: $medium;
+						color: black;
 						&:hover {
 							color: $medium;
 						}
 					}
+					&:hover {
+						color: $medium;
+						cursor: pointer;
+					}
 				}
-				&.view {
-					float: right;
-				}
-				&.filter {
-					
-				}
+	  	}
+	  	@include small {
+	  		width: calc(100% - #{$patternHeight}*2);
+	  		padding-left: $patternHeight;
+	  		padding-right: $patternHeight;
+	  		.tab {
+	  			padding: .25em 0 .25em 0;
+	  		}
 	  	}
 	  }
 		&.dummy {
@@ -64,69 +69,75 @@
 	  &.fixed {
 	  	position: fixed !important;
 	  	z-index: 200;
-	  	@include tablet {
+	  	@include small {
 	  		top: calc(#{$patternWidth} + 8px);
 	  	}
 	  }
 	}
 	#filterLists {
 		width: 100%;
+		height: #{$patternHeight*3};
 		overflow: hidden;
-		display: none;
+		display: table;
 		z-index: 10;
 		flex-grow: 1;
-		background-color: $highlight !important;
 		overflow-x: hidden;
 		overflow-y: auto;
+		background-color: $dark;
 		.inner {
-			max-height: calc(100% - #{$patternWidth*5});
 			width: 100%;
 			padding: 0;
 			position: relative;
+			display: block;
 		}
 		&.show {
 			display: table;
 		}
-		.page.filterList {
-			width: 100%;
-		}
 	}
 	.filterList {
-		width: 100%;
+		width: calc(100% - #{$patternWidth*8});
+  	height: #{$patternHeight*3};
+  	padding: 0 $patternWidth*3 0 $patternWidth*5;
 		height: 100%;
 		display: none;
 		overflow: scroll;
+		background-color: $dark;
 		&.show {
-			display: block;
+			display: table;
+		}
+		@include small {
+			width: calc(100% - #{$patternHeight*2});
+			padding: 0 $patternHeight;
 		}
 		.filters {
-			padding: $patternHeight $patternHeight 0 $patternWidth*5;
-			background: $medium;
+			height: 100%;
 			font-weight: 700;
 			list-style: none;
 			white-space: normal;
-			background-color: $medium;
-			@include tablet {
-	  		padding-left: $patternHeight;
-	  		padding-bottom: #{$patternHeight/2};
+			display: table;
+			@include small {
+	  		padding: 0;
+	  		display: table-cell;
+		    vertical-align: middle;
 	  	}
 			.filter {
 				background-color: transparent;
-				margin: 0 $patternHeight $patternHeight $patternHeight;
+				margin: 0 $patternWidth 0 0;
 				border-color: transparent;
-				color: $highlight;
-				display: inline-table;
-				@include tablet {
-					margin: 0 #{$patternHeight/2} #{$patternHeight/2} #{$patternHeight/2};
+				color: $light;
+				display: table;
+				float: left;
+				@include small {
+					margin: #{$patternHeight/4} #{$patternHeight} #{$patternHeight/4} 0;
 				}
 				&.selected {
-					color: $dark;
+					color: black;
 					&:hover {
-						color: $dark;
+						color: $medium;
 					}
 				}
 				&:hover {
-					color: $dark;
+					color: $medium;
 				}
 			}
 		}
@@ -135,6 +146,12 @@
 		display: table;
 		padding: .5em; 
 		float: left;
+		@include small {
+			display: none;
+		}
+		@include xSmall {
+			display: none;
+		}
 	  &:hover {
 			cursor: pointer;
 			color: $medium;
@@ -147,12 +164,18 @@
 	  }
 	}
 	&.bottom {
-		width: 100%;
-		position: absolute;
-		left: 0;
-		bottom: 0;
-		.fixed {
-			position: absolute !important;
+		.dummy {
+			position: static !important;
+		}
+		#filterTabs {
+			width: 100%;
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			top: auto;
+			&.fixed {
+				position: absolute !important;
+			}
 		}
 	}
 }

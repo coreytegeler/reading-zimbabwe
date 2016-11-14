@@ -1,0 +1,81 @@
+Alt: false
+
+----
+
+Title: African Laughter: Four Visits to Zimbabwe
+
+----
+
+Author: doris-lessing
+
+----
+
+Language: English
+
+----
+
+Category: autobiographies
+
+----
+
+Hardcover: false
+
+----
+
+Hardcovercount: 
+
+----
+
+Paperback: true
+
+----
+
+Paperbackcount: 464
+
+----
+
+Publisher: Harper Perennial
+
+----
+
+Publisherlink: http://harperperennial.tumblr.com/
+
+----
+
+Publisheddate: 
+
+----
+
+Year: 1993
+
+----
+
+Publishedloation: London
+
+----
+
+Isbnx: 0060924330
+
+----
+
+Isbnxiii: 978-0060924331
+
+----
+
+Tags: #travel
+
+----
+
+Synopsis: 
+
+----
+
+Review: 
+
+----
+
+Aboutauthor: Doris Lessing was a novelist, poet, playwright, librettist, biographer and short story writer. She won the Nobel Prize in 2008.
+
+----
+
+City: 

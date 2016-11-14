@@ -1,3 +1,18 @@
+<div id="subscribe" class="pattern">
+	<div class="inner">
+		<div class="row">
+			<input type="text" placeholder="Name"/>
+		</div>
+		<div class="row">
+			<input type="text" placeholder="Email"/>
+		</div>
+		<div class="row">
+			<input type="submit" value="Submit" class="submit"/>
+			<input type="submit" value="Cancel" class="cancel"/>
+		</div>
+	</div>
+</div>
+
 <footer>
 <div class="row search">
 	<?php
@@ -10,19 +25,30 @@
 	echo '</form>';
 	?>
 </div>
-<div class="row mail">
-	<a href="mailto:info@readingzimbabwe.com" target="_blank">
-		<span>info@readingzimbabwe.com</span>
+<?php snippet( 'categories' ) ?>
+<div class="row social instagram">
+	<a href="https://www.instagram.com/<?php echo $site->instagram() ?>/" target="_blank">
+		<span>@<?php echo $site->instagram() ?></span>
 	</a>
 </div>
 <div class="row social twitter">
-	<a href="https://www.twitter.com/readingzw/" target="_blank">
-		<span>@readingzw</span>
+	<a href="https://www.twitter.com/<?php echo $site->twitter() ?>/" target="_blank">
+		<span>@<?php echo $site->twitter() ?></span>
 	</a>
 </div>
-<div class="row social instagram">
-	<a href="https://www.instagram.com/readingzw/" target="_blank">
-		<span>@readingzw</span>
+<div class="row social soundcloud">
+	<a href="https://www.soundcloud.com/<?php echo $site->soundcloud() ?>/" target="_blank">
+		<span>Listen to Reading Zimbabwe</span>
+	</a>
+</div>
+<div class="row mail">
+	<a href="mailto:<?php echo $site->email() ?>" target="_blank">
+		<span><?php echo $site->email() ?></span>
+	</a>
+</div>
+<div class="row subscribe">
+	<a href="#">
+		<span>Join our mailing list</span>
 	</a>
 </div>
 <!-- <div id="colophon">

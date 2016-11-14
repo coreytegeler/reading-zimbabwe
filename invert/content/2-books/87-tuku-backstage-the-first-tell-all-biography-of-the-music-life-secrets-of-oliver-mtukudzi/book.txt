@@ -1,0 +1,77 @@
+Alt: false
+
+----
+
+Title: Tuku Backstage: The first tell all biography of the music, life & secrets of Oliver Mtukudzi
+
+----
+
+Author: Shepherd Mutamba
+
+----
+
+Language: English
+
+----
+
+Category: autobiographies
+
+----
+
+Hardcover: false
+
+----
+
+Hardcovercount: 
+
+----
+
+Paperback: true
+
+----
+
+Paperbackcount: 278
+
+----
+
+Publisher: Mhotsi Uruka
+
+----
+
+Publisherlink: http://www.boutiquebooks.co.za/bookpage.php?v1=Tuku%20Backstage
+
+----
+
+Publisheddate: 
+
+----
+
+Year: 2015
+
+----
+
+Publishedloation: Harare
+
+----
+
+Isbnx: 
+
+----
+
+Isbnxiii: 978-0-797-46221-2
+
+----
+
+Tags: 
+
+----
+
+Synopsis: 
+
+----
+
+Review: Shepherd Mutamba is a journalist and former Public Relations manager for Tuku Music.
+
+----
+
+Aboutauthor: 

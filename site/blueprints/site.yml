@@ -1,19 +1,20 @@
 title: Site
 pages: 
   template:
+    - about
     - default
-    - categories
     - books
-    - cities
-    - publishers
+    - categories
     - authors
+    - cities
+    - countries
+    - publishers
+    - lexicon
+    - symbols
     - search
 fields:
   title:
     label: Title
-    type:  text
-  author:
-    label: Author
     type:  text
   description:
     label: Description
@@ -21,6 +22,24 @@ fields:
   keywords:
     label: Keywords
     type:  tags
-  copyright:
-    label: Copyright
-    type:  textarea
+  email:
+    label: Email
+    type:  email
+    width: 1/2
+  soundcloud:
+    label: SoundCloud
+    type:  text
+    icon: soundcloud
+    width: 1/2
+  twitter:
+    label: Twitter
+    type:  text
+    help: Do not include '@'
+    icon: twitter
+    width: 1/2
+  instagram:
+    label: Instagram
+    type:  text
+    help: Do not include '@'
+    icon: instagram
+    width: 1/2

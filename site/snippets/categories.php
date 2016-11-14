@@ -1,8 +1,14 @@
 <?php
 echo '<section id="categories" class="categories bricks pattern">';
 echo '<div class="category brick">';
-	echo '<a href="/books" class="vert">';
-		echo '<div class="title">All Books</div>';
+	echo '<a href="/books">';
+		echo '<div class="title vert">All Books</div>';
+		$categorySymbol = 'default';
+		if( in_array( $page->slug(), array( 'lexicon', 'about' ) ) ) {
+    	$categorySymbol .= '-invert';
+    }
+    $symbolUrl = kirby()->urls()->assets() . '/images/symbols/' . $categorySymbol . '.svg';
+		echo '<div class="pattern" style="background-image:url(' . $symbolUrl . ')"></div>';
 	echo '</a>';
 echo '</div>';
 $categories = $pages->find( 'category' )->children()->visible();
@@ -10,12 +16,22 @@ if( $categories ) {
 	$index = 0;
 	foreach( $categories as $category ) {
 		$index++;
-		$catSlug = $category->slug();
-		$catText = $category->text()->kirbytext();
-		$catTitle = $category->title();
-		echo '<div class="category brick" data-category="' . $catSlug . '">';
-			echo '<a href="/category/' . $catSlug . '" class="vert">';
-					echo '<div class="title">' . $catTitle . '</div>';
+		$categorySlug = $category->slug();
+		$categoryText = $category->text()->kirbytext();
+		$categoryTitle = $category->title();
+
+		$categorySymbol = $category->symbol();
+		if( $categorySymbol->empty() ) {
+			$categorySymbol = 'default';
+		}
+		if( in_array( $page->slug(), array( 'lexicon', 'about' ) ) ) {
+    	$categorySymbol .= '-invert';
+    }
+		$symbolUrl = kirby()->urls()->assets() . '/images/symbols/' . $categorySymbol . '.svg';
+		echo '<div class="category brick" data-category="' . $categorySlug . '">';
+			echo '<a href="/category/' . $categorySlug . '">';
+					echo '<div class="title vert">' . $categoryTitle . '</div>';
+					echo '<div class="pattern" style="background-image:url(' . $symbolUrl . ')"></div>';
 				echo '</a>';
 		echo '</div>';
 	}

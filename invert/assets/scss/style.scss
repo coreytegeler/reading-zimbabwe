@@ -1,0 +1,344 @@
+@import 'https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900';
+@import 'vars';
+@import 'mixins';
+html, body {
+	width: 100%;
+	min-width: $minWidth;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: 'Archivo Black', 'Arial Black', Arial;
+  font-weight: 600;
+	color: $dark;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  font-size: 19px;
+  line-height: 1.3em;
+  @include medium {
+  	font-size: 15px;
+	  line-height: 1.3em;
+	  content: 'medium';
+  }
+  @include small {
+  	font-size: 17px;
+	  line-height: 1.3em;
+	  content: 'small';
+  }
+  @include xSmall {
+  	font-size: 17px;
+	  line-height: 1.3em;
+	  content: 'xSmall';
+  }
+}
+body {
+	background-color: $light;
+}
+h1 {
+	@include largeText();
+}
+main {
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+  &.noScroll {
+		overflow: hidden;		
+	}
+	@include small {
+		height: calc(100% - #{$patternWidth} - 8px) !important;
+		padding-top: calc(#{$patternWidth} + 8px) !important;
+	}
+}
+section {
+	width: calc(100% - #{$patternWidth*8});
+	padding: $patternWidth*2 $patternWidth*3 $patternWidth*3 $patternWidth*5;
+	margin: 0;
+	position: relative;
+	@include small {
+		width: calc(100% - #{$patternWidth*2}) !important;
+		padding: $patternWidth !important;
+	}
+	.middle {
+		min-height: 100%;
+		display: block;
+		font-weight: normal;
+		padding: 0 $patternWidth;
+		.inner {
+			max-width: 700px;
+			padding: $patternHeight*2 0;
+			// margin: auto;
+			// display: table;
+		}
+	}
+	&.intro {
+		padding-top: $patternHeight;
+		.inner {
+			width: calc(100% - #{$patternWidth*8});
+			display: table;
+			margin: auto;	
+			font-weight: normal;
+			letter-spacing: 1px;
+			h1 {
+				text-align: center;
+				display: table;
+				margin: 0 auto $patternWidth auto;
+				@include largeText;
+				.beta {
+					font-size: .5em;
+			    line-height: 1.3em;
+			    text-transform: uppercase;
+			    opacity: .2;
+				}
+			}
+			.text {
+				font-family: 'Libre Baskerville';
+				font-weight: normal;
+				@include baseText;
+			}
+			// .horz {
+			// 	padding: $patternWidth*2;
+			// 	max-width: 900px;
+			// }
+		}
+	}
+}
+
+////////////////////////////////////////////////
+a, a:visited {
+	color: inherit;
+	text-decoration: none;
+	&:hover {
+		// color: $highlight;
+	}
+}
+select, input {
+  background: $dark;
+  border: solid 1px $black;
+  border-radius: 4px;
+	font-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+	-webkit-appearance: none;
+  outline: none;
+  font-family: Helvetica Neue;
+	font-weight: 600;
+}
+select {
+	&:hover {
+		cursor: pointer;
+	}
+}
+.pattern {
+	background-image: url(/assets/images/pattern.png);
+  background-size: $patternWidth;
+  background-repeat: repeat;
+	background-color: $light;
+	color: $light;
+	&.invert {
+		background-image: url(/assets/images/pattern.png);
+		background-color: $light;
+		color: $dark;
+	}
+}
+p {
+	margin: 0;
+	&:not(:first-child) {
+		margin-bottom: 1em;
+	}
+}
+////////////////////////////////////////////////
+////////////////////////////////////////////////
+aside {
+	width: $patternWidth;
+	height: 0;
+	position: fixed;
+	left: $patternWidth*2;
+	top: #{$patternHeight*8};
+	z-index: 100;
+	display: table;
+	pointer-events: none;
+	@include small {
+		width: 100%;
+		min-width: $minWidth;
+		height: $patternWidth;
+		left: 0 !important;
+		top: 0 !important;
+		background-color: $light;
+	}
+	.inner {
+		display: table-cell;
+		vertical-align: middle;
+		@include small {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+		}
+		.button {
+			width: $patternWidth;
+			height: $patternWidth;
+			// background: $light;
+			margin: 0 0 $patternHeight 0;
+			cursor: pointer;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: $patternWidth;
+			pointer-events: all;
+			@include small {
+				display: table;
+				margin: auto;
+				padding: 4px;
+				background-size: calc(#{$patternWidth} - 10px);
+			}
+			a {
+				width: 100%;
+				height: 100%;
+				display: block;
+			}
+			&.home {
+				background-image: url(/assets/images/side/home.svg);
+			}
+			&.about {
+				background-image: url(/assets/images/side/about.svg);
+			}
+			&.books {
+				background-image: url(/assets/images/side/book.svg);
+			}
+			&.authors {
+				background-image: url(/assets/images/side/author.svg);
+			}
+			&.search {
+				background-image: url(/assets/images/side/search.svg);
+			}
+		}
+		.symbol {
+			width: $patternWidth;
+			height: $patternHeight;
+			margin-bottom: $patternHeight;
+			background-image: url(/assets/images/pattern.png);
+			background-size: $patternWidth;
+		}
+	}
+}
+////////////////////////////////////////////////
+////////////////////////////////////////////////
+.search {
+	form {
+		height: $patternHeight*6;
+		input {
+			height: $patternHeight*6;
+			font-family: 'Archivo Black', 'Arial Black', Arial;
+			font-size: 3em;
+			line-height: 1.3em;
+			color: $dark;
+			border: 0;
+			border-radius: 0;
+			padding: $patternHeight $patternHeight $patternHeight 0;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			text-align: center;
+		}
+		input[type="search"] {
+			width: 100%;
+		}
+		input[type="submit"] {
+			width: 20%;	
+			display: none;
+		}
+	}
+}
+.folder {
+	position: relative;
+}
+
+
+.bricks {
+	font-size: 1em;
+	line-height: 1.2em;
+	font-weight: 700;
+	list-style: none;
+	white-space: normal;
+	background-color: $light;
+	background-image: url(/assets/images/pattern.png);
+	.brick {
+		height: calc(#{$patternHeight*4} - 6px);
+		margin: 0 #{$patternHeight*2} #{$patternHeight*2} 0;
+		display: inline-table;
+		color: $dark;
+		background-color: $light;
+		border-style: solid;
+		border-color: $light;
+		border-width: 3px 0;
+		@include noTouch;
+		@include xSmall {
+			width: 100%;
+			display: block;
+			margin-bottom: $patternHeight;
+		}
+		a {
+			height: 100%;
+			line-height: 1em;
+	    display: table;
+	    margin: auto;
+	    text-align: center;
+	    .title {
+	    	display: table-cell;
+	    	vertical-align: middle;
+	    	padding: 0 .5em;
+	    }
+		}
+		&:hover {
+			color: $highlight;
+			// background-color: $light;
+			// color: $dark;
+		}
+	}
+	.inner {
+	  margin: 0 1em $patternHeight/2 0;
+		padding: .5em;
+		display: inline-table;
+		color: $light;
+		background-color: $dark;
+		font-size: 1.3em;
+		line-height: 1.4em;
+		text-transform: none;
+	}
+}
+.invert.bricks {
+	.brick {
+		color: $dark;
+		background-color: $light;
+		border-color: $light;
+		&:hover {
+			color: $medium;
+			// color: $light;
+			// background-color: $dark;
+			// border-color: $light;
+		}
+	}
+}
+////////////////////////////////////////////////
+.min {
+	min-height: 100%;
+}
+.horz {
+	display: table;
+	margin-left: auto;
+	margin-right: auto; 
+}
+.vert {
+	display: table-cell;
+	vertical-align: middle;
+}
+@import 'filter';
+@import 'shelf';
+@import 'footer';
+@import 'pages/home';
+@import 'pages/about';
+@import 'pages/book';
+@import 'pages/category';
+@import 'pages/author';
+@import 'pages/authors';
+@import 'pages/search';

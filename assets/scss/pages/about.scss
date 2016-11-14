@@ -1,0 +1,191 @@
+body.about {
+	section:not(#categories) {
+		min-height: auto;
+		padding: $patternHeight $patternWidth*3 $patternWidth $patternWidth*5;
+		display: table;
+		.inner .text {
+			font-family: $serif;
+			@include largeText;
+			a {
+				// color: $highlight;
+				// text-decoration: underline;
+				border-bottom: 1px solid;
+			}
+		}
+		h3, h4 {
+			@include mediumText;
+			font-family: $serif;
+			letter-spacing: 1px;
+			width: 100%;
+			font-weight: normal;
+			text-transform: uppercase;
+			text-align: center;
+			margin: 0 0 $patternHeight 0;
+			cursor: default;
+			cursor: default;
+			&.author {
+				@include baseText;
+				width: auto;
+				display: table;
+				margin: 5px auto 0 auto;
+				text-align: center;
+				padding-top: 0;
+			}
+		}
+		.icon {
+			width: .8em;
+			height: .8em;
+			display: inline-block;
+			background-position: bottom center;
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+		.blocks {
+			border-top: 1px solid $light;
+			padding-top: #{$patternWidth};
+		}
+		&#blocks {
+			.blocks {
+				.block {
+					width: 100%;
+					display: table;
+					padding: $patternWidth 0;
+					.image {
+						width: 50%;
+						float: left;
+						display: table;
+						img {
+							width: calc(100% - #{$patternWidth});
+						}
+					}
+					.text {
+						font-family: $serif;
+						@include baseText;
+						width: 50%;
+						float: left;
+					}
+					&:nth-child(even) {
+						& > .image {
+							float: right !important;
+							img {
+								margin-left: $patternWidth;
+							}
+						}
+						& > .text {
+							float: right;
+						}
+					}
+				}
+			}
+		}
+		&#stats {
+			display: none;
+			.blocks {
+				
+				.block {
+					width: calc(50% - #{$patternHeight});
+					padding-bottom: $patternWidth;
+					float: left;
+					&:nth-child(odd) {
+						padding-right: $patternHeight;
+						clear: left;
+					}
+					&:nth-child(even) {
+						padding-left: $patternHeight;	
+					}
+					.book {
+						width: $patternHeight;
+						height: $patternHeight;
+						background-image: url('../images/side/book-invert.svg');
+						background-position: center bottom;
+						background-repeat: no-repeat;
+						background-size: contain;
+						float: left;
+					}
+				}
+			}
+		}
+		&#glossary {
+			padding-top: 0;
+			.group {
+				width: 100%;
+				display: table;
+				border-top: 1px solid $light;
+				margin-top: #{$patternWidth};
+				padding-top: #{$patternWidth*2};
+			}
+			.row {
+				width: 100%;
+				display: table;
+				padding-bottom: $patternWidth;
+				.name {
+					width: calc(#{$patternWidth*6});
+					float: left;
+					text-align: center;
+					text-transform: uppercase;
+					.icon {
+						width: calc(#{$patternWidth*6});
+						height: calc(#{$patternWidth*3});
+						background-position: -999999999px;
+						background-repeat: no-repeat;
+						background-size: $patternWidth;
+						float: left;
+						background-image: none;
+						display: block;
+						svg {
+							width: calc(#{$patternWidth*6});
+							height: calc(#{$patternWidth*3});
+						}
+						&:hover {
+							background-position: top left;
+							background-repeat: repeat;
+							// cursor: none;
+							svg {
+								opacity: 0;
+							}
+						}
+					}
+					.caption {
+						font-family: $sansItalic;
+						@include smallText;
+						text-align: center;
+						text-transform: none;
+					}
+				}
+				.definition, .note {
+					width: calc(100% - #{$patternWidth*9});
+					max-width: 800px;
+					float: left;
+					display: table;
+					font-family: $serif;
+					@include baseText;
+					padding: 0 0 0 #{$patternWidth};
+				}
+				.note {
+					font-family: $serif;
+					padding-left: #{$patternWidth*7};
+					.text {
+						@include smallText;
+						margin: 0;	
+					}
+				}
+			}
+		}
+	}
+	
+	// 	&.home {
+	// 		background-image: url(/assets/images/side/home-invert.svg);
+	// 	}
+	// 	&.about {
+	// 		background-image: url(/assets/images/side/about-invert.svg);
+	// 	}
+	// 	&.books {
+	// 		background-image: url(/assets/images/side/book-invert.svg);
+	// 	}
+	// 	&.authors {
+	// 		background-image: url(/assets/images/side/author-invert.svg);
+	// 	}
+	// 	&.search {
+	// 		background-image: url(/assets/images/side/search-invert.svg);
+	// 	}
+}

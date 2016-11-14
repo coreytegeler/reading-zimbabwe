@@ -4,9 +4,33 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title><?php echo $site->title()->html() ?> | <?php echo $page->title()->html() ?></title>
-  <meta name="description" content="<?php echo $site->description()->html() ?>">
-  <meta name="keywords" content="<?php echo $site->keywords()->html() ?>">
   <?php
+  if( !$page->text()->empty() ) {
+    echo '<meta name="description" content="' . $page->text()->html() . '" />';
+  } else {
+    echo '<meta name="description" content="' . $pages->find('home')->intro()->html() . '" />';
+  }
+  $keywords = $site->keywords()->html();
+  if( !$page->tags()->empty() ) { $keywords .= ',' . $page->tags()->html(); }
+
+  echo '<meta name="keywords" content="' . $keywords . '"/>';
+
+  if( $page->intendedTemplate() == 'book' ) {
+    $files = $page->files();
+    if( $files->first() ) {
+      $cover = $files->first()->url();
+    } else {
+      $cover = false;
+    }
+    echo '<meta property="description" content="' . $page->synopsis()->kirbytext() . '" />';
+    echo '<meta property="og:type" content="website" />';
+    echo '<meta property="og:title" content="' . $page->title() . '" />';
+    echo '<meta property="og:description" content="' . $page->synopsis()->kirbytext() . '" />';
+    echo '<meta property="og:image" content="' . $cover . '" />';
+    echo '<meta property="og:image:width" content="200" />';
+    echo '<meta property="og:image:height" content="200" />';
+    echo '<meta property="fb:app_id" content="1588195108157048" />';
+  }
   $alt = '';
   if($page->alt()) {
     $alt = ' alt';
@@ -19,7 +43,7 @@
   endif;
   echo js(array(
     'assets/js/jquery.js',
-    'assets/js/masonry.js',
+    'assets/js/lazyload.js',
     'assets/js/imagesloaded.js'
   ));
   ?>

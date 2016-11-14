@@ -1,0 +1,73 @@
+Alt: false
+
+----
+
+Title: Land & Sustainable Development in Africa
+
+----
+
+Author: Kojo Sebastian Amanor and Sam Moyo
+
+----
+
+Language: English
+
+----
+
+Category: land-politics
+
+----
+
+Hardcover: false
+
+----
+
+Hardcovercount: 
+
+----
+
+Paperback: true
+
+----
+
+Paperbackcount: 240
+
+----
+
+Publisher: Zed Books
+
+----
+
+Publisherlink: https://www.zedbooks.net/
+
+----
+
+Publisheddate: 2008
+
+----
+
+Publishedloation: London
+
+----
+
+Isbnx: 1842779133
+
+----
+
+Isbnxiii: 978-1842779132
+
+----
+
+Tags: 
+
+----
+
+Synopsis: This book links contemporary debates on land reform with wider discourses on sustainable development within Africa. Featuring chapters and in-depth case studies on South Africa and Zimbabwe, Malawi, Kenya, Botswana and West Africa, it traces the development of ideas about sustainable development and addresses a new agenda based on social justice. The authors critically examine contemporary neoliberal market-led reforms and the legacy of colonialism on the land question.
+
+----
+
+Review: 
+
+----
+
+Aboutauthor: Sam Moyo was the Executive Director of the African Institute for Agrarian Studies, Harare, Zimbabwe. Kojo Amanor is Associate at the Institute of African Studies, University of Ghana.

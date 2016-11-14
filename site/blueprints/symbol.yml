@@ -1,0 +1,23 @@
+title: Symbol
+pages: false
+files:
+  limit: 2
+fields:
+  title:
+    label: Title
+    type: text
+  definition:
+    label: Definition
+    type: textarea
+  dark:
+    label: Dark SVG
+    type:  selector
+    mode:  single
+    types:
+      - image
+  light:
+    label: Light SVG
+    type:  selector
+    mode:  single
+    types:
+      - image

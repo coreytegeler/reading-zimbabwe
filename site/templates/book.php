@@ -16,7 +16,10 @@ $hardCover = $book->hardCover();
 $hardCoverCount = $book->hardCoverCount();
 $paperBack = $book->paperBack();
 $paperBackCount = $book->paperBackCount();
+$eBook = $book->eBook();
+$eBookCount = $book->eBookCount();
 $publisher = $pages->find( 'publishers' )->children()->find( $book->publisher() );
+$url = $book->url();
 
 $files = $book->files();
 if( $files->first() ) {
@@ -25,8 +28,11 @@ if( $files->first() ) {
 	$cover = false;
 }
 snippet( 'header' );
-echo '<div class="patterns">';        
-  foreach( $categories as $category ) {
+echo '<div class="patterns top">';  
+  $j = 0;
+  for ( $i = 0; $i < 3; $i++ ) {
+    if( $j > ( sizeof( $categories ) - 1 ) ) { $j = 0; }
+    $category = $categories[$j];
     $categoryPage = $pages->find( 'category' )->children()->find( $category );
     $categorySymbol = null;
     if( $categoryPage ) {
@@ -35,18 +41,19 @@ echo '<div class="patterns">';
     if( !$categorySymbol || $categorySymbol == '' ) {
       $categorySymbol = 'default';
     }
-    $bookSvgUrl = '/assets/images/symbols/' . $categorySymbol . '.png';
-    echo '<div class="pattern" style="background-image:url(' . $site->url() . $bookSvgUrl . ')"></div>';
+    $symbolUrl = kirby()->urls()->assets() . '/images/symbols/' . $categorySymbol . '.svg';
+    echo '<div class="pattern" style="background-image:url(' . $symbolUrl . ')"></div>';
+    $j++;
   }
 echo '</div>';
 echo '<section id="book">';
 	echo '<div class="title">';
 		echo '<h1 class="main">' . $title . '</h1>';
 		if( strlen( $subtitle ) ) {
-	    echo '<h2 class="sub">' . $subtitle . '</h2>';
+	    echo '<h1 class="sub"> ' . $subtitle . '</h1>';
 	  }
 	  if( is_array( $authors ) ) {
-			echo '<h3 class="author">';
+			echo '<h4 class="author">';
 				foreach( $authors as $index => $authorSlug ) {
 					$author = $pages->find( 'authors' )->children()->find( $authorSlug );
 					if( $author ) {
@@ -60,13 +67,18 @@ echo '<section id="book">';
 						}
 					}
 				}
-			echo '</h3>';
+			echo '</h4>';
 		}
 	echo '</div>';
 	echo '<div id="content">';
-		echo '<div class="meta">';
+		echo '<div class="side">';
 			echo '<h3>&nbsp;</h3>';
-			echo '<ul>';
+			if( $cover ) {
+				echo '<div class="cover">';
+					echo '<img src="' . $cover . '">';
+				echo '</div>';
+			}
+			echo '<ul class="meta">';
 				echo '<li>';
 					if( $publisher ) {
 						if( sizeof( $publisher->website() ) ) {
@@ -114,12 +126,19 @@ echo '<section id="book">';
 					echo '<li>Paperback</li>';
 					echo '<li>' . $paperBackCount . ' pages</li>';
 				}
+				if( $eBook && $eBookCount != '') {
+					echo '<li>eBook</li>';
+					echo '<li>' . $eBookCount . ' pages</li>';
+				}
+				echo '<li class="share">';
+					echo '<a class="twitter" href="https://twitter.com/share?url=' . urlencode( $url ) . '&text=' . urlencode( $title ) . '" target="_blank"></a>';
+					echo '<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?sdk=joey&u=' . $url . '" target="_blank"></a>';
+				echo '</li>';
 			echo '</ul>';
-			if( $cover ) {
-				echo '<div class="cover">';
-					echo '<img src="' . $cover . '">';
-				echo '</div>';
-			}
+			echo '<div class="share">';
+				echo '<a class="twitter" href="https://twitter.com/share?url=' . urlencode( $url ) . '&text=' . urlencode( $title ) . '" target="_blank"></a>';
+				echo '<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?sdk=joey&u=' . $url . '" target="_blank"></a>';
+			echo '</div>';
 		echo '</div>';
 		echo '<div class="texts">';
 			if( isset( $synopsis ) && $synopsis != '' ) {
@@ -134,17 +153,16 @@ echo '<section id="book">';
 					echo $review;
 				echo '</div>';
 			}
-			if( is_array( $authors ) && sizeof( $authors ) > 1 ) {
+			if( is_array( $authors ) && sizeof( $authors) ) {
 				echo '<div class="text about">';
 					if( sizeof( $authors) > 1 ) {
-						echo '<h3>Authors</h3>';	
+						echo '<h3>Authors</h3>';
 					} else {
 						echo '<h3>Author</h3>';
 					}
-					
 					foreach( $authors as $index => $authorSlug ) {
 						$author = $pages->find( 'authors' )->children()->find( $authorSlug );
-						if( $author ) {
+						if( $author && !$author->empty() ) {
 							echo '<div class="author">';
 								// echo '<a href="' . $author->url() . '" class="author">';
 								// 	echo $author->title();
@@ -168,7 +186,6 @@ echo '<section id="book">';
 		echo '</div>';
 	echo '</div>';
 echo '</section>';
-snippet( 'shelf', array( 'type' => 'category', 'value' => $categories, 'hidden' => $slug ) );
-snippet( 'categories', array( 'class' => 'invert' ) );
+snippet( 'shelf', array( 'type' => 'category', 'value' => $categories, 'hidden' => $slug, 'max' => 12 ) );
 snippet( 'footer' );
 ?>

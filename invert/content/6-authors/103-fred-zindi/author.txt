@@ -1,0 +1,17 @@
+Title: Fred Zindi
+
+----
+
+Text: Fred Zindi is a professor of education  and director of the Human Resources Research Centre (HRRC) at the University of Zimbabwe.
+
+----
+
+Tags: 
+
+----
+
+Firstname: Fred
+
+----
+
+Surname: Zindi
