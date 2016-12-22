@@ -1,4 +1,3 @@
-@import 'https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900';
 @import 'vars';
 @import 'mixins';
 html, body {
@@ -13,7 +12,6 @@ html, body {
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
   font-size: 19px;
   line-height: 1.3em;
   font-weight: normal;
@@ -28,13 +26,49 @@ html, body {
 	  content: 'small';
   }
   @include xSmall {
-  	font-size: 17px;
-	  line-height: 1.3em;
+  	font-size: 15px;
+	  line-height: 1.2em;
 	  content: 'xSmall';
   }
 }
+html {
+	overflow: hidden;
+	overflow-x: hidden;
+  overflow-y: hidden; 
+}
+body {
+	overflow: hidden;
+	overflow-x: hidden;
+  overflow-y: hidden; 
+}
 h1 {
+	height: #{$patternWidth*2};
 	@include largeText();
+	text-align: center;
+	margin: 0 0 $patternWidth 0;
+	text-transform: uppercase;
+	@include small {
+		height: auto;
+	}
+}
+h3, h4 {
+	width: 100%;
+	@include mediumText;
+	letter-spacing: 1px;
+	font-weight: normal;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 0 0 .25em 0;
+	cursor: default;
+	cursor: default;
+	&.author {
+		@include baseText;
+		width: auto;
+		display: table;
+		margin: 5px 0 0 0;
+		text-align: left;
+		padding-top: 0;
+	}
 }
 main {
 	width: 100%;
@@ -43,11 +77,11 @@ main {
 	overflow-y: scroll;
 	-webkit-overflow-scrolling: touch;
   &.noScroll {
-		overflow: hidden;		
+		overflow-y: hidden;		
 	}
 	@include small {
-		height: calc(100% - #{$patternWidth} - 8px) !important;
-		padding-top: calc(#{$patternWidth} + 8px) !important;
+		height: calc(100% - #{$patternWidth}) !important;
+		padding-top: calc(#{$patternWidth}) !important;
 	}
 }
 section {
@@ -56,8 +90,8 @@ section {
 	margin: 0;
 	position: relative;
 	@include small {
-		width: calc(100% - #{$patternWidth*2}) !important;
-		padding: $patternWidth !important;
+		width: calc(100% - #{$patternHeight*3}) !important;
+		padding: $patternHeight*1.5;
 	}
 	.middle {
 		min-height: 100%;
@@ -65,38 +99,55 @@ section {
 		font-weight: normal;
 		padding: 0 $patternWidth;
 		.inner {
-			max-width: 700px;
+			max-width: $mediumWidth;
 			padding: $patternHeight*2 0;
 			// margin: auto;
 			// display: table;
 		}
 	}
-	h1 {
-		height: #{$patternWidth * 2};
-		text-align: center;
-		display: table;
-		margin: 0 auto #{$patternHeight*3} auto;
-		@include largeText;
-		line-height: 1em;
-		position: relative;
+	#rz {
+		height: $patternHeight*5;
+		margin-bottom: $patternHeight;
+		.relative {
+			display: table;
+			margin: 0 auto $patternWidth auto;
+		}
+		h1 {
+			height: auto;
+			text-align: center;
+			display: table;
+			margin: 0 auto;
+			@include largeText;
+			line-height: 1em;
+			position: relative;
+		}
 		.beta {
 			width: 100%;
 			position: absolute;
-	    bottom: 0;
+	    top: 100%;
 	    left: 0;
-			font-size: .5em;
-	    line-height: 1.3em;
+			@include baseText;
+			line-height: 1em;
+			text-align: center;
 	    text-transform: uppercase;
 	    opacity: .2;
 		}
+		@include small {
+			margin-bottom: $patternHeight;
+		}
 	}
 	&.intro {
+		width: calc(100% - #{$patternWidth} * 6);
+		padding-bottom: $patternWidth;
 		.inner {
-			width: calc(100% - #{$patternWidth*10});
-			max-width: 800px;
-			padding: 0 $patternWidth*2 $patternWidth $patternWidth*8;
+			width: calc(100% - #{$patternWidth} * 14);
+			max-width: calc(#{$patternWidth} * 25);
+			padding: 0 0 $patternWidth calc(#{$patternWidth} * 6);
 			font-weight: normal;
 			letter-spacing: 1px;
+			h1 {
+				// margin-bottom: 0;
+			}
 			@include medium {
 				width: 100%;
 				padding-left: 0;
@@ -111,12 +162,63 @@ section {
 				font-family: 'Libre Baskerville';
 				font-weight: normal;
 				@include baseText;
-				padding-bottom: #{$patternWidth*3};
 			}
 			// .horz {
 			// 	padding: $patternWidth*2;
 			// 	max-width: 900px;
 			// }
+		}
+	}
+	&.big {
+		.inner {
+			max-width: $mediumWidth;
+			display: table;
+			margin: auto;
+		}
+		.text {
+			@include largeText;
+			font-family: 'Archivo Black', 'Arial Black', Arial;
+			@include medium {
+				@include mediumText;
+			}
+		}
+		.symbol {
+			height: 1em;
+			display: inline-block;
+			background-color: transparent;
+			background-position: left center;
+			background-repeat: repeat;
+			background-size: #{$patternWidth*2};
+			margin: 0 .25em -0.2em .25em;
+			&.period {
+				width: #{$patternWidth*2};
+				background-image: url(/assets/images/pattern.svg);
+			}
+			&.comma {
+				width: #{$patternWidth};
+				background-image: url(/assets/images/pattern.svg);
+			}
+			&.question {
+				width: #{$patternWidth*4};
+				background-image: url(/assets/images/pattern.svg);
+			}
+		}
+		a {
+			border-bottom: .1em solid;
+		}
+		p {
+			margin: 0;
+			&:not(:last-child)::after, #about &:first-child::before {
+				width: 100%;
+				height: #{$patternWidth*3};
+				content: '';
+				display: block;
+				background-color: transparent;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: $patternWidth;
+				text-decoration: none;
+			}
 		}
 	}
 }
@@ -160,7 +262,7 @@ select {
 }
 p {
 	margin: 0;
-	&:not(:first-child) {
+	&:not(:last-child) {
 		margin-bottom: 1em;
 	}
 }
@@ -171,25 +273,25 @@ aside {
 	height: 0;
 	position: fixed;
 	left: $patternWidth;
-	top: #{$patternWidth*5};
+	top: #{$patternHeight*12};
 	z-index: 100;
 	display: table;
 	pointer-events: none;
-	@include small {
-		width: 100%;
-		min-width: $minWidth;
-		height: $patternWidth;
-		left: 0 !important;
-		top: 0 !important;
-		background-color: $light;
+	.toggle {
+		display: none;
+		@include small {
+			pointer-events: all;
+			width: 100%;
+			height: $patternWidth;
+			display: block;
+			text-align: center;
+		}
 	}
 	.inner {
 		display: table-cell;
 		vertical-align: middle;
 		@include small {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
+			display: none;
 		}
 		.button {
 			// width: $patternWidth;
@@ -214,28 +316,6 @@ aside {
 			&:hover {
 				color: black;
 			}
-			// &.home {
-			// 	height: calc(#{$patternWidth} + 5px);
-			// 	background-image: url(/assets/images/side/home.svg);
-			// 	@include small {
-			// 		width: #{$patternWidth + $patternHeight};
-			// 		height: $patternWidth;
-			// 		background-image: url(/assets/images/logo.svg);
-			// 		background-size: calc(#{$patternWidth * 2} - 10px);
-			// 	}
-			// }
-			// &.about {
-			// 	background-image: url(/assets/images/side/about.svg);
-			// }
-			// &.books {
-			// 	background-image: url(/assets/images/side/book.svg);
-			// }
-			// &.authors {
-			// 	background-image: url(/assets/images/side/author.svg);
-			// }
-			// &.search {
-			// 	background-image: url(/assets/images/side/search.svg);
-			// }
 		}
 		.symbol {
 			width: $patternWidth;
@@ -245,6 +325,26 @@ aside {
 			background-size: $patternWidth;
 		}
 	}
+	@include small {
+		width: 100%;
+		min-width: $minWidth;
+		left: 0 !important;
+		top: 0 !important;
+		background-color: $dark;
+		color: $light;
+		&.toggled {
+			.toggle {
+				background-color: $highlight;
+				color: $dark
+			}
+			.inner {
+				display: block;
+				padding-bottom: $patternHeight;
+				background-color: $highlight;
+				color: $dark;
+			}
+		}
+	}
 }
 ////////////////////////////////////////////////
 ////////////////////////////////////////////////
@@ -252,6 +352,7 @@ aside {
 	form {
 		height: $patternHeight*6;
 		input {
+			width: calc(100% - #{$patternWidth});
 			height: $patternHeight*6;
 			font-family: 'Archivo Black', 'Arial Black', Arial;
 			font-size: 3em;
@@ -259,13 +360,10 @@ aside {
 			color: $dark;
 			border: 0;
 			border-radius: 0;
-			padding: $patternHeight $patternHeight $patternHeight 0;
+			padding: 0 $patternHeight;
 			-webkit-appearance: none;
 			-moz-appearance: none;
 			text-align: center;
-		}
-		input[type="search"] {
-			width: 100%;
 		}
 		input[type="submit"] {
 			width: 20%;	
@@ -283,51 +381,66 @@ aside {
 	position: fixed;
 	left: 0;
 	top: 0;
-	background-color: $light;
-	background-image: url(/assets/images/pattern.svg);
+	background-color: $dark;
+	background-image: url(/assets/images/footer/subscribe-invert.svg);
 	z-index: 10000;
 	display: none;
+	overflow-y: auto;
 	&.open {
 		display: block;
 	}
 	.inner {
-		width: calc(100% - #{$patternWidth*6});
-		max-width: 800px;
 		display: table;
-		margin: auto;
-		padding: #{$patternWidth*3};
+		form {
+			width: 100%;
+			display: table;
+			margin: auto;
+		}
 	}
 	.row {
 		width: 100%;
-		margin-bottom: $patternWidth;
+		margin: 0 auto $patternWidth auto;
 		input {
 			padding: $patternHeight;
 			border: 0;
 			border-radius: 0;
-			font-family: 'Archivo Black', 'Arial Black', Arial;
-			font-size: 3em;
-			line-height: 1.3em;
+			font-family: $sans;
+			@include mediumText;
 			-webkit-appearance: none;
 			-moz-appearance: none;
 			text-align: center;
-			background-color: $light;
+			background-color: $dark;
 			@include placeholder($medium);
-			color: $dark;
-			&[type="text"] {
+			color: $light;
+			&[type="text"], &[type="email"] {
 				width: calc(100% - #{$patternHeight});
-				height: $patternHeight*6;
+				height: $patternHeight*4;
 				padding-left: 0;
+				@include small {
+					height: $patternHeight*2;
+				}
 			}
 			&[type="submit"] {
-				width: calc(50% - #{$patternHeight});
-				height: $patternHeight*8;
+				height: $patternWidth*2;
+				margin-right: $patternWidth;
+				margin-bottom: $patternWidth;
+				@include mediumText;
 				float: left;
-				&:first-child {
-					margin-right: $patternWidth;
+				&.subscribe {
+					width: $patternWidth*5;
+				}
+				&.cancel {
+					width: $patternWidth*4;
 				}
 				&:hover {
 					color: $medium;
 					cursor: pointer;
+				}
+				@include small {
+					width: 100%;
+					&.submit {
+						margin-bottom: $patternWidth;
+					}
 				}
 			}
 		}
@@ -359,6 +472,7 @@ aside {
 @import 'filter';
 @import 'shelf';
 @import 'footer';
+@import 'invert';
 @import 'pages/home';
 @import 'pages/about';
 @import 'pages/lexicon';
@@ -366,6 +480,7 @@ aside {
 @import 'pages/book';
 @import 'pages/category';
 @import 'pages/author';
-@import 'pages/authors';
+@import 'pages/publisher';
+@import 'pages/list';
+@import 'pages/map';
 @import 'pages/search';
-@import 'invert';

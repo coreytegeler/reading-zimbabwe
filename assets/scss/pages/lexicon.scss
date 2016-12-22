@@ -1,93 +1,145 @@
 body.lexicon {
-	section#lexicon {
-		min-height: auto;
-		padding: $patternHeight $patternWidth*3 $patternWidth $patternWidth*5;
-		display: table;
-		.inner {
-			width: 100%;
-			max-width: 100%;
-			padding: 0;
-			.text {
+	background-color: $highlight;
+	aside {
+		.button {
+			color: black;
+			&:hover {
+				color: $dark;
+			}
+		}
+	}
+	section {
+		color: black;
+		&#lexicon {
+			.columns {
+				column-count: 3;
+				column-gap: $patternWidth;
+				@include xLarge {
+					column-count: 2;
+				}
+				@include medium {
+					column-count: 1;
+					column-gap: 0;
+				}
+			}
+			.note {
+				width: 100%;
 				font-family: $serif;
-				@include largeText;
-				a {
-					border-bottom: 1px solid;
+				@include smallText;
+				margin: 0;
+				padding-bottom: #{$patternWidth*2};
+				break-inside: avoid;
+			}
+			.group {
+				width: 100%;
+				display: table;
+				border-top: 1px solid black;
+				margin-top: #{$patternWidth};
+				padding-top: #{$patternWidth*2};
+			}
+			.row {
+				width: 100%;
+				display: table;
+				padding-bottom: $patternWidth;
+				.name {
+					display: span;
+					text-align: center;
+					text-transform: uppercase;
+					.icon {
+						width: calc(#{$patternWidth*6});
+						height: calc(#{$patternWidth*3});
+						background-position: -999999999px;
+						background-repeat: no-repeat;
+						background-size: $patternWidth;
+						float: left;
+						background-image: none;
+						display: block;
+						svg {
+							width: calc(#{$patternWidth*6});
+							height: calc(#{$patternWidth*3});
+						}
+						&:hover {
+							background-position: top left;
+							background-repeat: repeat;
+							// cursor: none;
+							svg {
+								opacity: 0;
+							}
+						}
+					}
+					.caption {
+						font-family: $sansItalic;
+						@include smallText;
+						text-align: center;
+						text-transform: none;
+					}
+				}
+				.inner, .note {
+					width: 100%;
+					float: left;
+					display: table;
+					font-family: $serif;
+					@include baseText;
+					padding: 0;
+					.title {
+						font-family: $sans;
+						text-transform: uppercase;
+					}
+					.definition {
+
+					}
 				}
 			}
 		}
-		h3, h4 {
-			@include mediumText;
-			font-family: $serif;
-			letter-spacing: 1px;
-			width: 100%;
-			font-weight: normal;
-			text-transform: uppercase;
-			text-align: center;
-			margin: 0 0 $patternHeight 0;
-			cursor: default;
-			cursor: default;
-			&.author {
-				@include baseText;
-				width: auto;
-				display: table;
-				margin: 5px auto 0 auto;
-				text-align: center;
-				padding-top: 0;
+	}
+	footer {
+		.bricks {
+			background-image: url(/assets/images/pattern-black.svg);
+			.brick {
+				color: black;
+				border-color: $highlight;
+				background-color: $highlight;
+				&:hover {
+					.pattern {
+						background-color: $highlight;
+					}
+				}
 			}
 		}
 		.row {
-			width: 100%;
-			display: table;
-			padding-bottom: $patternWidth;
-			.name {
-				width: calc(#{$patternWidth*6});
-				float: left;
-				text-align: center;
-				text-transform: uppercase;
-				.icon {
-					width: calc(#{$patternWidth*6});
-					height: calc(#{$patternWidth*3});
-					background-position: -999999999px;
-					background-repeat: no-repeat;
-					background-size: $patternWidth;
-					float: left;
+			background-color: $highlight;
+			input {
+				background-color: $highlight;
+				background-image: url(/assets/images/footer/search-black.svg);
+				&:hover, &:active, &:focus {
+					@include placeholder(black);
 					background-image: none;
-					display: block;
-					svg {
-						width: calc(#{$patternWidth*6});
-						height: calc(#{$patternWidth*3});
-					}
-					&:hover {
-						background-position: top left;
-						background-repeat: repeat;
-						// cursor: none;
-						svg {
-							opacity: 0;
-						}
-					}
-				}
-				.caption {
-					font-family: $sansItalic;
-					@include smallText;
-					text-align: center;
-					text-transform: none;
+					background-color: $highlight;
+					color: black;
 				}
 			}
-			.definition, .note {
-				width: calc(100% - #{$patternWidth*9});
-				max-width: 800px;
-				float: left;
-				display: table;
-				font-family: $serif;
-				@include baseText;
-				padding: 0 0 0 #{$patternWidth};
+			&.twitter {
+				background-image: url(/assets/images/footer/twitter-black.svg);
 			}
-			.note {
-				font-family: $serif;
-				padding-left: #{$patternWidth*7};
-				.text {
-					@include smallText;
-					margin: 0;	
+			&.instagram {
+				background-image: url(/assets/images/footer/instagram-black.svg);
+			}
+			&.soundcloud {
+				background-image: url(/assets/images/footer/soundcloud-black.svg);
+			}
+			&.mail {
+				background-image: url(/assets/images/footer/mail-black.svg);
+			}
+			&.subscribe {
+				background-image: url(/assets/images/footer/subscribe-black.svg);
+			}
+			&:hover {
+				background-image: none;
+				a {
+					span {
+						color: black;
+						// background-color: $highlight;
+					}
 				}
 			}
 		}

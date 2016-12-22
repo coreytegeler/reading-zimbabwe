@@ -1,13 +1,15 @@
 footer {
 	.categories {
-		padding-bottom: $patternWidth;
-		font-size: 1em;
-		line-height: 1.2em;
+		padding-bottom: $patternWidth*2;
+		@include baseText;
 		font-weight: 700;
 		list-style: none;
 		white-space: normal;
 		background-color: transparent;
 		background-image: url(/assets/images/pattern.svg);
+		.right {
+			display: none;
+		}
 		.category {
 			height: calc(#{$patternHeight*4} - 6px);
 			margin: 0 #{$patternHeight*2} #{$patternHeight*2} 0;
@@ -19,15 +21,9 @@ footer {
 			border-color: $light;
 			border-width: 3px 0;
 			@include noTouch;
-			@include xSmall {
-				width: 100%;
-				display: block;
-				margin-bottom: $patternHeight;
-			}
 			a {
 				width: 100%;
 				height: 100%;
-				line-height: 1em;
 		    text-align: center;
 		    position: relative;
 		    display: table;
@@ -48,8 +44,9 @@ footer {
 			}
 			&:hover {
 				height: calc(#{$patternHeight*4});
-				border: none;
+				border-width: 0;
 				color: black;
+				cursor: pointer;
 				.title {
 					visibility: none;
 				}
@@ -58,15 +55,70 @@ footer {
 				}
 			}
 		}
-		.inner {
-		  margin: 0 1em $patternHeight/2 0;
-			padding: .5em;
-			display: inline-table;
-			color: $light;
+		.toggle {
+			display: none;
+		}
+		@include small {
+			width: 100% !important;
+			padding: $patternWidth 0 $patternWidth 0;
 			background-color: $dark;
-			font-size: 1.3em;
-			line-height: 1.4em;
-			text-transform: none;
+			background-image: none;
+			.category {
+				display: none;
+				height: calc(#{$patternWidth} - 6px) !important;
+				margin-bottom: 0;
+				padding: $patternHeight/2 0;
+				background: $dark;
+				border-color: $dark;
+				color: $light;
+				&:not(.toggle):first-child {
+					padding-top: $patternWidth !important;
+				}
+				&:hover {
+					border-width: 3px 0;
+					.title {
+						visibility: visible;
+					}
+					.pattern {
+						display: none;
+					}
+				}
+			}
+			.toggle {
+				height: calc(#{$patternHeight*4} - 6px);
+				display: table;
+				margin: 0;
+				padding: 0;
+				a {
+					.title {
+						width: auto;
+						position: absolute;
+						left: 0;
+						top: 0;
+					}
+				}
+			}
+			.close {
+				display: none;
+			}
+			&.toggled {
+				.open {
+					display: none;
+				}
+				.close {
+					display: table;
+				}
+				.category {
+					width: 100% !important;
+					margin-left: 0 !important;
+					display: block;
+					a {
+						.title {
+							white-space: pre-wrap;
+						}
+					}
+				}
+			}
 		}
 	}
 	.row {
@@ -123,23 +175,28 @@ footer {
 				color: $dark;
 			}
 		}
-		input {
-			// padding-left: $patternWidth*3;
-			background-image: url(/assets/images/footer/search.svg);
-			background-color: $light;
-			color: transparent;
-			@include mediumText;
-			line-height: 1em;
-			text-align: center;
-			background-size: $patternWidth;
-			@include placeholder(transparent);
-			&:hover, &:active, &:focus {
+		&.search {
+			input {
+				background-image: url(/assets/images/footer/search.svg);
+				background-color: $light;
+				color: transparent;
+				@include baseText;
+				line-height: 1em;
+				text-align: center;
+				background-size: $patternWidth;
+				@include placeholder(transparent);
+				@include small {
+					@include placeholder($dark);
+					background-image: none;
+					background: $highlight;
+					color: $dark;
+				}
+			}
+			&:hover input, input:hover, input.hover, input:active, input:focus {
 				@include placeholder($dark);
+				background-image: none;
 				background: $highlight;
 				color: $dark;
-				// background-image: url(/assets/images/search.svg);
-				// background-position: $patternWidth center;
-				// background-repeat: no-repeat;
 			}
 		}
 	}

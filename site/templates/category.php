@@ -15,8 +15,8 @@ echo '<div class="relative min">';
 	  }
 	echo '</div>';
 	echo '<section class="intro">';
+		echo '<h1>' . $category->title() . '</h1>';
 		echo '<div class="inner">';
-      echo '<h1>' . $category->title() . '</h1>';
       if( !$category->text()->empty() ) {
 	      echo '<div class="text">';
 	        echo $category->text()->kirbytext();

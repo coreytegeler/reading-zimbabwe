@@ -9,15 +9,3 @@ fields:
   definition:
     label: Definition
     type: textarea
-  dark:
-    label: Dark SVG
-    type:  selector
-    mode:  single
-    types:
-      - image
-  light:
-    label: Light SVG
-    type:  selector
-    mode:  single
-    types:
-      - image

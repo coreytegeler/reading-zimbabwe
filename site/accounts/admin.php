@@ -7,8 +7,8 @@ email: coreytegeler@gmail.com
 language: en
 role: admin
 history:
-  - lexicon
-  - home
-  - about
-  - symbols/anthro
-  - symbols/default
+  - category/rhodesia
+  - category/political-violence
+  - category/war-veterans
+  - category/colonialism
+  - category/chimurenga

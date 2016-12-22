@@ -1,11 +1,6 @@
 #shelf {
-	// min-height: calc(100% - #{$patternHeight*6});
-	background: $light;
 	position: relative;
-	font-size: 19px;
-	@include small {
-  	font-size: 13px;
-  }
+	width: calc(100% - #{$patternWidth} * 6);
 	.horz {
 		display: table;
 		margin: auto;
@@ -14,34 +9,34 @@
 		width: 100%;
 		padding: 0;
 	}
-	.group {
-		width: 100%;
-		display: table;
-		border-bottom: 1px solid $dark;
-		padding: #{$patternWidth} 0 $patternWidth 0;
-		&:first-child {
-			padding-top: 0;
-		}
-		&:last-child {
-			padding-bottom: 0;
-		}
-		.no {
-			color: $medium;
-			padding-bottom: 20px;
-			span {
-				text-transform: capitalize;
-			}
-		}
-		.subgroup {
-			width: 100%;
-			padding-top: $patternHeight;
-		}
+	#shelfInner {
+		width: calc(100% - #{$patternWidth} * 6);
+		max-width: calc(#{$patternWidth} * 43);
+		padding-left: calc(#{$patternWidth} * 6);
 	}
-	.book {
-		&.hide {
-	  	display: none !important;
-	  }
-  }
+	// .group {
+	// 	width: 100%;
+	// 	display: table;
+	// 	border-bottom: 1px solid $dark;
+	// 	padding: #{$patternWidth} 0 $patternWidth 0;
+	// 	&:first-child {
+	// 		padding-top: 0;
+	// 	}
+	// 	&:last-child {
+	// 		padding-bottom: 0;
+	// 	}
+	// 	.no {
+	// 		color: $medium;
+	// 		padding-bottom: 20px;
+	// 		span {
+	// 			text-transform: capitalize;
+	// 		}
+	// 	}
+	// 	.subgroup {
+	// 		width: 100%;
+	// 		padding-top: $patternHeight;
+	// 	}
+	// }
 	&.grid, &.covers {
 		.subgroup {
 			display: flex;
@@ -55,6 +50,7 @@
 		}
 		.book {
 			width: calc(#{$patternHeight} * 10);
+			height: calc(#{$patternHeight} * 13);
 	    margin: 0 #{$patternWidth} #{$patternHeight*2} 0;
 	    display: table;
 	    float: left;
@@ -71,30 +67,63 @@
 				background-repeat: no-repeat;
 		    background-position: -999999px;
 		    color: white;
+		    @include small {
+			  	font-size: 13px;
+			  }
 			}
 		}
 	}
-	&.grid .book, &.covers .book {
-		height: calc(#{$patternHeight} * 13);
+	&.covers .book {
 		color: $light;
     font-family: 'Libre Baskerville';
-    font-weight: normal;
+    font-weight: normal;    
     a {
+    	border: 1px solid $dark;
     	position: relative;
     }
-    &.noCover {
-    	border: 1px solid $dark;
-    	* {
+    @include small {
+	  	margin-bottom: $patternHeight !important;
+	  }
+    &.hasCover {
+			height: calc(#{$patternHeight} * 14);
+			display: table;
+			.inner {
+				display: none;
+			}
+			a {
+				display: block;
+				height: 100%;
+			}
+			img.cover {
+				display: none;
+				width: 100%;
+				margin: auto;
+				@include small {
+					width: calc(100% - .5em);
+				}
+			}
+			&.loaded {
+				height: auto;
+				a {
+					border: none;
+				}
+				img.cover {
+					display: block;
+				}
+			}
+		}
+		&.noCover {
+	  	* {
 	    	color: $dark;
 	    }
-    }
+	  }
     &:hover {
     	display: block;
     	overflow: hidden;
     	background-color: transparent;
-    	border-color: transparent;
     	a {
     		background-color: transparent;
+    		border-color: transparent;
     	}
     	.inner, img {
 	    	visibility: hidden;
@@ -102,11 +131,6 @@
 	    .patterns {
 	    	display: block;
 	    }
-    }
-    @include small {
-    	width: calc(#{$patternHeight} * 7);
-			height: calc(#{$patternHeight} * 10);
-    	margin: 0 #{$patternHeight/2} #{$patternHeight/2} 0;
     }
 		.inner {
 			width: calc(100% - 1em);
@@ -151,35 +175,23 @@
 		img {
 			display: none;
 		}
-	}
-	&.covers {
-		.book {
-			&.hasCover {
-				height: calc(#{$patternHeight} * 14);
-				display: table;
-				.inner {
-					display: none;
-				}
-				a {
-					height: auto;
-				}
-				img.cover {
-					display: none;
-					width: 100%;
-				}
-				&.loaded {
-					height: auto;
-					img.cover {
-						display: block;
-					}
-				}
-			}
-			&.noCover {
-				a {
-					
-				}
-			}
-		}
+		@include small {
+    	width: calc(#{$patternHeight} * 7);
+			height: calc(#{$patternHeight} * 10);
+			margin: 0 .5em .5em 0;
+    	&:hover {
+	    	a {
+	    		background-color: $light;
+	    		border-color: $dark;
+	    	}
+	    	.inner, img {
+		    	visibility: visible;
+		    }
+		    .patterns {
+		    	display: none !important;
+		    }
+	    }
+    }
 	}
 	&.list {
 		.subgroup {
@@ -192,13 +204,17 @@
 			width: calc(100% - #{$patternWidth*10});
 			padding: 0 0 $patternWidth 0;
 			display: flex;
+			@include small {
+		  	padding-bottom: $patternHeight !important;
+		  }
 			@include medium {
 				width: 100%;
 			}
 			a {
 				display: table;
+				text-align: left;
 				&:hover {
-					.inner * {
+					* {
 						color: black !important;
 					}
 				}
@@ -231,6 +247,9 @@
 						text-transform: uppercase;						
 						@include noTouch;
 						cursor: default;
+						@include small {
+							@include baseText;
+						}
 					}
 					.symbols {
 						display: none;
@@ -243,14 +262,14 @@
 		}
 		.columns {
 			column-count: 3;
-			column-gap: $patternHeight;
+			column-gap: $patternWidth;
+			@include large {
+				column-count: 2;
+			}
 			@include medium {
 				column-count: 2;
 			}
 			@include small {
-				column-count: 2;
-			}
-			@include xSmall {
 				column-count: 1;
 				column-gap: 0;
 			}
@@ -265,6 +284,11 @@
 			}
 		}
 	}
+	.book {
+		&.hide {
+	  	display: none !important;
+	  }
+  }
 	.break {
 		width: 100%;
 		height: 1px;
@@ -290,9 +314,12 @@
     }
 	}
 	.sublabel {
+		width: 100%;
 		text-align: left;
 		cursor: default;
-    display: table;
+    display: block;
+    clear: both;
+    margin-bottom: $patternHeight;
     &.empty {
     	float: left;
 			clear: none;
@@ -304,15 +331,78 @@
 				}
 			}
 		}
-		&:not(.empty) {
-
-		}
     span {
     	// font-size: 1em;
     	// line-height: 1.1em;
     }
 	}
-	.sublabel.empty:not(.year) {
+	.sublabel.empty.location {
 		display: none;
+	}
+	.pagination {
+		padding-top: $patternWidth;
+		padding-bottom: $patternHeight;
+		display: table;
+		a {
+			display: table;
+	    margin: 0 $patternWidth 0 0;
+			padding: $patternHeight;
+			float: left;
+			background-color: $dark;
+			color: $light;
+			&:hover {
+				background-color: $highlight;
+				color: $dark;
+			}
+		}
+	}
+	@include large {
+		#shelfInner {
+			width: calc(100% - #{$patternWidth} * 7) !important;
+		}
+	}
+	@include medium {
+		width: calc(100% - #{$patternWidth} * 6);
+		#shelfInner {
+			width: 100% !important;
+			padding-left: 0;
+			.books {
+				width: 100%;
+			}
+		}
+	}
+}
+
+body.book, body.author, body.publisher, body.category {
+	#shelf {
+		width: calc(100% - #{$patternWidth} * 6) !important;
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0 !important;
+		min-height: 0;
+		h3 {
+			font-family: $serif;
+			margin-bottom: 1em;
+		}
+		#shelfInner {
+			width: calc(100% - #{$patternWidth} * 13) !important;
+			max-width: calc(#{$patternWidth} * 25) !important;
+			padding-left: calc(#{$patternWidth} * 6) !important;
+		}
+		@include large {
+			#shelfInner {
+				width: calc(100% - #{$patternWidth} * 14) !important;
+				// width: calc(100% - #{$patternWidth} * 9) !important;
+			}
+		}
+		@include medium {
+			#shelfInner {
+				width: 100% !important;
+				padding-left: 0 !important;
+			}
+		}
+		@include small {
+			width: calc(100% - #{$patternWidth} * 2) !important
+		}
 	}
 }

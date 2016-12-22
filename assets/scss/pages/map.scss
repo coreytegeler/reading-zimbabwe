@@ -1,0 +1,14 @@
+body.cities {
+	aside {
+		z-index: 10000;
+	}
+	section {
+		height: 100vh;
+		pointer-events: none;
+		* {
+			pointer-events: none;
+		}
+		#map {
+		}
+	}
+}

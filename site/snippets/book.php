@@ -5,6 +5,10 @@ $bookSubtitle = $book->subtitle();
 $bookSlug = $book->slug();
 $bookLink = $book->url();
 $authors = $book->author();
+$motif = $book->motif();
+if( !$motif ) {
+  $motif = 'other';
+}
 if( $authors ) {
   $authorsArray = $authors->split( ',' );
 }
@@ -23,7 +27,7 @@ if( $files->first() ) {
   $hasCover = false;
 }
 
-echo '<div class="book item ' . ($hasCover ? 'hasCover' : 'noCover') . '" data-slug="' . $bookSlug . '" data-year="' . $bookYear . '" data-category="' . $bookCategories . '" data-location="' . $bookCity . '" data-index="' . $index . '" data-publisher="' . $bookPublisher . '" >';
+echo '<div class="book item ' . ($hasCover ? 'hasCover' : 'noCover') . '" data-slug="' . $bookSlug . '" data-year="' . $bookYear . '" data-category="' . $bookCategories . '" data-location="' . $bookCity . '" data-index="' . $index . '" data-publisher="' . $bookPublisher . '" data-motif="' . $motif . '">';
   echo '<a href="' . $bookLink . '">';
     if( $hasCover ) {
       echo '<img class="cover" data-source="' . $cover . '">';

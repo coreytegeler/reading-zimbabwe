@@ -1,6 +1,5 @@
-body.authors {
+body.authors, body.publishers {
 	#shelf {
-		padding-top: #{$patternHeight*3};
 		display: table;
 		.inner {
 			margin: 0;
@@ -10,8 +9,11 @@ body.authors {
 			width: calc(50% - #{$patternWidth});
 			float: left;
 			margin-right: $patternWidth;
-			&.author {
+			&.author, &.publisher {
 				font-family: 'Libre Baskerville';
+			}
+			a:hover {
+				color: black;
 			}
 			@include medium {
 				width: 100%;
@@ -22,6 +24,7 @@ body.authors {
 				font-weight: normal;
 				text-transform: uppercase;
 				margin: 0;
+				cursor: default;
 			}
 		}
 	}

@@ -6,18 +6,14 @@ echo '<section id="search">';
 		if( !isset( $query ) ) {
 			$query = null;
 		}
-		echo '<input type="search" name="q" value="' . $query . '" placeholder="Search">';
-		echo '<input type="submit" value="Search">';
+		echo '<input type="text" name="q" value="' . $query . '" placeholder="Search">';
 	echo '</form>';
 echo '</section>';
 echo '<section id="shelf" class="list">';
-	echo '<div class="authors items columns">';
+	echo '<div class="authors items' . ( sizeof( $results ) ? ' columns' : '' ) . '">';
 		if( sizeof( $results ) ) {
 			foreach($results as $result) {
 				$template = $result->intendedTemplate();
-				if( in_array( $template, array( 'publisher' ) ) ) {
-					return;
-				}
 				echo '<div class="result item">';
 					if( $template == 'term' ) {
 						$url = $pages->find( 'lexicon' )->url();

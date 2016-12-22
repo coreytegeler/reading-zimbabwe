@@ -15,3 +15,11 @@ fields:
       north-america: North America
       asia: Asia
       australia: Australia
+  lat:
+    label: Latitude
+    type: text
+    width: 1/2
+  lng:
+    label: Longitude
+    type: text
+    width: 1/2

@@ -14,8 +14,8 @@
   if( !$page->tags()->empty() ) { $keywords .= ',' . $page->tags()->html(); }
 
   echo '<meta name="keywords" content="' . $keywords . '"/>';
-
-  if( $page->intendedTemplate() == 'book' ) {
+  $template = $page->intendedTemplate();
+  if( $template == 'book' ) {
     $files = $page->files();
     if( $files->first() ) {
       $cover = $files->first()->url();
@@ -30,17 +30,18 @@
     echo '<meta property="og:image:width" content="200" />';
     echo '<meta property="og:image:height" content="200" />';
     echo '<meta property="fb:app_id" content="1588195108157048" />';
+  } else if( $template == 'cities' ) {
+    echo '<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>';
+    echo '<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />';
   }
-  $alt = '';
-  if($page->alt()) {
-    $alt = ' alt';
-  }
+
   $local = array( '127.0.0.1','localhost', '::1' );
-  if(in_array( $_SERVER['REMOTE_ADDR'], $local ) ):
+  if(in_array( $_SERVER['REMOTE_ADDR'], $local ) ) {
     snippet( 'scss' );
-  else:
-    echo css( '/assets/css/style.css' );
-  endif;
+  } else {
+    $cssPath = '/assets/css/style.css';
+    echo css( $cssPath );
+  }
   echo js(array(
     'assets/js/jquery.js',
     'assets/js/lazyload.js',
@@ -52,7 +53,7 @@
 // $endPaper = $page->files()->first();
 // if($endPaper) { $endPaperUrl = $endPaper->url(); } else { $endPaperUrl = null; }
 ?>
-<body class="<?php echo $page->template() . $alt ?>">
+<body class="<?php echo $page->template() ?>">
 <main>
   <!-- <div class="wrapper"> -->
     <?php snippet( 'side' ) ?>

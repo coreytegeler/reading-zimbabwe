@@ -1,18 +1,25 @@
 body.author {
 	section.intro {
-		padding: $patternHeight $patternWidth*3 0 $patternWidth*5;
 		.inner {
 			h1 {
-				font-family: 'Libre Baskerville';
-				font-weight: normal;
-				text-transform: uppercase;
-				@include mediumText;
-				line-height: 1em;
-				margin: 0 auto #{$patternHeight*3} auto;
+				// font-family: 'Libre Baskerville';
+				// font-weight: normal;
+				// text-transform: uppercase;
+				// @include mediumText;
+				// text-align: center;
+			}
+			.text {
+				padding-top: 0;
 			}
 		}
 	}
 	section#shelf {
-		padding-top: 0;
+		padding-top: $patternWidth*2;
+		.books {
+			@include small {
+				width: 100%;
+				padding: 0;
+			}
+		}
 	}
 }

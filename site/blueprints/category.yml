@@ -15,9 +15,12 @@ fields:
     index: all
   symbol:
     label: Symbol
-    type: multiselect
-    search: true
-    options: query
-    query:
-      fetch: pages
-      template: symbol
+    type: select
+    options:
+      anthro: Anthropology
+      arts: Arts
+      currency: Currency
+      land: Land
+      politics: Politics
+      religion: Religion
+      war: War

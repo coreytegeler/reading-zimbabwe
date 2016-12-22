@@ -1,5 +1,10 @@
 <?php
-echo '<section id="categories" class="categories bricks pattern">';
+echo '<section id="categories" class="categories bricks pattern toggleWrap">';
+echo '<div class="pattern right"></div>';
+echo '<div class="category brick toggle">';
+	echo '<div class="title horz open"><span>View Categories</span></div>';
+	echo '<div class="title horz close"><span>Close Categories</span></div>';
+echo '</div>';
 echo '<div class="category brick">';
 	echo '<a href="/books">';
 		echo '<div class="title vert">All Books</div>';
@@ -24,8 +29,11 @@ if( $categories ) {
 		if( $categorySymbol->empty() ) {
 			$categorySymbol = 'default';
 		}
-		if( in_array( $page->slug(), array( 'lexicon', 'about' ) ) ) {
+		if( $page->slug() == 'about' ) {
+
     	$categorySymbol .= '-invert';
+    } else if( $page->slug() == 'lexicon' ) {
+    	$categorySymbol .= '-black';
     }
 		$symbolUrl = kirby()->urls()->assets() . '/images/symbols/' . $categorySymbol . '.svg';
 		echo '<div class="category brick" data-category="' . $categorySlug . '">';

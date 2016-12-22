@@ -1,13 +1,13 @@
 body.search {
 	#search {
-		width: 100%;
+		width: 100% !important;
 		padding: 0;
 		form {
 			input {
 				// padding-left: $patternWidth*3;
 				font-size: 1.3em;
 				text-align: center;
-				@include placeholder($light);
+				@include placeholder($medium);
 				background: $highlight;
 				// background-image: url(/assets/images/search.svg);
 				// background-position: $patternWidth center;
@@ -17,7 +17,6 @@ body.search {
 		}
 	}
 	section#shelf {
-		padding-top: $patternWidth;
 		min-height: calc(100% - #{$patternWidth}*7);
 		.noResults {
 			margin: 0;

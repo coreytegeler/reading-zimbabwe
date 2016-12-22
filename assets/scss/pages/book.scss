@@ -4,70 +4,55 @@ body.book {
 		width: 100%;
 		padding: 0;
 		section#book {
-			width: calc(100% - #{$patternWidth*6});
-			min-height: calc(100% - #{$patternHeight*4});
-			padding-top: #{$patternHeight*6.5};
-			padding-bottom: $patternWidth;
+			width: calc(100% - #{$patternWidth} * 6);
+			padding-top: #{$patternHeight*5};
+			padding-bottom: 0;
 			color: $dark;
 			font-family: 'Libre Baskerville';
+			@include small {
+				padding-top: #{$patternWidth};
+			}
 			a {
 				border-bottom: 1px solid;
 			}
 			.title {
-				width: calc(100% - #{$patternWidth*10});
+				width: calc(100% - #{$patternWidth*8});
 				max-width: 800px;
-				padding: 0 $patternWidth*2 $patternWidth $patternWidth*8;
+				padding: 0 $patternWidth*2 $patternWidth $patternWidth*6;
 				text-align: center;
 				@include medium {
-					width: 100%;
-					padding-left: 0;
-					max-width: 100%;
+					
 				}
 			}
 			h1 {
 				width: 100%;
-				@include largeText;
+				height: auto;
+				@include xLargeText;
 				font-weight: normal;
 				margin: 0;
+				text-align: left;
+				text-transform: none;
 				&.sub {
 					color: $medium;
 					margin-bottom: $patternHeight;
 				}
-			}
-			h3, h4 {
-				@include mediumText;
-				letter-spacing: 1px;
-				width: 100%;
-				font-weight: normal;
-				text-transform: uppercase;
-				text-align: center;
-				margin: 0 0 $patternHeight 0;
-				cursor: default;
-				cursor: default;
-				&.author {
-					@include baseText;
-					width: auto;
-					display: table;
-					margin: 5px auto 0 auto;
-					text-align: center;
-					padding-top: 0;
+				@include small {
+					@include largeText;
 				}
 			}
 		}
 		#content {
 			position: relative;
-			display: flex;
-			padding: $patternWidth 0 $patternWidth 0;
-			@include medium {
-				display: block;
-				padding-top: 0;
-			}
+			margin: $patternWidth 0;
 			.side {
+				width: calc(#{$patternWidth*5});
 				display: table;
-				width: calc(#{$patternWidth*6});
 				font-size: 19px;
-				@include medium {
-					padding-bottom: $patternWidth;
+				position: absolute;
+				left: 0;
+				top: 0;
+				h3 {
+					margin-bottom: #{$patternHeight*1.4};
 				}
 				ul {
 					@include smallText;
@@ -95,17 +80,20 @@ body.book {
 					}
 				}
 				.cover {
-					padding: 0 0 1em 0;
+					margin: 0 0 1em 0;
 					width: 100%;
 					img {
 						width: 100%;
-						max-width: calc(#{$patternWidth*6});
+						max-width: calc(#{$patternWidth*5});
 						vertical-align: middle;
+					}
+					&.dummy {
+						width: calc(#{$patternHeight} * 10);
+						height: calc(#{$patternHeight} * 13);
+						border: 1px solid $dark;
 					}
 				}
 				.share {
-					display: table;
-					margin: auto;
 					a {
 						width: $patternWidth;
 						height: $patternWidth;
@@ -124,23 +112,6 @@ body.book {
 							background-image: url(/assets/images/twitter.svg);	
 						}
 					}
-					@include medium {
-						display: none;
-					}
-				}
-				@include medium {
-					width: 100%;
-					h3 {
-						display: none;
-					}
-					ul, .cover {
-						width: 50%;
-						float: left;
-					}
-					.cover img {
-						width: calc(100% - #{$patternHeight});
-						padding-right: $patternHeight;
-					}
 				}
 				@include xSmall {
 					width: 100%;
@@ -149,17 +120,50 @@ body.book {
 					}
 				}
 			}
-			.texts {
-				width: calc(100% - #{$patternWidth*8});
-				font-family: $serif;
-				@include baseText;
-				.text {
-					width: calc(100% - #{$patternWidth*2});
-					max-width: 800px;
-					display: table;
-					padding: 0 0 #{$patternWidth} #{$patternWidth*2};
-					p:last-child {
+			#status {
+				width: $patternWidth*6;
+				position: absolute;
+				left: calc(100% + #{$patternHeight/2});
+				top: $patternHeight*3;
+				font-family: $sans;
+				padding: $patternHeight/2;
+				border: 1px solid $dark;
+				p {
+					margin-top: $patternHeight;
+					background-color: $light;
+					color: $dark;
+					&:first-child {
 						margin: 0;
+					}
+				}
+				@include large {
+					clear: both;
+					width: auto;
+					position: static;
+					left: 0;
+					top: 0;
+				}
+			}
+			.texts {
+				width: calc(100% - #{$patternWidth} * 13);
+				max-width: calc(#{$patternWidth} * 25);
+				padding-left: calc(#{$patternWidth} * 6);
+				font-family: $serif;
+				.text {
+					width: 100%;
+					display: table;
+					padding-bottom: $patternWidth;
+					em.pty {
+						width: 100%;
+						display: block;
+						text-align: center;
+						color: $medium;
+					}
+					p {
+						@include baseText;
+						&:last-child {
+							margin: 0;
+						}
 					}
 					&.about {
 						a {
@@ -170,46 +174,75 @@ body.book {
 						}
 					}
 					&.status {
-						@include smallText;
-						line-height: 1.4em;
-						.border {
-							border-top: 1px solid $dark;
-						}
-						p {
-							margin-top: $patternHeight;
-							background-color: $light;
-							color: $dark;
-						}
+						position: relative;
+						padding: 0;
+				    margin: 0;
+						@include large {
+							padding-bottom: $patternWidth*2 !important;
+					  }
 					}
-				}
-				@include medium {
-					width: 100%;
-					.text {
-						width: 100%;
-						padding-left: 0;
+					&:last-child {
+						padding-bottom: 0;
 					}
 				}
 			}
 		}
 	}
-	section#shelf {
-		margin-top: 0;
-		margin-bottom: 0;
-		padding-top: 0;
-		min-height: 0;
-		background-color: $light;
-		h3 {
-			padding-top: $patternHeight;
-			text-align: center;
-			border-top: 1px solid $dark;
-		}
-		.book a {
-			background-color: $dark;
-		}
-	}
+	
 	section#categories {
 		.category {
 			
+		}
+	}
+	@include large {
+		.texts {
+			width: calc(100% - #{$patternWidth*9}) !important;
+		}
+	}
+	@include medium {
+		main {
+			section#book {
+				.title {
+					width: 100%;
+					padding-left: 0;
+					max-width: 100%;
+				}
+			}
+			#content {
+				display: block;
+				padding-top: 0;
+				.side {
+					width: 100% !important;
+					position: relative !important;
+					padding-bottom: $patternWidth;
+					h3 {
+						display: none;
+					}
+					.meta, .cover {
+						width: auto;
+						max-width: calc(50% - #{$patternHeight/2});
+						float: left;
+					}
+					.cover {
+						margin-right: $patternHeight;
+					}
+					.share {
+						display: none;
+					}
+				}
+				.texts {
+					width: 100% !important;
+					padding-left: 0 !important;
+					.text {
+						width: 100%;
+						padding-left: 0;
+						margin-left: 0;
+						&.status {
+							margin-left: 0 !important;
+						}
+					}
+				}
+			}
 		}
 	}
 }

@@ -1,14 +1,12 @@
 body.home {
 	#manifesto {
-		padding-top: #{$patternHeight*3};
 		min-height: calc(100% - #{$patternHeight*3});
 		// padding: $patternHeight $patternWidth*3 $patternWidth $patternWidth*5;
 		.inner {
 			.text {
-				@include largeText;
-				font-family: 'Archivo Black', 'Arial Black', Arial;
-				@include medium {
-					@include mediumText;
+				font-family: $serif;
+				p::after {
+					background-image: url(/assets/images/pattern.svg);
 				}
 			}
 		}

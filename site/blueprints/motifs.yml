@@ -1,0 +1,8 @@
+title: Motifs
+pages:
+  template: motif
+files: false
+fields:
+  title:
+    label: Title
+    type: text

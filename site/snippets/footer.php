@@ -1,30 +1,42 @@
-<div id="subscribe" class="pattern">
+<div id="subscribe" class="subscribe pattern">
 	<div class="inner">
-		<div class="row">
-			<input type="text" placeholder="Name"/>
-		</div>
-		<div class="row">
-			<input type="text" placeholder="Email"/>
-		</div>
-		<div class="row">
-			<input type="submit" value="Submit" class="submit"/>
-			<input type="submit" value="Cancel" class="cancel"/>
-		</div>
+		<form action="//readingzimbabwe.us14.list-manage.com/subscribe/post?u=a901b2accc0e9dad04b58a5f0&amp;id=35874d620e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+			<div class="row">
+				<input type="email" value="" name="EMAIL" class="half required email" placeholder="Email">
+			</div>
+			<div class="row">
+				<input type="text" value="" name="FNAME" class="half" placeholder="First Name">
+			</div>
+			<div class="row">
+				<input type="text" value="" name="LNAME" class="half" placeholder="Surname">
+			</div>
+			<div id="mce-responses" class="row">
+				<div class="response" id="mce-error-response" style="display:none"></div>
+				<div class="response" id="mce-success-response" style="display:none"></div>
+			</div>
+			<div class="row">
+		    <input type="submit" value="Cancel" class="cancel"/>
+		    <input type="submit" value="Subscribe" name="subscribe" class="subscribe">
+			</div>
+		</form>
 	</div>
 </div>
 
+<!--End mc_embed_signup-->
+
 <footer>
-<div class="row search">
-	<?php
-	echo '<form action="/search/" autocomplete="off">';
-		if( !isset( $query ) ) {
-			$query = null;
-		}
-		echo '<input type="search" name="q" placeholder="Search">';
-		echo '<input type="submit" value="Search">';
-	echo '</form>';
-	?>
-</div>
+<?php if( $page->slug() != 'search' ) { ?>
+	<div class="row search">
+		<?php
+		echo '<form action="/search/" autocomplete="off">';
+			if( !isset( $query ) ) {
+				$query = null;
+			}
+			echo '<input type="text" name="q" placeholder="Search">';
+		echo '</form>';
+		?>
+	</div>
+<?php } ?>
 <?php snippet( 'categories' ) ?>
 <div class="row social instagram">
 	<a href="https://www.instagram.com/<?php echo $site->instagram() ?>/" target="_blank">
@@ -51,16 +63,6 @@
 		<span>Join our mailing list</span>
 	</a>
 </div>
-<!-- <div id="colophon">
-	<div class="sitemap">
-	<ul>
-		<li><a href="/about">About</a></li>
-		<li><a href="/books">Books</a></li>
-		<li><a href="/authors">Authors</a></li>
-		<li><a href="/library">Library</a></li>
-		<li><a href="/search">Search</a></li>
-	</ul>
-</div> -->
 </footer>
 </main>
 </body>

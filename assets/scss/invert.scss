@@ -1,60 +1,23 @@
 body.about, body.lexicon {
-	background-color: $dark;
-	section {
-		color: $light;
+	color: $light;
+	h3, h4 {
+		@include mediumText;
+		font-family: $serif;
+		letter-spacing: 1px;
+		width: 100%;
+		font-weight: normal;
+		text-transform: uppercase;
+		text-align: center;
+		margin: 0 0 $patternHeight 0;
 	}
-	aside .button {
-		color: $light;
-	}
-	footer {
-		.bricks {
-			background-image: url(/assets/images/pattern-invert.svg);
-			.brick {
-				color: $light;
-				border-color: $dark;
-				background-color: $dark;
-				&:hover {
-					.pattern {
-						background-color: $dark;
-					}
-				}
-			}
-		}
-		.row {
-			background-color: $dark;
-			input {
-				background-color: $dark;
-				background-image: url(/assets/images/footer/search-invert.svg);
-				&:hover, &:active, &:focus {
-					@include placeholder($dark);
-					background-image: none;
-					background-color: $light;
-					color: $dark;
-				}
-			}
-			&.twitter {
-				background-image: url(/assets/images/footer/twitter-invert.svg);
-			}
-			&.instagram {
-				background-image: url(/assets/images/footer/instagram-invert.svg);
-			}
-			&.soundcloud {
-				background-image: url(/assets/images/footer/soundcloud-invert.svg);
-			}
-			&.mail {
-				background-image: url(/assets/images/footer/mail-invert.svg);
-			}
-			&.subscribe {
-				background-image: url(/assets/images/footer/subscribe-invert.svg);
-			}
-			&:hover {
-				background-image: none;
-				a {
-					span {
-						color: $dark;
-						background-color: $light;
-					}
-				}
+	section:not(#categories) {
+		min-height: auto;
+		display: table;
+		.inner .text {
+			font-family: $serif;
+			@include largeText;
+			a {
+				border-bottom: 1px solid;
 			}
 		}
 	}

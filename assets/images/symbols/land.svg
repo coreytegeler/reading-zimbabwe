@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="30px" height="15px" viewBox="0 0 30 15" enable-background="new 0 0 30 15" xml:space="preserve">
+<!-- Generator: Adobe Illustrator 20.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 300 150" style="enable-background:new 0 0 300 150;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#D02630;}
+</style>
 <g>
-	<polygon fill="#D02630" points="12.616,6.258 7.848,6.258 7.848,3.774 7.848,1.292 3.08,1.292 3.08,3.774 3.08,6.258 3.08,8.742 
-		7.848,8.742 7.848,11.227 12.616,11.227 12.616,8.742 	"/>
-	<polygon fill="#D02630" points="22.152,1.292 22.152,3.774 22.152,6.258 17.385,6.258 17.385,8.742 17.385,11.227 22.152,11.227 
-		22.152,8.742 26.92,8.742 26.92,6.258 26.92,3.774 26.92,1.292 	"/>
-	<rect x="12.616" y="11.227" fill="#D02630" width="4.769" height="2.482"/>
-</g>
-<g id="Layer_2">
-</g>
-<g id="Layer_3">
+	<rect x="124.9" y="114" class="st0" width="50" height="26.1"/>
+	<polygon class="st0" points="75,88 75,87.9 124.9,87.9 124.9,61.9 75,61.9 75,35.9 75,9.8 25,9.8 25,35.9 25,61.9 25,88 74.9,88 
+		74.9,114 124.9,114 124.9,88 	"/>
+	<polygon class="st0" points="225,9.8 225,35.9 225,61.9 175,61.9 175,88 175,114 225,114 225,88 275,88 275,61.9 275,35.9 275,9.8 
+			"/>
 </g>
 </svg>

@@ -1,0 +1,32 @@
+body.publisher {
+	section.intro {
+		padding-bottom: 0;
+		padding-left: $patternWidth*5;
+		@include small {
+			padding-left: $patternWidth; 
+		}
+		.inner {
+			padding: 0;
+			margin: auto;
+			h1 {
+				font-family: 'Libre Baskerville';
+				font-weight: normal;
+				text-transform: uppercase;
+				@include mediumText;
+				text-align: center;
+			}
+			.text {
+				
+			}
+		}
+	}
+	section#shelf {
+		padding-top: $patternWidth*2;
+		.books {
+			@include small {
+				width: 100%;
+				padding: 0;
+			}
+		}
+	}
+}

@@ -4,7 +4,6 @@
 #filter {
 	.tabs {
 		width: 100%;
-		min-width: $minWidth;
 		max-height: 100%;
 		left: 0;
 		top: 0;
@@ -13,15 +12,18 @@
 	  flex-direction: column;
 	  z-index: 10;
 	  @include noTouch;
-		background-color: $light;
-	  .inner {
-	  	width: calc(100% - #{$patternWidth*8});
+		background-color: $highlight;
+	  #filterTabsInner {
+	  	width: calc(100% - #{$patternWidth} * 13);
+			min-width: $minWidth;
+			max-width: calc(#{$patternWidth} * 43);
 	  	height: #{$patternHeight*3};
-	  	padding: 0 $patternWidth*3 0 $patternWidth*5;
+	  	padding: 0 $patternWidth 0 calc(#{$patternWidth} * 11);
 	  	display: table;
 	  	.vert {
 	  		display: table-cell;
 	  		vertical-align: middle;
+	  		padding: .25em;
 	  	}
 	  	&.hide {
 	  		opacity: 0;
@@ -45,40 +47,44 @@
 					&.selected {
 						color: black;
 						&:hover {
-							color: $medium;
+							color: black;
 						}
 					}
 					&:hover {
-						color: $medium;
+						color: black;
 						cursor: pointer;
+						@include small {
+							color: $dark;
+						}
 					}
 				}
 	  	}
 	  	@include small {
-	  		width: calc(100% - #{$patternHeight}*2);
-	  		padding-left: $patternHeight;
-	  		padding-right: $patternHeight;
+	  		width: calc(100% - #{$patternHeight});
+	  		padding-left: $patternHeight/2;
+	  		padding-right: $patternHeight/2;
 	  		.tab {
 	  			padding: .25em 0 .25em 0;
+	  			margin-right: $patternHeight;
 	  		}
 	  	}
 	  }
-		&.dummy {
-	  	position: relative !important;
-	  }
-	  &.fixed {
-	  	position: fixed !important;
-	  	z-index: 200;
-	  	@include small {
-	  		top: calc(#{$patternWidth} + 8px);
-	  	}
-	  }
+	}
+	#filterTabs {
+		position: fixed !important;
+  	z-index: 50;
+  	@include small {
+  		top: #{$patternWidth};
+  	}
 	}
 	#filterLists {
-		width: 100%;
-		height: #{$patternHeight*3};
+		width: calc(100% - #{$patternWidth} * 13);
+		min-width: $minWidth;
+		max-width: calc(#{$patternWidth} * 43);
+  	height: #{$patternHeight*3};
+  	padding: 0 $patternWidth 0 calc(#{$patternWidth} * 12);
 		overflow: hidden;
-		display: table;
+		display: none;
 		z-index: 10;
 		flex-grow: 1;
 		overflow-x: hidden;
@@ -95,10 +101,8 @@
 		}
 	}
 	.filterList {
-		width: calc(100% - #{$patternWidth*8});
-  	height: #{$patternHeight*3};
-  	padding: 0 $patternWidth*3 0 $patternWidth*5;
-		height: 100%;
+		width: 100%;
+		height: #{$patternHeight*3};
 		display: none;
 		overflow: scroll;
 		background-color: $dark;
@@ -106,8 +110,8 @@
 			display: table;
 		}
 		@include small {
-			width: calc(100% - #{$patternHeight*2});
-			padding: 0 $patternHeight;
+			width: 100%;
+			padding: 0;
 		}
 		.filters {
 			height: 100%;
@@ -127,17 +131,18 @@
 				color: $light;
 				display: table;
 				float: left;
+				padding: .25em 0;
 				@include small {
 					margin: #{$patternHeight/4} #{$patternHeight} #{$patternHeight/4} 0;
 				}
 				&.selected {
 					color: black;
 					&:hover {
-						color: $medium;
+						color: black;
 					}
 				}
 				&:hover {
-					color: $medium;
+					color: black;
 				}
 			}
 		}
@@ -176,6 +181,27 @@
 			&.fixed {
 				position: absolute !important;
 			}
+		}
+	}
+	@include large {
+		#filterTabsInner {
+			width: calc(100% - #{$patternWidth} * 7) !important;
+		}
+	}
+	@include medium {
+		#filterTabsInner, #filterLists {
+			width: calc(100% - #{$patternWidth} * 5) !important;
+			padding-left: calc(#{$patternWidth} * 5) !important;
+		}
+	}
+	@include small {
+		#filterTabsInner {
+			width: calc(100% - #{$patternHeight*1.5}) !important;
+			padding-left: $patternHeight*1.5 !important;
+		}
+		#filterLists {
+			width: calc(100% - #{$patternHeight*1.5}) !important;
+			padding-left: $patternHeight*1.5 !important;
 		}
 	}
 }
