@@ -1,1 +1,3 @@
-# reading-zimbabwe
+# Reading Zimbabwe
+
+An independent digital platform committed to discover and celebrate Zimbabwean literatures and to place them before the largest possible audience. The project was born out of a curiosity for a deeper understanding of the nature and extent of knowledge production, dissemination and use in Zimbabwe. While this information is available on the internet, it is scattered, and this is now the only archive of its kind, it contains meta-data and its derivatives which we hope are relevant for understanding Zimbabwe and its myriad stories.
